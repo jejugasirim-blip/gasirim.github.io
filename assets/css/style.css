@@ -1,4 +1,301 @@
 /* ============================= */
+/* Page Layout                   */
+/* ============================= */
+.page {
+  position: relative;
+  width: 1440px;
+  height: 9451px; /* per your spec */
+  margin: 0 auto;
+  background: #ffffff;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ============================= */
+/* Reveal on scroll utilities    */
+/* ============================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 700ms ease, transform 700ms ease;
+  will-change: opacity, transform;
+}
+.reveal.from-left  { transform: translateX(-32px); }
+.reveal.from-right { transform: translateX(32px); }
+.reveal.from-up    { transform: translateY(24px); }
+.reveal.is-visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { transition: none; opacity: 1; transform: none; }
+}
+
+/* ============================= */
+/* Head Panel (Hero)             */
+/* ============================= */
+.head-panel {
+  position: relative;
+  height: 877px;
+  width: 100%;
+  background: var(--overlay-top), url('https://via.placeholder.com/1440x877') center/cover no-repeat;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Website Title box (exact positions) */
+.website-title {
+  position: absolute;
+  width: 520px;
+  height: 235px;
+  left: 0px;
+  top: 1px;
+  color: #ffffff;
+  z-index: 2;
+}
+.title {
+  position: absolute;
+  width: 446px;
+  height: 185px;
+  left: 27px;
+  top: -7px;
+  font-family: 'Zen Old Mincho', serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 128px;
+  line-height: 185px;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  margin: 0;
+}
+.subtitle {
+  position: absolute;
+  width: 446px;
+  height: 45px;
+  left: 27px;
+  top: 170px;
+  font-family: 'NanumMyeongjo', serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 45px;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+/* Navbar box (your exact size) */
+.navbar {
+  position: absolute;
+  top: 33px;
+  left: 938px;
+  width: 502px;
+  height: 86px;
+  background: rgba(255, 255, 255, 0.9); /* keep the transparent white you asked to preserve */
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 2;
+}
+
+/* Main nav layout (exact Figma layout) */
+.nav-main {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0px;
+  gap: 48px;
+  position: absolute;
+  width: 342px;
+  height: 30px;
+  right: 80px;
+  top: calc(50% - 30px/2);
+  margin: 0;
+}
+.nav-item, .nav-item a {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 150%;
+  color: #000000;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+.nav-item a:hover { text-decoration: underline; }
+
+/* ============================= */
+/* 가시림 소개 (Intro)           */
+/* ============================= */
+.intro {
+  position: relative;
+  width: 1440px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  padding: 96px 80px 64px; /* comfortable spacing in normal flow */
+  border-top: 1px solid #FFFFFF; /* matches your spec’s border */
+}
+
+/* Section heading & paragraph (reuse styleguide classes) */
+.intro .h2.text-center { margin: 0 auto 24px; }
+.intro .p-lg.text-center { margin: 0 auto 40px; max-width: 1240px; }
+
+/* Simple image layout for this page version */
+.intro-images {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.intro-images img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  display: block;
+}
+
+/*
+ If you later want the exact Figma positions for the big multi-part intro
+ (hero, jeju block, gallery band, etc.), we can switch back to those absolute
+ layouts. For now, this keeps the markup you have in index.html looking clean.
+*/
+
+/* ============================= */
+/* 메인 시설 소개 (Facilities)   */
+/* ============================= */
+.facilities {
+  position: relative;
+  width: 1440px;
+  height: 1112px;
+  background:#fff;
+  padding-top:40px;
+}
+.facilities-title {
+  text-align:center;
+  font-size:48px;
+  font-weight:300;
+  margin-bottom:40px;
+}
+.facilities-grid {
+  display:grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-gap:40px;
+  width:1280px;
+  margin:0 auto;
+}
+.facility-card { text-decoration:none; color:inherit; }
+.facility-image {
+  position:relative;
+  width:100%;
+  height:470px;
+  background-size:cover;
+  background-position:center;
+  border-radius:8px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+.facility-image::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.35);
+  transition: background 0.4s ease;
+}
+.facility-label {
+  position:relative;
+  color:#fff;
+  font-size:36px;
+  font-weight:500;
+  z-index:1;
+  text-align:center;
+}
+.facility-card:hover .facility-image { transform:scale(1.05); filter:brightness(1.1); }
+.facility-card:hover .facility-image::after { background:rgba(0,0,0,0.5); }
+
+/* ============================= */
+/* 메인 시설 소개 (Space cards)  */
+/* ============================= */
+.main-space {
+  position: relative;
+  width: 1440px;
+  height: 1112px;
+  left: 0;
+  top: 7927px; /* per your spec */
+  background: #FFFFFF;
+}
+.space-title {
+  position: absolute;
+  width: 624px;
+  height: 58px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  font-weight: 300;
+  font-size: 48px;
+  line-height: 58px;
+  letter-spacing: -0.02em;
+  color: #000;
+  text-align: center;
+}
+.space-cards {
+  position: absolute;
+  left: 80px;
+  top: 103px;
+  width: 1280px;
+  height: 980px;
+  display: grid;
+  grid-template-columns: repeat(2, 624px);
+  grid-template-rows: repeat(2, 470px);
+  gap: 40px 31px; /* vertical 40 to visually match Figma spacing */
+}
+.space-card {
+  position: relative;
+  display: block;
+  width: 624px;
+  height: 470px;
+  overflow: hidden;
+  border-radius: 8px;
+  text-decoration: none;
+  /* smooth animation */
+  transition: transform 400ms cubic-bezier(.2,.7,.2,1), box-shadow 400ms ease;
+}
+.space-img {
+  position: absolute;
+  inset: 0;
+  background-image: var(--bg);
+  background-size: cover;
+  background-position: center;
+  transition: transform 500ms cubic-bezier(.2,.7,.2,1), filter 500ms ease;
+}
+.space-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.2) 40%, rgba(0,0,0,.05) 100%);
+  transition: background 400ms ease, opacity 400ms ease;
+}
+.space-label {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -40%);
+  color: #FFF;
+  font-weight: 500;
+  font-size: 48px;
+  letter-spacing: -0.02em;
+  text-align: center;
+  transition: transform 400ms cubic-bezier(.2,.7,.2,1), opacity 400ms ease;
+  opacity: 0.95;
+}
+/* Hover interactions */
+.space-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0,0,0,0.25); }
+.space-card:hover .space-img { transform: scale(1.06); filter: saturate(1.1) contrast(1.05); }
+.space-card:hover .space-overlay { background: linear-gradient(180deg, rgba(0,0,0,.5) 0%, rgba(0,0,0,.3) 50%, rgba(0,0,0,.15) 100%); }
+.space-card:hover .space-label { transform: translate(-50%, -50%); opacity: 1; }
+
+/* Keyboard focus visible (accessibility) */
+.space-card:focus-visible { outline: 3px solid #222; outline-offset: 3px; }
+
+/* ============================= */
 /* Footer                        */
 /* ============================= */
 .site-footer {
@@ -78,154 +375,3 @@
   text-align:left;
 }
 .footer-link:hover { text-decoration: underline; }
-
-/* ============================= */
-/* Page Layout                   */
-/* ============================= */
-.page {
-  position: relative;
-  width: 1440px;
-  height: 9451px;
-  margin: 0 auto;
-  background: #ffffff;
-  font-family: 'Inter', sans-serif;
-}
-
-/* ============================= */
-/* Head Panel (basic styling)    */
-/* ============================= */
-/* (put your head panel css here if you want to keep it inline with others) */
-
-/* ============================= */
-/* 메인 시설 소개 (Facilities)   */
-/* ============================= */
-.facilities {
-  position: relative;
-  width: 1440px;
-  height: 1112px;
-  background:#fff;
-  padding-top:40px;
-}
-.facilities-title {
-  text-align:center;
-  font-size:48px;
-  font-weight:300;
-  margin-bottom:40px;
-}
-.facilities-grid {
-  display:grid;
-  grid-template-columns: repeat(2,1fr);
-  grid-gap:40px;
-  width:1280px;
-  margin:0 auto;
-}
-.facility-card { text-decoration:none; color:inherit; }
-.facility-image {
-  position:relative;
-  width:100%;
-  height:470px;
-  background-size:cover;
-  background-position:center;
-  border-radius:8px;
-  overflow:hidden;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transition: transform 0.4s ease, filter 0.4s ease;
-}
-.facility-image::after {
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.35);
-  transition: background 0.4s ease;
-}
-.facility-label {
-  position:relative;
-  color:#fff;
-  font-size:36px;
-  font-weight:500;
-  z-index:1;
-  text-align:center;
-}
-.facility-card:hover .facility-image { transform:scale(1.05); filter:brightness(1.1); }
-.facility-card:hover .facility-image::after { background:rgba(0,0,0,0.5); }
-
-/* ============================= */
-/* 메인 시설 소개 (Space cards)  */
-/* ============================= */
-.main-space {
-  position: relative;
-  width: 1440px;
-  height: 1112px;
-  left: 0;
-  top: 7927px;
-  background: #FFFFFF;
-}
-.space-title {
-  position: absolute;
-  width: 624px;
-  height: 58px;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 0;
-  font-weight: 300;
-  font-size: 48px;
-  line-height: 58px;
-  letter-spacing: -0.02em;
-  color: #000;
-  text-align: center;
-}
-.space-cards {
-  position: absolute;
-  left: 80px;
-  top: 103px;
-  width: 1280px;
-  height: 980px;
-  display: grid;
-  grid-template-columns: repeat(2, 624px);
-  grid-template-rows: repeat(2, 470px);
-  gap: 40px 31px;
-}
-.space-card {
-  position: relative;
-  display: block;
-  width: 624px;
-  height: 470px;
-  overflow: hidden;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: transform 400ms cubic-bezier(.2,.7,.2,1), box-shadow 400ms ease;
-}
-.space-img {
-  position: absolute;
-  inset: 0;
-  background-image: var(--bg);
-  background-size: cover;
-  background-position: center;
-  transition: transform 500ms cubic-bezier(.2,.7,.2,1), filter 500ms ease;
-}
-.space-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.2) 40%, rgba(0,0,0,.05) 100%);
-  transition: background 400ms ease, opacity 400ms ease;
-}
-.space-label {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -40%);
-  color: #FFF;
-  font-weight: 500;
-  font-size: 48px;
-  letter-spacing: -0.02em;
-  text-align: center;
-  transition: transform 400ms cubic-bezier(.2,.7,.2,1), opacity 400ms ease;
-  opacity: 0.95;
-}
-.space-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0,0,0,0.25); }
-.space-card:hover .space-img { transform: scale(1.06); filter: saturate(1.1) contrast(1.05); }
-.space-card:hover .space-overlay { background: linear-gradient(180deg, rgba(0,0,0,.5) 0%, rgba(0,0,0,.3) 50%, rgba(0,0,0,.15) 100%); }
-.space-card:hover .space-label { transform: translate(-50%, -50%); opacity: 1; }
-.space-card:focus-visible { outline: 3px solid #222; outline-offset: 3px; }
