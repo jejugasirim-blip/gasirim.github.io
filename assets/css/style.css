@@ -3,8 +3,6 @@
 /* ============================= */
 .page {
   position: relative;
-  width: 1440px;
-  height: 9451px; /* per your spec */
   margin: 0 auto;
   background: #ffffff;
   font-family: 'Inter', sans-serif;
@@ -59,7 +57,7 @@
   font-style: normal;
   font-weight: 400;
   font-size: 128px;
-  line-height: 185px;
+  line-height: 185px;f
   letter-spacing: -0.02em;
   color: #FFFFFF;
   margin: 0;
