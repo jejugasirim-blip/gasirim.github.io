@@ -1,4 +1,4 @@
-/* ===== Head Panel (responsive height & overlay) ===== */
+/* ===== Landing Page Head Panel (responsive height) ===== */
 .head-panel {
   position: relative;
   width: 100%;
@@ -9,7 +9,58 @@
   overflow: hidden;
 }
 
-/* Title container becomes flexible — no hard absolute offsets on mobile/tablet */
+/* ===== Individual Page Head Panel (responsive height) ===== */
+.shop-panel {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: clamp(420px, 60vh, 880px);
+  background:
+    url('../img/main.jpg') center/cover no-repeat;
+  overflow: hidden;
+}
+
+.program-panel {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: clamp(420px, 60vh, 880px);
+  background:
+    url('../img/main.jpg') center/cover no-repeat;
+  overflow: hidden;
+}
+
+.visit-panel {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: clamp(420px, 60vh, 880px);
+  background:
+    url('../img/main.jpg') center/cover no-repeat;
+  overflow: hidden;
+}
+
+.intro-panel {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: clamp(420px, 60vh, 880px);
+  background:
+    url('../img/main.jpg') center/cover no-repeat;
+  overflow: hidden;
+}
+
+/* ===== Individual Page White header bar ===== */
+.site-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 12px clamp(16px, 4vw, 40px);
+  background: #fff;
+}
+
+/* ===== Landing Page Website Title (responsive) ===== */
 .website-title {
   position: absolute;
   left: 0;
@@ -20,7 +71,7 @@
   z-index: 2;
 }
 
-/* Big title & subtitle scale smoothly */
+/* Big title & subtitle */
 .title {
   font-family: var(--font-mincho);
   font-weight: 400;
@@ -46,6 +97,49 @@
   word-break: keep-all;
 }
 
+/* ===== Individual Page Website Title (responsive) ===== */
+.site-title-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: min(520px, 48vw);
+  padding: clamp(12px, 2.8vw, 24px);
+  color: transparent;
+  z-index: 2;
+}
+
+.site-title {
+  font-family: var(--font-mincho);
+  font-size: 40px;
+  font-weight: 400;
+  color: #000; /* dynamic sizing is not set up yet */
+}
+
+.site-subtitle {
+  font-family: var(--font-myeongjo);
+  font-size: 20px;
+  font-weight: 400;
+  color: #000; /* dynamic sizing is not set up yet */
+}
+
+/* ===== Individual Page Title (NOT YET responsive) ===== */
+.site-header-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 16px;
+  background: #000; /* optional: black backdrop, adjust as needed */
+}
+
+.page-heading {
+  font-family: var(--font-myeongjo);
+  font-size: 80px;
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: 0.65em; /* 65% letter spacing */
+  text-align: center;
+}
+
 /* Center title block on medium/smaller viewports for nicer composition */
 @media (max-width: 1100px) {
   .website-title {
@@ -62,7 +156,7 @@
   }
 }
 
-
+/* ===== Navigation Bar (responsive + Hamburger) ===== */
 .navbar {
   position: absolute;
   top: 33px;
@@ -210,7 +304,7 @@
     pointer-events: auto;
   }
 
-  /* vertical list */
+  /* hamburger's vertical list */
   .nav-main{
     position: static;
     display: flex;              /* visibility handled by parent */
@@ -227,8 +321,8 @@
 }
 
 
-/* ===== Intro ===== */
-.intro {
+/* ===== Body Contents: Text ===== */
+.body-container {
   position: relative;
   width: 100%;
   max-width: 100%;
@@ -238,32 +332,7 @@
   box-sizing: border-box;
 }
 
-.intro-article {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 24px;
-}
-
-.intro-heading{
-  font-weight: 400;
-  font-size: clamp(22px, 3.8vw, 64px);   /* scales down on smaller screens */
-  line-height: clamp(28px, 4.8vw, 77px); /* keeps proportion */
-  letter-spacing: -0.02em;
-  color: #000;
-  margin: 0;
-}
-
-.intro-p{
-  font-weight: 400;
-  font-size: clamp(14px, 2.1vw, 24px);   /* responsive paragraph */
-  line-height: 1.75;
-  color: var(--color-muted);
-  margin: 0;
-}
-
-
-.intro-top {
+.article-container {
   position: relative;
   width: 86%;
   max-width: 1240px;
@@ -275,12 +344,36 @@
   gap: 44px;
 }
 
-.intro-top .intro-heading,
-.intro-top .intro-p {
-  text-align: center;
-  width: 100%;
+.article {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
 }
 
+.h {
+  font-weight: 400;
+  font-size: clamp(22px, 3.8vw, 64px);   /* scales down on smaller screens */
+  line-height: clamp(28px, 4.8vw, 77px); /* keeps proportion */
+  letter-spacing: -0.02em;
+  color: #000;
+  margin: 0;
+}
+
+.p {
+  font-weight: 400;
+  font-size: clamp(14px, 2.1vw, 24px);   /* responsive paragraph */
+  line-height: 1.75;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+.center { text-align: center; }
+.right { text-align: right; align-self: stretch; }
+.left { text-align: left; align-self: stretch; }
+
+
+/* ===== Body Contents: Image ===== */
 .intro-hero {
   position: relative;
   aspect-ratio: 3 / 2; 
@@ -288,17 +381,6 @@
   margin: var(--section-gap) auto;
   background: url('https://via.placeholder.com/1200x803') center/cover no-repeat;
 }
-
-.intro-jeju {
-  position: relative;
-  width: 86%;
-  max-width: 1252px;
-  min-height: 325px;
-  margin: var(--section-gap) auto;
-}
-
-.intro-jeju .intro-heading { width: 46%; max-width: 575px; }
-.intro-jeju .intro-p { width: 100%; max-width: 1239px; }
 
 .intro-gallery {
   position: relative;
@@ -338,17 +420,6 @@
 .gimg-b { width: clamp(280px, 48vw, 700px); min-height: clamp(160px, 26vw, 398px); background-image: url('https://via.placeholder.com/700x398'); }
 .gimg-c { width: clamp(280px, 48vw, 700px); min-height: clamp(160px, 26vw, 398px); background-image: url('https://via.placeholder.com/700x398'); }
 
-
-.intro-how {
-  position: relative;
-  width: 86%;
-  max-width: 1252px;
-  min-height: 325px;
-  margin: var(--section-gap) auto;
-  align-items: flex-end;
-}
-.right { text-align: right; align-self: stretch; }
-
 .intro-img-wide {
   position: relative;
   aspect-ratio: 3 / 1; 
@@ -372,17 +443,6 @@
   margin: var(--section-gap) auto;
   background: url('https://via.placeholder.com/858x367') center/cover no-repeat;
 }
-
-.intro-bottom {
-  position: relative;
-  width: 74%;
-  max-width: 1064px;
-  min-height: 217px;
-  margin: var(--section-gap) auto;
-}
-
-.intro-bottom .intro-heading,
-.intro-bottom .intro-p { width: 100%; }
 
 /* Mosaic images (right column + two left tiles) */
 .intro-mosaic-right {

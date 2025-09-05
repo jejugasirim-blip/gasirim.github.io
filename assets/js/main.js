@@ -94,8 +94,8 @@
 
   // ---------- Mobile hamburger (animated, top-right popover) ----------
   function initMobileMenu() {
-    // If header is injected into #site-header, bind within it; otherwise fall back to document
-    const host = document.getElementById('site-header') || document;
+    // If header is injected into #landing-header or #site-header, bind within it; otherwise fall back to document
+    const host = document.querySelector('#landing-header, #site-header') || document;
 
     const toggle = host.querySelector('.nav-toggle');
     const navbar = host.querySelector('.navbar');
