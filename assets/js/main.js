@@ -109,6 +109,32 @@ function initNavResizeGuard() {
   window.addEventListener('resize', onResize, { passive: true });
 }
 
+function initMobileMenu() {
+  const header = document.getElementById('site-header');
+  if (!header || header.dataset.mobileMenuInit === '1') return; // idempotent
+
+  const btn = header.querySelector('.nav-toggle');
+  const bar = header.querySelector('.navbar');
+  if (!btn || !bar) return;
+
+  header.dataset.mobileMenuInit = '1';
+
+  const close = () => {
+    bar.classList.remove('is-open');
+    btn.setAttribute('aria-expanded', 'false');
+  };
+
+  btn.addEventListener('click', () => {
+    const open = !bar.classList.contains('is-open');
+    bar.classList.toggle('is-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') close();
+  });
+}
+
 /* Initialize when DOM is ready and after partials load */
 function initAll() {
   if (window.__gasirimInitDone) return;   // <-- add this line
@@ -123,4 +149,6 @@ function initAll() {
 
 document.addEventListener('DOMContentLoaded', initAll);
 document.addEventListener('partials:loaded', initAll);
+document.addEventListener('partials:loaded', initMobileMenu);
+
 

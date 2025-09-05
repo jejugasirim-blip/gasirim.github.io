@@ -23,26 +23,28 @@
 
 /* Big title & subtitle scale smoothly */
 .title {
-  width: 86%;
-  max-width: 446px;
   font-family: var(--font-mincho);
   font-weight: 400;
-  font-size: clamp(48px, 10vw, 128px);
+  font-size: clamp(32px, 8vw, 110px);
   line-height: 1.05;
   letter-spacing: -0.02em;
   color: #fff;
   margin: 0 0 clamp(4px, 0.8vw, 8px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: keep-all;
+
 }
 .subtitle {
-  width: 86%;
-  max-width: 446px;
   font-family: var(--font-myeongjo);
   font-weight: 400;
-  font-size: clamp(18px, 3.2vw, 36px);
+  font-size: clamp(16px, 2.2vw, 28px);
   line-height: 1.25;
   letter-spacing: -0.02em;
   color: #fff;
   margin: 0;
+  word-break: keep-all;
 }
 
 /* Center title block on medium/smaller viewports for nicer composition */
@@ -73,6 +75,10 @@
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-sm);
   z-index: 2;
+  display: flex;
+  align-items: center;     /* centers the UL vertically */
+  justify-content: flex-end;
+  padding: 12px 16px;      /* gives the items breathing room */
 }
 
 .nav-main {
@@ -161,7 +167,9 @@
 /* === Mobile hamburger breakpoint === */
 .nav-toggle {
   position: absolute;
-  top: 16px; left: 16px;
+  top: 16px;
+  right: 16px;  
+  left: auto;   
   z-index: 3;
   display: none;
   padding: 10px 14px;
@@ -203,6 +211,12 @@
 
   /* Remove the hover spacer on touch screens */
   .nav-item::after { height: 0; }
+
+  /* 1) mobile: hide the white bar until opened */
+  .navbar { display: none; background: transparent; box-shadow: none; min-height: 0; }
+  .navbar.is-open { display: block; background: rgba(255,255,255,.9); box-shadow: var(--shadow-sm); }
+
+  
 }
 
 
