@@ -5,7 +5,7 @@
   aspect-ratio: 16 / 9;
   min-height: clamp(420px, 60vh, 880px);
   background:
-    url('assets/img/main.jpg') center/cover no-repeat;
+    url('../img/main.jpg') center/cover no-repeat;
   overflow: hidden;
 }
 
@@ -16,7 +16,7 @@
   top: 0;
   width: min(520px, 48vw);
   padding: clamp(12px, 2.8vw, 24px);
-  color: #fff;
+  color: transparent;
   z-index: 2;
 }
 
