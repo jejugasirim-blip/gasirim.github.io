@@ -6,7 +6,7 @@
   min-height: clamp(420px, 60vh, 880px);
   background:
     linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.18) 45%, rgba(0,0,0,0) 70%),
-    url('https://via.placeholder.com/1440x877') center/cover no-repeat;
+    url('https://via.placeholder.com/1464x877') center/cover no-repeat;
   overflow: hidden;
 }
 
@@ -69,16 +69,16 @@
   top: 33px;
   right: 0;
   width: 35%;
-  max-width: 502px;
-  min-height: 86px;
+  max-width: max-content;
+  min-height: max-content;
   background: rgba(255, 255, 255, 0.9);
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-sm);
   z-index: 2;
   display: flex;
-  align-items: center;     /* centers the UL vertically */
+  align-items: center; 
   justify-content: flex-end;
-  padding: 12px 16px;      /* gives the items breathing room */
+  padding: 28px 80px; 
 }
 
 .nav-main {
@@ -233,7 +233,7 @@
 .intro {
   position: relative;
   width: 100%;
-  max-width: 1440px;
+  max-width: 1464px;
   padding: var(--page-pad);
   background: #FFFFFF;
   border: 1px solid #FFFFFF;
@@ -305,7 +305,7 @@
 .intro-gallery {
   position: relative;
   width: 100%;
-  max-width: 1440px;
+  max-width: 1464px;
   min-height: 345px;
   background: #3A3B32;
   overflow: hidden;
@@ -426,7 +426,7 @@
 .main-space {
   position: relative;
   width: 100%;
-  max-width: 1440px;
+  max-width: 1464x;
   background: #FFFFFF;
   padding: var(--page-pad);
   /* padding-top: 40px;*/
@@ -506,98 +506,47 @@
 
 /* ===== Footer ===== */
 .site-footer {
-  position: relative;
-  width: 100%;
-  max-width: 1440px;
-  min-height: 264px;
-  background: #FFFFFF;
-  padding: var(--page-pad);
-
-  /* grid: left brand + 3 cols on the right */
   display: grid;
-  grid-template-columns: 1.2fr repeat(3, 1fr);
-  gap: 32px;
+  grid-template-columns: 1fr repeat(3, 150px); /* left grows, cols are ~150px */
+  column-gap: clamp(16px, 3.5vw, 48px);       /* controls the space BETWEEN columns */
   align-items: start;
+  position: relative; /* keep your existing padding/background/etc. */
 }
 
-.footer-divider {
-  position: absolute;
-  width: 89%;
-  max-width: 1280px;
-  margin: 0 auto;
-  top: 1px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-top: 1px solid var(--color-border);
-}
+/* Make the divider span across all columns */
+.footer-divider { grid-column: 1 / -1; }
 
-/* --- Left block: logo + contact + social --- */
+/* Let the left block be flexible and lose hard margins */
 .footer-left {
-  position: relative;
-  margin: 58px 0 0 0;   /* grid handles placement; remove fixed widths/margins */
-  width: auto; max-width: none;
+  margin: 58px 0 0 0;   /* remove the 6% left margin */
+  max-width: none;      /* let it breathe */
+  width: auto;          /* fluid */
 }
-.footer-logo {
-  display: block;
-  width: 119px; height: 38px;
-  object-fit: contain;
-  margin-bottom: 24px;
-}
-.footer-contact {
-  font: 300 12px/15px Inter, sans-serif;
-  color: #000;
-  margin-bottom: 16px;
-}
-.footer-social { display: flex; gap: 8px; }
-.social-btn {
-  width: 40px; height: 40px;
-  display: inline-flex; align-items: center; justify-content: center;
-  border-radius: var(--radius-sm, 8px);  /* fixed token */
-  text-decoration: none;
-  color: #828282;
-}
-.social-btn:hover { color: #000; }
-.social-btn .icon { width: 24px; height: 24px; fill: currentColor; }
 
-/* --- Right 3 columns --- */
+/* Columns: fixed width and tidy spacing inside */
 .footer-col {
-  min-height: 168px;
-  display: grid;
-  align-content: start;
-  gap: 12px;
+  width: 150px;         /* consistent column width you wanted */
+  max-width: 150px;
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 48px;
+}
 
-  /* let grid control sizing */
-  width: auto; max-width: none; margin: 48px 0 0 0;
-  align-items: start;                /* no right alignment */
-  text-align: left;
-}
-/* remove legacy pushes */
-.col-1, .col-2, .col-3 { margin-right: 0; }
+/* Remove the old pushers */
+.col-1, .col-2, .col-3 { margin-right: 0 !important; }
 
-.footer-topic {
-  margin: 0;
-  width: 100%;
-  min-height: 24px;
-  font: 500 16px/24px Inter, sans-serif;
-  color: #000;
-  text-align: left;
-}
-.footer-link {
-  width: 100%;
-  min-height: 24px;
-  font: 500 16px/24px Inter, sans-serif;
-  color: #454545;
-  text-decoration: none;
-  text-align: left;
-}
-.footer-link:hover { text-decoration: underline; }
-
-/* ===== Responsive ===== */
-@media (max-width: 1024px) {
-  .site-footer { grid-template-columns: 1fr 1fr; }
-  .footer-left { grid-column: 1 / -1; }  /* brand block full-width on top */
-}
-@media (max-width: 640px) {
-  .site-footer { grid-template-columns: 1fr; }
-  .footer-col { margin-top: 24px; }
+/* Mobile stack */
+@media (max-width: 768px) {
+  .site-footer {
+    grid-template-columns: 1fr;
+    row-gap: 24px;
+  }
+  .footer-col {
+    width: 100%;
+    max-width: none;
+    align-items: center; /* optional: center on mobile */
+  }
 }
