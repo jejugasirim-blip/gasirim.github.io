@@ -172,51 +172,60 @@
   left: auto;   
   z-index: 3;
   display: none;
-  padding: 10px 14px;
-  border: 1px solid #ddd;
-  background: #fff;
-  border-radius: 6px;
-  font-size: 16px;
+  padding: 8px;
+  border: 0;
+  background: transparent;
+  border-radius: 0px;
+  color: #fff;
 }
+.nav-toggle svg { transition: transform .22s ease; }
+.nav-toggle.is-active svg { transform: rotate(90deg) scale(1.02); }
 
+/* --- Mobile nav (≤992px) --- */
 @media (max-width: 992px) {
-  .nav-toggle { display: inline-block; }
+  /* show the icon on mobile */
+  .nav-toggle { display: inline-flex; }
 
-  /* Keep the navbar usable across widths */
-  .navbar {
-    top: auto;
-    bottom: 16px;
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%);
-    width: calc(100% - 32px);
-    max-width: 720px;
+  /* popover panel (hidden by default) */
+  .navbar{
+    position: absolute;
+    top: 56px;          /* just below the button */
+    right: 16px;
+    left: auto;
+    bottom: auto;
+    display: none;      /* hidden until .is-open */
+    width: min(82vw, 320px);
     padding: 10px 12px;
+    background: rgba(255,255,255,.98);
+    border-radius: 12px;
+    box-shadow: 0 12px 28px rgba(0,0,0,.22);
+    opacity: 0;
+    transform: translateY(8px) scale(.98);
+    pointer-events: none;
+    transition: opacity .18s ease, transform .22s ease;
+    z-index: 2;
+  }
+  .navbar.is-open{
+    display: block;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
   }
 
-  /* Convert main nav to a vertical list, hidden by default */
-  .nav-main {
+  /* vertical list */
+  .nav-main{
     position: static;
-    display: none;
+    display: flex;              /* visibility handled by parent */
     flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 8px 4px;
+    align-items: stretch;
+    gap: 12px;
+    padding: 4px 0;
     width: 100%;
     max-width: none;
   }
 
-  /* Show when navbar has is-open */
-  .navbar.is-open .nav-main { display: flex; }
-
-  /* Remove the hover spacer on touch screens */
+  /* touch: remove hover spacer */
   .nav-item::after { height: 0; }
-
-  /* 1) mobile: hide the white bar until opened */
-  .navbar { display: none; background: transparent; box-shadow: none; min-height: 0; }
-  .navbar.is-open { display: block; background: rgba(255,255,255,.9); box-shadow: var(--shadow-sm); }
-
-  
 }
 
 
@@ -238,18 +247,23 @@
   gap: 24px;
 }
 
-.intro-heading {
-  font: 400 64px/77px Inter, sans-serif;
+.intro-heading{
+  font-weight: 400;
+  font-size: clamp(22px, 3.8vw, 64px);   /* scales down on smaller screens */
+  line-height: clamp(28px, 4.8vw, 77px); /* keeps proportion */
   letter-spacing: -0.02em;
   color: #000;
   margin: 0;
 }
 
-.intro-p {
-  font: 400 24px/180% Inter, sans-serif;
+.intro-p{
+  font-weight: 400;
+  font-size: clamp(14px, 2.1vw, 24px);   /* responsive paragraph */
+  line-height: 1.75;
   color: var(--color-muted);
   margin: 0;
 }
+
 
 .intro-top {
   position: relative;
@@ -498,6 +512,12 @@
   min-height: 264px;
   background: #FFFFFF;
   padding: var(--page-pad);
+
+  /* grid: left brand + 3 cols on the right */
+  display: grid;
+  grid-template-columns: 1.2fr repeat(3, 1fr);
+  gap: 32px;
+  align-items: start;
 }
 
 .footer-divider {
@@ -511,52 +531,48 @@
   border-top: 1px solid var(--color-border);
 }
 
+/* --- Left block: logo + contact + social --- */
 .footer-left {
   position: relative;
-  width: 18%;
-  max-width: 260px;
-  margin: 58px 0 0 6%;
+  margin: 58px 0 0 0;   /* grid handles placement; remove fixed widths/margins */
+  width: auto; max-width: none;
 }
-
 .footer-logo {
   display: block;
   width: 119px; height: 38px;
   object-fit: contain;
   margin-bottom: 24px;
 }
-
 .footer-contact {
   font: 300 12px/15px Inter, sans-serif;
   color: #000;
   margin-bottom: 16px;
 }
-
 .footer-social { display: flex; gap: 8px; }
 .social-btn {
   width: 40px; height: 40px;
   display: inline-flex; align-items: center; justify-content: center;
-  border-radius: var(--r my  my adius-sm);
+  border-radius: var(--radius-sm, 8px);  /* fixed token */
   text-decoration: none;
   color: #828282;
 }
 .social-btn:hover { color: #000; }
 .social-btn .icon { width: 24px; height: 24px; fill: currentColor; }
 
+/* --- Right 3 columns --- */
 .footer-col {
-  position: relative;
-  width: 13%;
-  max-width: 187px;
   min-height: 168px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-  gap: 24px;
-  margin-top: 48px;
+  display: grid;
+  align-content: start;
+  gap: 12px;
+
+  /* let grid control sizing */
+  width: auto; max-width: none; margin: 48px 0 0 0;
+  align-items: start;                /* no right alignment */
+  text-align: left;
 }
-.col-1 { margin-right: 36%; }
-.col-2 { margin-right: 21%; }
-.col-3 { margin-right: 6%; }
+/* remove legacy pushes */
+.col-1, .col-2, .col-3 { margin-right: 0; }
 
 .footer-topic {
   margin: 0;
@@ -566,7 +582,6 @@
   color: #000;
   text-align: left;
 }
-
 .footer-link {
   width: 100%;
   min-height: 24px;
@@ -578,9 +593,11 @@
 .footer-link:hover { text-decoration: underline; }
 
 /* ===== Responsive ===== */
-@media (max-width: 768px) {
-  .space-cards { grid-template-columns: 1fr; }
-
-  .footer-col { width: 100%; align-items: center; }
-  .col-1, .col-2, .col-3 { margin-right: 0; }
+@media (max-width: 1024px) {
+  .site-footer { grid-template-columns: 1fr 1fr; }
+  .footer-left { grid-column: 1 / -1; }  /* brand block full-width on top */
+}
+@media (max-width: 640px) {
+  .site-footer { grid-template-columns: 1fr; }
+  .footer-col { margin-top: 24px; }
 }
