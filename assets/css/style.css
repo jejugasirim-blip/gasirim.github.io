@@ -551,6 +551,7 @@
 
 .footer-social { 
   display: grid;
+  grid-auto-flow: column;
   grid-template-columns: repeat(auto-fit, 40px);
   gap: 12px;
   justify-content: start; 
