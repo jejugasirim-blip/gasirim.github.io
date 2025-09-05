@@ -6,7 +6,7 @@
   min-height: clamp(420px, 60vh, 880px);
   background:
     linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.18) 45%, rgba(0,0,0,0) 70%),
-    url('assets/img/head-bg.jpg') center/cover no-repeat;
+    url('assets/img/main.jpg') center/cover no-repeat;
   overflow: hidden;
 }
 
