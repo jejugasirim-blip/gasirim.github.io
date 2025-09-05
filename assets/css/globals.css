@@ -1,31 +1,49 @@
-/* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Nanum+Myeongjo:wght@400;700&family=Zen+Old+Mincho&display=swap');
-
 /* Reset / base */
-*, *::before, *::after { box-sizing: border-box; }
-html, body { height: 100%; }
-body {
-  margin: 0;
-  background: #fff;
-  color: #000;
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-img { max-width: 100%; display: block; }
-a { color: inherit; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* Variables */
-:root{
-  --page-width: 1440px;
-  --text-dim: rgba(0,0,0,.75);
-  --overlay-top: linear-gradient(180deg, rgba(0,0,0,.3) 0%, rgba(0,0,0,.15) 40%, rgba(0,0,0,0) 70%);
-  --shadow-lg: 0 18px 40px rgba(0,0,0,0.25);
+html, body {
+  height: 100%;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
 }
 
-/* Page container */
-.page{
-  width: var(--page-width);
+/* Utility: screen-reader only */
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0);
+  white-space: nowrap; border: 0;
+}
+
+/* Page wrapper */
+.page {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
   margin: 0 auto;
   background: #fff;
 }
+
+/* Box-sizing on pseudos too */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Media defaults: images/videos never overflow */
+img, picture, video, canvas, svg { display: block; max-width: 100%; height: auto; }
+
+/* Form controls inherit site font */
+button, input, textarea, select { font: inherit; }
+
+/* Reasonable focus ring for keyboard users */
+:focus-visible { outline: 2px solid #222; outline-offset: 2px; }
+
+/* Smooth scroll, but respect reduced-motion */
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+
+/* Optional: unify link coloring with text (you style links locally) */
+a { color: inherit; text-decoration-thickness: 0.08em; text-underline-offset: 0.15em; }

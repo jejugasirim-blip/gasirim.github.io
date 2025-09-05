@@ -1,14 +1,49 @@
 <header class="head-panel">
+  <!-- Mobile menu button (first child) -->
+  <button
+    class="nav-toggle"
+    type="button"
+    aria-expanded="false"
+    aria-controls="main-menu"
+    aria-label="메인 메뉴 열기/닫기"
+  >
+    메뉴
+  </button>
+
   <div class="website-title">
     <h1 class="title">加 時 林</h1>
     <h2 class="subtitle">치유의 정원</h2>
   </div>
-  <nav class="navbar">
-    <ul class="nav-main">
-      <li class="nav-item">소개</li>
-      <li class="nav-item">방문</li>
-      <li class="nav-item">프로그램</li>
-      <li class="nav-item">Shop</li>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <ul id="main-menu" class="nav-main">
+      <li class="nav-item" tabindex="0" aria-haspopup="true" aria-expanded="false">
+        소개
+        <ul class="nav-sub" role="menu" aria-label="소개 하위 메뉴">
+          <li role="menuitem">가시림</li>
+          <li role="menuitem">공간소개</li>
+          <li role="menuitem">수목원 지도</li>
+          <li role="menuitem">둘러보기</li>
+        </ul>
+      </li>
+      <li class="nav-item" tabindex="0" aria-haspopup="true" aria-expanded="false">
+        방문
+        <ul class="nav-sub" role="menu" aria-label="방문 하위 메뉴">
+          <li role="menuitem">이용 안내</li>
+          <li role="menuitem">오시는 길</li>
+          <li role="menuitem">단체 문의</li>
+        </ul>
+      </li>
+      <li class="nav-item" tabindex="0" aria-haspopup="true" aria-expanded="false">
+        프로그램
+        <ul class="nav-sub" role="menu" aria-label="프로그램 하위 메뉴">
+          <li role="menuitem">산책 명상</li>
+          <li role="menuitem">명상</li>
+          <li role="menuitem">원예</li>
+        </ul>
+      </li>
+      <li class="nav-item" tabindex="0">Shop</li>
     </ul>
   </nav>
 </header>
