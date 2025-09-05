@@ -368,6 +368,7 @@
   margin: 0;
 }
 
+.center { text-align: center; }
 .right { text-align: right; align-self: stretch; }
 .left { text-align: left; align-self: stretch; }
 
