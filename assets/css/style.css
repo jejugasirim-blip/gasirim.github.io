@@ -6,7 +6,7 @@
   min-height: clamp(420px, 60vh, 880px);
   background:
     linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.18) 45%, rgba(0,0,0,0) 70%),
-    url('https://via.placeholder.com/1464x877') center/cover no-repeat;
+    url('https://via.placeholder.com/1468x877') center/cover no-repeat;
   overflow: hidden;
 }
 
@@ -233,7 +233,7 @@
 .intro {
   position: relative;
   width: 100%;
-  max-width: 1464px;
+  max-width: 1468px;
   padding: var(--page-pad);
   background: #FFFFFF;
   border: 1px solid #FFFFFF;
@@ -305,7 +305,7 @@
 .intro-gallery {
   position: relative;
   width: 100%;
-  max-width: 1464px;
+  max-width: 1468px;
   min-height: 345px;
   background: #3A3B32;
   overflow: hidden;
@@ -426,7 +426,7 @@
 .main-space {
   position: relative;
   width: 100%;
-  max-width: 1464x;
+  max-width: 1468x;
   background: #FFFFFF;
   padding: var(--page-pad);
   /* padding-top: 40px;*/
@@ -507,6 +507,7 @@
 /* ===== Footer ===== */
 .site-footer {
   display: grid;
+  grid-auto-flow: column;
   grid-template-columns: 1fr repeat(3, 150px); 
   column-gap: clamp(16px, 3.5vw, 48px);
   align-items: start;
