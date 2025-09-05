@@ -231,7 +231,7 @@
 .intro {
   position: relative;
   width: 100%;
-  max-width: 1468px;
+  max-width: 100%;
   padding: var(--page-pad);
   background: transparent;
   border: 1px solid #FFFFFF;
@@ -303,7 +303,7 @@
 .intro-gallery {
   position: relative;
   width: 100%;
-  max-width: 1468px;
+  max-width: 100%;
   min-height: 345px;
   background: #3A3B32;
   overflow: hidden;
@@ -424,7 +424,7 @@
 .main-space {
   position: relative;
   width: 100%;
-  max-width: 1468x;
+  max-width: 100%;
   background: transparent;
   padding: var(--page-pad);
   /* padding-top: 40px;*/

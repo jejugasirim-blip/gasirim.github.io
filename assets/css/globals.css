@@ -21,7 +21,7 @@ html, body {
 .page {
   position: relative;
   width: 100%;
-  max-width: 1468px;
+  max-width: 100%;
   margin: 0 auto;
   background: #fff;
 }
