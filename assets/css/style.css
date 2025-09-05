@@ -58,6 +58,7 @@
   width: 100%;
   padding: clamp(12px, 2.8vw, 24px);
   background: #fff;
+  flex-direction: column;
 }
 
 /* ===== Landing Page Website Title (responsive) ===== */
