@@ -165,7 +165,7 @@
     const heading = document.querySelector("#site-header .page-heading");
     if (heading) {
       // Example: "Shop | 가시림" → "Shop"
-      const pageTitle = document.title.replace(/\s*\|\s*가시림$/, "");
+      const pageTitle = document.title.replace(" | 가시림", "");
       heading.textContent = pageTitle;
     }
   });
