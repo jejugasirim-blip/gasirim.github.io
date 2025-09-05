@@ -160,4 +160,13 @@
   document.addEventListener('DOMContentLoaded', initAll);
   // Fired by includes.js after partials are injected
   document.addEventListener('partials:loaded', initAll);
+  // ---------- Page heading auto-fill ----------
+  document.addEventListener("DOMContentLoaded", () => {
+    const heading = document.querySelector("#site-header .page-heading");
+    if (heading) {
+      // Example: "Shop | 가시림" → "Shop"
+      const pageTitle = document.title.replace(/\s*\|\s*가시림$/, "");
+      heading.textContent = pageTitle;
+    }
+  });
 })();
