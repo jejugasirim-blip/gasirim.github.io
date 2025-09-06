@@ -361,7 +361,7 @@
   margin: 0;
 }
 
-.center { text-align: center; }
+.center { text-align: center; align-self: stretch; }
 .right { text-align: right; align-self: stretch; }
 .left { text-align: left; align-self: stretch; }
 
