@@ -541,7 +541,7 @@
   left: 50%; top: 50%;
   transform: translate(-50%, -40%);
   color: #FFF;
-  font-weight: 500;
+  font-weight: 400;
   font-size: clamp(28px, 4.2vw, 48px);
   letter-spacing: -0.02em;
   text-align: center;
