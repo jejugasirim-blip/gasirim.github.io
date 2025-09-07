@@ -9,20 +9,6 @@
   overflow: hidden;
 }
 
-/* ===== Sticky header (gradient overlay + scroll motion) ===== */
-:root {
-  --hdr-transform-duration: 420ms;
-  --hdr-transform-ease: cubic-bezier(.22,.61,.36,1);
-  --hdr-color-duration: 1400ms;
-  --hdr-color-ease: ease-in-out;
-  --hdr-shadow: 0 10px 30px rgba(0,0,0,.06);
-  --gradient-direction: to bottom;
-  --gradient-hsl-values: 0, 0%, 0%;
-  --brand-left: 60px;
-  --brand-width: 100px;
-  --brand-gap: 300px;
-}
-
 @media (max-width: 768px) {
   .brand-title { top: 12px; left: 16px; }
   .site-header { padding-left: calc(16px + var(--brand-width) + 8px); }
