@@ -410,7 +410,7 @@ html.hdr-overlay .brand-title { mix-blend-mode: normal; }
   position: relative;
   font-weight: 400;
   font-size: clamp(14px, 1.6vw, 20px);
-  color: #fff;
+  color: #000;
   cursor: pointer;
   transition: color 220ms ease;
 }
