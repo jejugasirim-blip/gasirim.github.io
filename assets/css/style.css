@@ -168,7 +168,10 @@ html.hdr-overlay .brand-title { mix-blend-mode: normal; }
   overflow: hidden;
 }
 
-.embla { height: 100%; }
+.embla {
+  position: relative;
+  height: 100%;
+}
 
 .embla__viewport {
   overflow: hidden;
@@ -195,11 +198,34 @@ html.hdr-overlay .brand-title { mix-blend-mode: normal; }
   position: absolute;
   inset: 0;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
   padding: 4rem;
   color: #fff;
-  background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.2) 40%, rgba(0,0,0,.05) 100%);
+  background: linear-gradient(to top, rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 60%);
+}
+
+.embla__copy {
+  max-width: 58ch;
+}
+
+.embla__asset-text {
+  position: relative;
+  display: grid;
+}
+
+.asset-text {
+  grid-area: 1/1;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease;
+}
+
+.asset-text.is-active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .embla__controls {
@@ -210,27 +236,48 @@ html.hdr-overlay .brand-title { mix-blend-mode: normal; }
 
 .embla__prev,
 .embla__next {
-  width: 3rem;
-  height: 3rem;
+  box-sizing: content-box;
+  width: .75rem;
+  height: .75rem;
+  padding: .75rem;
   border-radius: 50%;
   border: 1.5px solid currentColor;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0,0,0,.35);
-  color: #fff;
+  background: transparent;
+  color: #000;
+  opacity: .5;
+  transition: opacity .2s, transform .2s;
 }
+
+.embla__prev svg,
+.embla__next svg {
+  width: 100%;
+  height: 100%;
+}
+
+.embla__prev svg { margin-left: -0.125rem; }
+.embla__next svg { margin-right: -0.125rem; }
 
 .embla__prev:hover,
 .embla__next:hover {
-  background: rgba(0,0,0,.5);
+  opacity: .8;
+}
+
+.embla__prev:active,
+.embla__next:active {
+  transform: scale(.9);
+}
+
+.embla__prev:disabled,
+.embla__next:disabled {
+  opacity: .1;
 }
 
 @media (max-width: 768px) {
   .embla__overlay { padding: 2rem; }
   .embla__controls { gap: .5rem; }
-  .embla__prev,
-  .embla__next { width: 2.5rem; height: 2.5rem; }
 }
 
 /* ===== Individual Page Head Panel (responsive height) ===== */

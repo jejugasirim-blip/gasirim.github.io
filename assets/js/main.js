@@ -189,6 +189,13 @@
     const next = hero.querySelector('.embla__next');
     prev?.addEventListener('click', embla.scrollPrev);
     next?.addEventListener('click', embla.scrollNext);
+
+    const assetTexts = hero.querySelectorAll('.asset-text');
+    const setAsset = (i) => {
+      assetTexts.forEach((el, idx) => el.classList.toggle('is-active', idx === i));
+    };
+    setAsset(embla.selectedScrollSnap());
+    embla.on('select', () => setAsset(embla.selectedScrollSnap()));
   }
 
   // ---------- Boot ----------
