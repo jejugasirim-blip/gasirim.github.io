@@ -151,7 +151,7 @@
 
   // ---------- Header scroll behavior ----------
   function initHeaderScroll() {
-    
+
     const header = document.querySelector('[data-header]');
     if (!header || !markOnce(header, 'scrollBound')) return;
 
@@ -165,19 +165,22 @@
 
     function onScroll(){
       const y = getScrollY();
-      const delta = y - lastY;
-      if (Math.abs(delta) > HYST) {
-        if (delta > 0 && y > 0) {
-          setHidden();
-        } else if (delta < 0) {
-          if (y <= 0) setGradient();
-          else setWhite();
-        }
-        lastY = y;
+      const goingDown = y > lastY + HYST;
+      const goingUp = y < lastY - HYST;
+
+      if (goingDown){
+        if (y > 0) setHidden();
+      } else if (goingUp){
+        if (y <= 0) setGradient();
+        else setWhite();
       }
+
+      lastY = y;
     }
+
     if (getScrollY() <= 0) setGradient();
     else setHidden();
+
     window.addEventListener('scroll', () => { requestAnimationFrame(onScroll); }, { passive: true });
   }
 
