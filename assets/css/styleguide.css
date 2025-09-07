@@ -16,7 +16,7 @@
   --font-sans: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   --font-mincho: 'Zen Old Mincho', serif;
   --font-myeongjo: 'Nanum Myeongjo', serif;
-  
+  /*  Dynamic header (gradient overlay + scroll motion)  */
   --hdr-transform-duration: 420ms;
   --hdr-transform-ease: cubic-bezier(.22,.61,.36,1);
   --hdr-color-duration: 1400ms;
@@ -27,4 +27,5 @@
   --brand-left: 60px;
   --brand-width: 100px;
   --brand-gap: 300px;
+}
 }
