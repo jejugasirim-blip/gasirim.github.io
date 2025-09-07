@@ -148,6 +148,20 @@
     window.addEventListener('resize', onResize, { passive: true });
   }
 
+  // ---------- Hero carousel ----------
+  function initHeroCarousel() {
+    const hero = document.querySelector('.embla');
+    if (!hero || !markOnce(hero, 'heroCarouselBound')) return;
+
+    const autoplay = EmblaCarouselAutoplay({ delay: 5000 });
+    const embla = EmblaCarousel(hero.querySelector('.embla__viewport'), { loop: true }, [autoplay]);
+
+    const prev = hero.querySelector('.embla__prev');
+    const next = hero.querySelector('.embla__next');
+    prev?.addEventListener('click', embla.scrollPrev);
+    next?.addEventListener('click', embla.scrollNext);
+  }
+
   // ---------- Boot ----------
   function initAll() {
     initReveal();
@@ -155,6 +169,7 @@
     initNavDropdowns();
     initMobileMenu();
     initNavResizeGuard();
+    initHeroCarousel();
   }
 
   document.addEventListener('DOMContentLoaded', initAll);
