@@ -178,7 +178,12 @@
     }
     if (getScrollY() <= 0) setGradient();
     else setHidden();
-    window.addEventListener('scroll', () => { requestAnimationFrame(onScroll); }, { passive: true });
+    // Update header on every scroll. Using requestAnimationFrame here caused
+    // the last scroll direction to be missed in some browsers, leaving the
+    // header hidden when scrolling back up within the page body. Calling the
+    // handler directly ensures the header toggles visibility immediately
+    // based on scroll direction anywhere on the page.
+    window.addEventListener('scroll', onScroll, { passive: true });
   }
 
   // ---------- Hero carousel ----------
