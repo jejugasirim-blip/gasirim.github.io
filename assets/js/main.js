@@ -148,6 +148,35 @@
     window.addEventListener('resize', onResize, { passive: true });
   }
 
+
+  // ---------- Header scroll behavior ----------
+  function initHeaderScroll() {
+    const header = document.querySelector('[data-header]');
+    if (!header || !markOnce(header, 'scrollBound')) return;
+
+    let lastY = window.scrollY;
+    const HYST = 3;
+    const setHidden = () => { header.classList.add('is-hidden'); header.classList.remove('is-scrolled','is-gradient'); document.documentElement.classList.remove('hdr-overlay'); };
+    const setWhite = () => { header.classList.remove('is-hidden'); header.classList.add('is-scrolled'); header.classList.remove('is-gradient'); document.documentElement.classList.add('hdr-overlay'); };
+    const setGradient = () => { header.classList.remove('is-hidden'); header.classList.remove('is-scrolled'); header.classList.add('is-gradient'); document.documentElement.classList.add('hdr-overlay'); };
+
+    function onScroll(){
+      const y = window.scrollY;
+      const goingDown = y > lastY + HYST;
+      const goingUp = y < lastY - HYST;
+      if (goingDown){
+        if (y > 0) setHidden();
+      } else if (goingUp){
+        if (y <= 0) setGradient();
+        else setWhite();
+      }
+      lastY = y;
+    }
+    if (window.scrollY <= 0) setGradient();
+    else setHidden();
+    window.addEventListener('scroll', () => { requestAnimationFrame(onScroll); }, { passive: true });
+  }
+
   // ---------- Hero carousel ----------
   function initHeroCarousel() {
     const hero = document.querySelector('.embla');
@@ -169,6 +198,7 @@
     initNavDropdowns();
     initMobileMenu();
     initNavResizeGuard();
+    initHeaderScroll();
     initHeroCarousel();
   }
 
