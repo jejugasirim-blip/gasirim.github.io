@@ -1,22 +1,18 @@
-<!-- Mobile menu button (first child) -->
-<button
-  class="nav-toggle"
-  type="button"
-  aria-expanded="false"
-  aria-controls="main-menu"
-  aria-label="메인 메뉴 열기/닫기"
->
-  <span class="sr-only">메뉴</span>
-  <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-    <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-  </svg>
-</button>
+<header class="site-header" data-header>
+  <!-- Mobile menu button -->
+  <button
+    class="nav-toggle"
+    type="button"
+    aria-expanded="false"
+    aria-controls="main-menu"
+    aria-label="메인 메뉴 열기/닫기">
+    <span class="sr-only">메뉴</span>
+    <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
 
-<!-- Top bar -->
-<div class="site-header-bar">
-  <h1 class="site-title left">加 時 林</h1>
-  <h2 class="site-subtitle left">치유의 정원</h2>
-  <nav class="navbar transparent" role="navigation" aria-label="Main navigation">
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
     <ul id="main-menu" class="nav-main">
       <li class="nav-item" tabindex="0" aria-haspopup="true" aria-expanded="false">
         소개
@@ -45,9 +41,30 @@
       <li class="nav-item" tabindex="0"><a href="shop.html">Shop</a></li>
     </ul>
   </nav>
-</div>
-
-<!-- Centered page heading -->
-<div class="site-header-center">
-  <h1 class="page-heading"></h1>
-</div>
+</header>
+<a class="brand-title" href="/">加 時 林 | 치유의 정원</a>
+<script>
+(function(){
+  const header = document.querySelector('[data-header]');
+  if (!header) return;
+  let lastY = window.scrollY;
+  const HYST = 3;
+  const setHidden = () => { header.classList.add('is-hidden'); header.classList.remove('is-scrolled','is-gradient'); document.documentElement.classList.remove('hdr-overlay'); };
+  const setWhite = () => { header.classList.remove('is-hidden'); header.classList.add('is-scrolled'); header.classList.remove('is-gradient'); document.documentElement.classList.add('hdr-overlay'); };
+  const setGradient = () => { header.classList.remove('is-hidden'); header.classList.remove('is-scrolled'); header.classList.add('is-gradient'); document.documentElement.classList.add('hdr-overlay'); };
+  function onScroll(){
+    const y = window.scrollY;
+    const goingDown = y > lastY + HYST;
+    const goingUp = y < lastY - HYST;
+    if (goingDown){
+      if (y > 0) setHidden();
+    } else if (goingUp){
+      if (y <= 0) setGradient();
+      else setWhite();
+    }
+    lastY = y;
+  }
+  if (window.scrollY <= 0) setGradient(); else setHidden();
+  addEventListener('scroll', () => { requestAnimationFrame(onScroll); }, { passive: true });
+})();
+</script>

@@ -9,6 +9,157 @@
   overflow: hidden;
 }
 
+/* ===== Sticky header (gradient overlay + scroll motion) ===== */
+:root {
+  --hdr-transform-duration: 420ms;
+  --hdr-transform-ease: cubic-bezier(.22,.61,.36,1);
+  --hdr-color-duration: 1400ms;
+  --hdr-color-ease: ease-in-out;
+  --hdr-shadow: 0 10px 30px rgba(0,0,0,.06);
+  --gradient-direction: to bottom;
+  --gradient-hsl-values: 0, 0%, 0%;
+  --brand-left: 60px;
+  --brand-width: 100px;
+  --brand-gap: 300px;
+}
+
+@media (max-width: 768px) {
+  .brand-title { top: 12px; left: 16px; }
+  .site-header { padding-left: calc(16px + var(--brand-width) + 8px); }
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 30px 45px;
+  padding-left: calc(var(--brand-left) + var(--brand-width) + var(--brand-gap));
+  background: transparent;
+  color: #fff;
+  transition:
+    transform var(--hdr-transform-duration) var(--hdr-transform-ease),
+    opacity   var(--hdr-transform-duration) var(--hdr-transform-ease),
+    color     var(--hdr-color-duration) var(--hdr-color-ease);
+  will-change: transform, opacity, color;
+  isolation: isolate;
+}
+
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity var(--hdr-color-duration) var(--hdr-color-ease);
+  background-image: linear-gradient(
+    var(--gradient-direction),
+    hsla(var(--gradient-hsl-values), .80)   0%,
+    hsla(var(--gradient-hsl-values), .79)   8.3%,
+    hsla(var(--gradient-hsl-values), .761) 16.2%,
+    hsla(var(--gradient-hsl-values), .717) 23.9%,
+    hsla(var(--gradient-hsl-values), .66)  31.4%,
+    hsla(var(--gradient-hsl-values), .593) 38.6%,
+    hsla(var(--gradient-hsl-values), .518) 45.6%,
+    hsla(var(--gradient-hsl-values), .44)  52.3%,
+    hsla(var(--gradient-hsl-values), .36)  58.9%,
+    hsla(var(--gradient-hsl-values), .282) 65.2%,
+    hsla(var(--gradient-hsl-values), .207) 71.3%,
+    hsla(var(--gradient-hsl-values), .140) 77.4%,
+    hsla(var(--gradient-hsl-values), .083) 83.3%,
+    hsla(var(--gradient-hsl-values), .039) 89%,
+    hsla(var(--gradient-hsl-values), .010) 94.5%,
+    hsla(var(--gradient-hsl-values), 0)   100%
+  );
+}
+
+.site-header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity var(--hdr-color-duration) var(--hdr-color-ease);
+  background: rgba(255,255,255,.96);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--hdr-shadow);
+}
+
+.site-header.is-hidden   { transform: translate3d(0,-100%,0); opacity: 0; }
+.site-header.is-gradient { color: #fff; }
+.site-header.is-gradient::before { opacity: 1; }
+.site-header.is-scrolled { color: #111; }
+.site-header.is-scrolled::after { opacity: 1; }
+
+.brand-title {
+  position: fixed;
+  top: 30px;
+  left: var(--brand-left);
+  z-index: 2000;
+  display: block;
+  font-weight: 400;
+  font-size: clamp(20px, 2.6vw, 20px);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: #fff;
+  mix-blend-mode: difference;
+  transition: color var(--hdr-color-duration) var(--hdr-color-ease);
+}
+
+html.hdr-overlay .brand-title { mix-blend-mode: normal; }
+.site-header.is-scrolled ~ .brand-title { color: #111; }
+.site-header.is-gradient ~ .brand-title { color: #fff; }
+
+.site-header .navbar {
+  position: static;
+  top: auto;
+  right: auto;
+  width: auto;
+  max-width: none;
+  min-height: auto;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+.site-header nav a {
+  margin: 0 12px;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+
+.site-header nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .25s;
+}
+
+.site-header nav a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header,
+  .site-header::before,
+  .site-header::after,
+  .brand-title {
+    transition: none !important;
+  }
+}
+
 /* ===== Individual Page Head Panel (responsive height) ===== */
 .shop-panel {
   position: relative;
