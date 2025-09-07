@@ -241,12 +241,12 @@ html.hdr-overlay .brand-title { mix-blend-mode: normal; }
   height: .75rem;
   padding: .75rem;
   border-radius: 50%;
-  border: 1.5px solid currentColor;
+  border: 1.5px solid #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   background: transparent;
-  color: #000;
+  color: #ffffff;
   opacity: .5;
   transition: opacity .2s, transform .2s;
 }
