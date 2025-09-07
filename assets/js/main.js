@@ -168,11 +168,12 @@
       const goingDown = y > lastY + HYST;
       const goingUp = y < lastY - HYST;
 
-      if (goingDown){
-        if (y > 0) setHidden();
-      } else if (goingUp){
-        if (y <= 0) setGradient();
-        else setWhite();
+      if (y <= 0) {
+        setGradient();
+      } else if (goingDown) {
+        setHidden();
+      } else if (goingUp) {
+        setWhite();
       }
 
       lastY = y;
