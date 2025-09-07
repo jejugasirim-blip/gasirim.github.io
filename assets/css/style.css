@@ -520,10 +520,64 @@ html.hdr-overlay .brand-title { mix-blend-mode: normal; }
 /* ===== Body Contents: Image ===== */
 .intro-hero {
   position: relative;
-  aspect-ratio: 3 / 2; 
+  aspect-ratio: 3 / 2;
   min-height: clamp(280px, 52vw, 803px);
   margin: var(--section-gap) auto;
   background: url('https://via.placeholder.com/1200x803') center/cover no-repeat;
+}
+
+.hero {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  min-height: clamp(280px, 52vw, 803px);
+  margin: var(--section-gap) auto;
+  overflow: hidden;
+}
+
+/* Hero slideshow */
+.hero-slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background: center/cover no-repeat;
+  opacity: 0;
+  animation: hero-fade 18s infinite;
+}
+
+.hero-slide:nth-child(1) { animation-delay: 0s; }
+.hero-slide:nth-child(2) { animation-delay: 6s; }
+.hero-slide:nth-child(3) { animation-delay: 12s; }
+
+.hero-overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+}
+
+.hero-overlay h3 {
+  margin: 0 0 0.5rem;
+}
+
+.hero-overlay p {
+  margin: 0 0 0.75rem;
+}
+
+.hero-overlay a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+@keyframes hero-fade {
+  0%, 100% { opacity: 0; }
+  5%, 30% { opacity: 1; }
+  35%, 95% { opacity: 0; }
 }
 
 .intro-gallery {
