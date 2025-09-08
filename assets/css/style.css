@@ -82,6 +82,12 @@
 .site-header.is-scrolled { color: #111; }
 .site-header.is-scrolled::after { opacity: 1; }
 
+.site-header.is-scrolled ~ .brand-title { color: #111; }
+.site-header.is-gradient ~ .brand-title { color: #fff; }
+.site-header.is-gradient ~ .nav-item { color: #fff; }
+
+html.hdr-overlay .brand-title { mix-blend-mode: normal; }
+
 .brand-title {
   position: fixed;
   top: 30px;
@@ -96,10 +102,6 @@
   mix-blend-mode: difference;
   transition: color var(--hdr-color-duration) var(--hdr-color-ease);
 }
-
-html.hdr-overlay .brand-title { mix-blend-mode: normal; }
-.site-header.is-scrolled ~ .brand-title { color: #111; }
-.site-header.is-gradient ~ .brand-title { color: #fff; }
 
 
 .site-header .navbar {
