@@ -15,8 +15,7 @@
 }
 
 .site-header {
-  /*position: fixed;*/
-  position: sticky;
+  position: fixed;
   left: 0; right: 0;
   top: 0;
   z-index: 1000;
@@ -101,6 +100,7 @@
 html.hdr-overlay .brand-title { mix-blend-mode: normal; }
 .site-header.is-scrolled ~ .brand-title { color: #111; }
 .site-header.is-gradient ~ .brand-title { color: #fff; }
+
 
 .site-header .navbar {
   position: static;

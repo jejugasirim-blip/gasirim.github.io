@@ -217,6 +217,7 @@
   document.addEventListener('DOMContentLoaded', initAll);
   // Fired by includes.js after partials are injected
   document.addEventListener('partials:loaded', initAll);
+  
   // ---------- Page heading auto-fill ----------
   document.addEventListener("DOMContentLoaded", () => {
     const heading = document.querySelector("#site-header .page-heading");
