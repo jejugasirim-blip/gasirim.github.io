@@ -1,31 +1,15 @@
-/* ===== Landing Page Head Panel (responsive height) ===== */
-.head-panel {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  min-height: clamp(420px, 60vh, 880px);
-  background:
-    url('../img/main.jpg') center/cover no-repeat;
-  overflow: hidden;
-}
-
-@media (max-width: 768px) {
-  .brand-title { top: 12px; left: 16px; }
-  .site-header { padding-left: calc(16px + var(--brand-width) + 8px); }
-}
-
 .site-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 30px 45px;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  padding: 30px 45px !important;
 
   /* Make room for the fixed logo so nav stays centered */
   padding-left: calc(var(--brand-left) + var(--brand-width) + var(--brand-gap));
-  background: transparent;
+  background: transparent !important;
   color: #fff;
   transition:
     transform var(--hdr-transform-duration) var(--hdr-transform-ease),
@@ -35,14 +19,15 @@
   isolation: isolate;
 }
 
+/* Gradient layer (reference-style multi-stop ramp) */
 .site-header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity var(--hdr-color-duration) var(--hdr-color-ease);
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  z-index: -1 !important;
+  opacity: 0 !important;
+  transition: opacity var(--hdr-color-duration) var(--hdr-color-ease) !important;
   background-image: linear-gradient(
     var(--gradient-direction),
     hsla(var(--gradient-hsl-values), .80)   0%,
@@ -61,27 +46,27 @@
     hsla(var(--gradient-hsl-values), .039) 89%,
     hsla(var(--gradient-hsl-values), .010) 94.5%,
     hsla(var(--gradient-hsl-values), 0)   100%
-  );
+  ) !important ;
 }
 
-/* Gradient layer (reference-style multi-stop ramp) */
-.site-header::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity var(--hdr-color-duration) var(--hdr-color-ease);
-  background: rgba(255,255,255,.96);
-  backdrop-filter: blur(8px);
-  box-shadow: var(--hdr-shadow);
-}
 /* White overlay layer for mid-page scroll-up (with blur + shadow) */
-.site-header.is-hidden   { transform: translate3d(0,-100%,0); opacity: 0; }
-.site-header.is-gradient { color: #fff; }
+.site-header::after {
+  content: "" !important ;
+  position: absolute!important ;
+  inset: 0 !important ;
+  pointer-events: none !important ;
+  z-index: -1 !important ;
+  opacity: 0 !important ;
+  transition: opacity var(--hdr-color-duration) var(--hdr-color-ease) !important ;
+  background: rgba(255,255,255,.96) !important ;
+  backdrop-filter: blur(8px) !important ;
+  box-shadow: var(--hdr-shadow) !important ;
+}
+
+.site-header.is-hidden   { transform: translate3d(0,-100%,0) !important; }
+.site-header.is-gradient { color: #fff; background:transparent !important; box-shadow: none !important; }
 .site-header.is-gradient::before { opacity: 1; }
-.site-header.is-scrolled { color: #111; }
+.site-header.is-scrolled { color: #111 !important; background:#fff !important; }
 .site-header.is-scrolled::after { opacity: 1; }
 
 /* ===== Fixed overlay title (never disappears) ===== */
@@ -148,6 +133,11 @@ html.hdr-overlay .brand-title { mix-blend-mode: normal; }
   .brand-title {
     transition: none !important;
   }
+}
+
+@media (max-width: 768px) {
+  .brand-title { top: 12px; left: 16px; }
+  .site-header { padding-left: calc(16px + var(--brand-width) + 8px); }
 }
 
 /* ===== Hero slideshow (Embla) ===== */
