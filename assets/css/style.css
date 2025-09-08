@@ -83,7 +83,7 @@
 .site-header.is-scrolled::after { opacity: 1; }
 
 .site-header.is-scrolled brand-title { color: #111; }
-.site-header.is-gradient nav-main { color: #fff; }
+.site-header.is-gradient nav-item { color: #fff; }
 
 html.hdr-overlay .brand-title { mix-blend-mode: normal; }
 
