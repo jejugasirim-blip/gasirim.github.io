@@ -83,7 +83,8 @@
 
 .site-header.is-scrolled .brand-title { color: #111; mix-blend-mode: normal; }
 .site-header.is-gradient .brand-title { color: #fff; }
-.site-header.is-gradient .brand-logo { mix-blend-mode: normal; }
+.site-header.is-scrolled .brand-logo { color: #111; mix-blend-mode: normal; }
+.site-header.is-gradient .brand- { color: #fff; }
 .site-header.is-gradient .nav-item { color: #fff; }
 
 .brand-title {
