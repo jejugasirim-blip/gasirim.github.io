@@ -24,6 +24,9 @@ html, body {
   max-width: 100%;
   margin: 0 auto;
   background: #fff;
+
+  /*spacer for fixed sticky header bar
+  padding-top: var(--hdr-h, 96px);  */
 }
 
 /* Box-sizing on pseudos too */
