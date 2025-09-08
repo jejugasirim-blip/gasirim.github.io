@@ -90,14 +90,22 @@
   top: 30px;
   left: var(--brand-left);
   z-index: 2000;
-  display: block;
+  display: flex;
+  align-items: center;
   font-weight: 400;
   font-size: clamp(20px, 2.6vw, 20px);
   line-height: 1;
   letter-spacing: 0.02em;
   color: #fff;
   mix-blend-mode: difference;
+  text-decoration: none;
   transition: color var(--hdr-color-duration) var(--hdr-color-ease);
+}
+
+.brand-logo {
+  width: 32px;
+  height: 32px;
+  margin-right: 8px;
 }
 
 
