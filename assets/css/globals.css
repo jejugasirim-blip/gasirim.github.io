@@ -49,4 +49,4 @@ html { scroll-behavior: smooth; }
 }
 
 /* Optional: unify link coloring with text (you style links locally) */
-a { color: inherit; text-decoration-thickness: 0.08em; text-underline-offset: 0.15em; }
+a { color: inherit;}
