@@ -225,6 +225,13 @@
   font-size: .875rem;
 }
 
+.embla__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
 .embla__asset-text a {
   color: #fff;
   text-decoration: none;
@@ -250,7 +257,6 @@
 .embla__controls {
   display: flex;
   gap: 1rem;
-  margin-top: 1rem;
 }
 
 .embla__prev,
@@ -296,6 +302,7 @@
 
 @media (max-width: 768px) {
   .embla__overlay { padding: 2rem; }
+  .embla__meta { gap: .5rem; }
   .embla__controls { gap: .5rem; }
 }
 
