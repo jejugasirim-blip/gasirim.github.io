@@ -103,9 +103,15 @@
 }
 
 .brand-logo {
-  width: 32px;
   height: 32px;
   margin-right: 8px;
+  width: auto;
+  margin-right: 8px;
+  transition: filter var(--hdr-color-duration) var(--hdr-color-ease);
+}
+
+#landing-bar:has(.site-header.is-gradient) ~ #landing-header .brand-logo {
+  filter: invert(1);
 }
 
 .brand-text {
@@ -137,14 +143,20 @@
   padding: 0;
 }
 
-.site-header nav a {
+.site-header nav .nav-item {
   margin: 0 12px;
   position: relative;
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 }
 
-.site-header nav a::after {
+.site-header nav .nav-item > a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.site-header nav .nav-item::before {
   content: "";
   position: absolute;
   left: 0;
@@ -157,7 +169,7 @@
   transition: transform .25s;
 }
 
-.site-header nav a:hover::after {
+.site-header nav .nav-item:hover::before {
   transform: scaleX(1);
   transform-origin: left;
 }
