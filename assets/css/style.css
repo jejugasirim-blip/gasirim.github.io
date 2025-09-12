@@ -767,7 +767,7 @@
   width: 100%;
   min-height: 361px;
   margin: 0 auto;
-  background: #fff;
+  /* background: #fff; */
   overflow-x: auto;
   white-space: nowrap;
   display: flex;
@@ -786,9 +786,9 @@
 }
 
 /* Gallery tiles — scale but never too small or too huge */
-.gimg-a { width: clamp(260px, 41vw, 600px); min-height: clamp(160px, 28vw, 416px); background-image: url('https://via.placeholder.com/600x416'); }
-.gimg-b { width: clamp(280px, 48vw, 700px); min-height: clamp(160px, 26vw, 398px); background-image: url('https://via.placeholder.com/700x398'); }
-.gimg-c { width: clamp(280px, 48vw, 700px); min-height: clamp(160px, 26vw, 398px); background-image: url('https://via.placeholder.com/700x398'); }
+.gimg-a { width: clamp(260px, 41vw, 600px); min-height: clamp(160px, 28vw, 416px); background-image: url('../img/가든센터.jpg'); }
+.gimg-b { width: clamp(280px, 48vw, 700px); min-height: clamp(160px, 26vw, 398px); background-image: url('../img/가든센터.jpg'); }
+.gimg-c { width: clamp(280px, 48vw, 700px); min-height: clamp(160px, 26vw, 398px); background-image: url('../img/가든센터.jpg'); }
 
 .intro-img-wide {
   position: relative;
