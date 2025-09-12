@@ -194,7 +194,6 @@
   inset: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   align-items: flex-end;
   gap: 2rem;
   padding: 4rem;
@@ -207,12 +206,15 @@
 }
 
 .embla__copy h1 {
-  margin-bottom: .5rem;
+  margin-bottom: .25rem;
   font-size: 1.5rem;
+  line-height: 1.25;
 }
 
 .embla__copy p {
   font-size: .875rem;
+  line-height: 1.4;
+  margin: 0;
 }
 
 .text-variable {
@@ -223,13 +225,7 @@
   position: relative;
   display: grid;
   font-size: .875rem;
-}
-
-.embla__meta {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 1rem;
+  margin-left: auto;
 }
 
 .embla__asset-text a {
