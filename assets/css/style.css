@@ -795,7 +795,7 @@
   aspect-ratio: 3 / 1; 
   min-height: clamp(220px, 40vw, 388px);
   margin: var(--section-gap) auto;
-  background: url('https://via.placeholder.com/1172x388') center/cover no-repeat;
+  background: url('../img/main.jpg') center/cover no-repeat;
 }
 
 .intro-img-tall {
@@ -803,7 +803,7 @@
   aspect-ratio: 3 / 4; 
   min-height: clamp(320px, 55vw, 820px);
   margin: var(--section-gap) auto;
-  background: url('https://via.placeholder.com/1187x1646') center/cover no-repeat;
+  background: url('../img/main.jpg') center/cover no-repeat;
 }
 
 .intro-img-long {
@@ -811,7 +811,7 @@
   aspect-ratio: 7 / 3; 
   min-height: clamp(200px, 32vw, 367px);
   margin: var(--section-gap) auto;
-  background: url('https://via.placeholder.com/858x367') center/cover no-repeat;
+  background: url('../img/main.jpg') center/cover no-repeat;
 }
 
 /* Mosaic images (right column + two left tiles) */
@@ -820,7 +820,7 @@
   margin: var(--section-gap) auto;
   aspect-ratio: 9 / 32;        /* tall portrait */
   min-height: clamp(280px, 60vh, 900px);
-  background: url('https://via.placeholder.com/360x1329') center/cover no-repeat;
+  background: url('../img/main.jpg') center/cover no-repeat;
 }
 
 .intro-mosaic-left-top,
@@ -829,7 +829,7 @@
   margin: var(--section-gap) auto;
   aspect-ratio:  694 / 481;    /* keep the original look */
   min-height: clamp(220px, 36vw, 481px);
-  background: url('https://via.placeholder.com/694x481') center/cover no-repeat;
+  background: url('../img/main.jpg') center/cover no-repeat;
 }
 
 
