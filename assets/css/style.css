@@ -212,7 +212,7 @@
   flex-wrap: wrap;
   align-items: flex-end;
   gap: 2rem;
-  padding: 4rem;
+  padding: 68px 195px;
   color: #fff;
   background: linear-gradient(to top, rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 60%);
 }
@@ -248,10 +248,11 @@
   color: #fff;
   text-decoration: none;
   transition: opacity .2s ease;
+  opacity: .5;
 }
 
 .embla__asset-text a:hover {
-  opacity: .6;
+  opacity: .8;
 }
 
 .asset-text {
@@ -259,6 +260,8 @@
   opacity: 0;
   pointer-events: none;
   transition: opacity .3s ease;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .asset-text.is-active {
