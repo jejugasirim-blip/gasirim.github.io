@@ -494,7 +494,7 @@
 .nav-item {
   position: relative;
   font-weight: 400;
-  font-size: clamp(14px, 1.6vw, 20px);
+  font-size: clamp(14px, 1.6vw, 16px);
   color: #000;
   cursor: pointer;
   transition: color 220ms ease;
@@ -533,7 +533,7 @@
 }
 
 .nav-sub li {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.6;
   white-space: nowrap;
   padding: 6px 10px;
