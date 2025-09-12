@@ -577,12 +577,12 @@
 /* === Mobile hamburger breakpoint === */
 .nav-toggle {
   position: absolute;
-  top: 16px;
-  right: 16px;  
-  left: auto;   
+  top: clamp(10px, 4vh, 80px);
+  right: clamp(20px, 8vw, 80px);
+  bottom: clamp(10px, 4vh, 80px);
+  height: 2rem;
   z-index: 3;
   display: none;
-  padding: 8px;
   border: 0;
   background: transparent;
   border-radius: 0px;
