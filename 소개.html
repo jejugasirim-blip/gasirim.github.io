@@ -28,7 +28,7 @@
     <div id="site-bar" data-include="partials/sticky-header-bar.html"></div>
 
     <main>
-      <nav class="intro-tabs" role="tablist" aria-label="소개 섹션">
+      <nav class="intro-tabs" data-tabs role="tablist" aria-label="소개 섹션">
         <button class="tab-button" role="tab" id="tab-garden" aria-controls="panel-garden" aria-selected="false">가시림</button>
         <button class="tab-button active" role="tab" id="tab-space" aria-controls="panel-space" aria-selected="true">공간소개</button>
         <button class="tab-button" role="tab" id="tab-map" aria-controls="panel-map" aria-selected="false">수목원 지도</button>
@@ -40,24 +40,34 @@
       </section>
 
       <section id="panel-space" class="tab-panel" role="tabpanel" tabindex="0">
-        <div class="card-grid">
-          <article class="intro-card">
-            <img src="assets/img/main.jpg" alt="예시 이미지" class="intro-card-img"/>
-            <h3 class="intro-card-title">Subheading</h3>
-          </article>
-          <article class="intro-card">
-            <img src="assets/img/main.jpg" alt="예시 이미지" class="intro-card-img"/>
-            <h3 class="intro-card-title">Subheading</h3>
-          </article>
-          <article class="intro-card">
-            <img src="assets/img/main.jpg" alt="예시 이미지" class="intro-card-img"/>
-            <h3 class="intro-card-title">Subheading</h3>
-          </article>
-          <article class="intro-card">
-            <img src="assets/img/main.jpg" alt="예시 이미지" class="intro-card-img"/>
-            <h3 class="intro-card-title">Subheading</h3>
-          </article>
+        <div class="space-tabs" data-tabs role="tablist" aria-label="공간소개 분류">
+          <button class="tab-button active" role="tab" id="tab-facility" aria-controls="panel-facility" aria-selected="true">시설</button>
+          <button class="tab-button" role="tab" id="tab-garden-detail" aria-controls="panel-garden-detail" aria-selected="false">정원</button>
         </div>
+        <section id="panel-facility" class="space-panel" role="tabpanel" tabindex="0">
+          <div class="card-grid">
+            <article class="intro-card">
+              <img src="assets/img/main.jpg" alt="예시 이미지" class="intro-card-img"/>
+              <h3 class="intro-card-title">시설 카드</h3>
+            </article>
+            <article class="intro-card">
+              <img src="assets/img/main.jpg" alt="예시 이미지" class="intro-card-img"/>
+              <h3 class="intro-card-title">시설 카드</h3>
+            </article>
+          </div>
+        </section>
+        <section id="panel-garden-detail" class="space-panel" role="tabpanel" tabindex="0" hidden>
+          <div class="card-grid">
+            <article class="intro-card">
+              <img src="assets/img/main.jpg" alt="예시 이미지" class="intro-card-img"/>
+              <h3 class="intro-card-title">정원 카드</h3>
+            </article>
+            <article class="intro-card">
+              <img src="assets/img/main.jpg" alt="예시 이미지" class="intro-card-img"/>
+              <h3 class="intro-card-title">정원 카드</h3>
+            </article>
+          </div>
+        </section>
       </section>
 
       <section id="panel-map" class="tab-panel" role="tabpanel" tabindex="0" hidden>
