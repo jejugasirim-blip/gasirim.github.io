@@ -22,8 +22,10 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 30px 45px;
-  padding-left: calc(var(--brand-left) + var(--brand-width) + var(--brand-gap));
+  padding-top: clamp(10px, 4.5vh, 20px);
+  padding-right: clamp(20px, 8vw, 100px);
+  padding-left: clamp(20px, 8vw, 100px);
+  padding-bottom: clamp(10px, 4.5vh, 20px);
   background: transparent;
   color: #fff;
   transition:
@@ -87,8 +89,10 @@
 
 .brand-title {
   position: fixed;
-  top: 30px;
-  left: var(--brand-left);
+  padding-top: clamp(10px, 4.5vh, 20px);
+  padding-right: clamp(20px, 8vw, 100px);
+  padding-left: clamp(20px, 8vw, 100px);
+  padding-bottom: clamp(10px, 4.5vh, 20px);
   z-index: 2000;
   display: flex;
   align-items: center;
@@ -104,9 +108,7 @@
 
 .brand-logo {
   height: 32px;
-  margin-right: 8px;
   width: auto;
-  margin-right: 8px;
   transition: filter var(--hdr-color-duration) var(--hdr-color-ease);
 }
 
@@ -143,7 +145,6 @@
   margin: 0 12px;
   position: relative;
   text-decoration: none;
-  color: inherit;
   cursor: pointer;
 }
 
