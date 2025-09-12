@@ -108,6 +108,22 @@
   margin-right: 8px;
 }
 
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1;
+  height: 32px;
+}
+
+.brand-name {
+  font-family: var(--font-mincho);
+}
+
+.brand-tagline {
+  font-family: var(--font-myeongjo);
+  font-size: 12px;
+}
 
 .site-header .navbar {
   position: static;
@@ -664,6 +680,8 @@
   position: relative;
   aspect-ratio: 16 / 9;
   min-height: clamp(315px, 56vw, 900px);
+  width: 86%;
+  max-width: 1240px;
   margin: var(--section-gap) auto;
   background: url('https://via.placeholder.com/1200x675') center/cover no-repeat;
   overflow: hidden;
