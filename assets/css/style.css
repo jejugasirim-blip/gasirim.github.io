@@ -81,10 +81,9 @@
 .site-header.is-gradient::before { opacity: 1; }
 .site-header.is-scrolled::after { opacity: 1; }
 
+.site-header.is-scrolled .brand-title { color: #111; mix-blend-mode: normal; }
+.site-header.is-gradient .brand-title { color: #fff; }
 .site-header.is-gradient .nav-item { color: #fff; }
-
-#landing-bar:has(.site-header.is-scrolled) ~ #landing-header .brand-title { color: #111; }
-#landing-bar:has(.site-header.is-gradient) ~ #landing-header .brand-title { color: #fff; }
 
 .brand-title {
   position: fixed;
@@ -97,14 +96,15 @@
   font-size: clamp(20px, 2.6vw, 20px);
   line-height: 1;
   letter-spacing: 0.02em;
-  color: #111;
-  mix-blend-mode: normal;
+  color: #fff;
+  mix-blend-mode: difference;
   text-decoration: none;
   transition: color var(--hdr-color-duration) var(--hdr-color-ease);
 }
 
 .brand-logo {
   height: 32px;
+  margin-right: 8px;
   width: auto;
   margin-right: 8px;
   transition: filter var(--hdr-color-duration) var(--hdr-color-ease);
@@ -119,17 +119,16 @@
   flex-direction: column;
   justify-content: center;
   line-height: 1;
-  height: auto;
+  height: 32px;
 }
 
 .brand-name {
   font-family: var(--font-mincho);
-  font-size: 128px;
 }
 
 .brand-tagline {
   font-family: var(--font-myeongjo);
-  font-size: 36px;
+  font-size: 12px;
 }
 
 .site-header .navbar {
@@ -1119,7 +1118,6 @@
 .space-panel {
   margin-top: 40px;
 }
-
 .card-grid {
   display: flex;
   flex-wrap: wrap;
