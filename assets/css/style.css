@@ -81,9 +81,11 @@
 .site-header.is-gradient::before { opacity: 1; }
 .site-header.is-scrolled::after { opacity: 1; }
 
-.site-header.is-scrolled .brand-title { color: #111; mix-blend-mode: normal; }
+.site-header.is-scrolled .brand-title { color: #111; }
 .site-header.is-gradient .brand-title { color: #fff; }
 .site-header.is-gradient .nav-item { color: #fff; }
+.site-header.is-scrolled ~ .brand-title { color: #111; }
+.site-header.is-gradient ~ .brand-title { color: #fff; }
 
 .brand-title {
   position: fixed;
@@ -96,16 +98,22 @@
   font-size: clamp(20px, 2.6vw, 20px);
   line-height: 1;
   letter-spacing: 0.02em;
-  color: #fff;
-  mix-blend-mode: difference;
+  color: #111;
+  mix-blend-mode: normal;
   text-decoration: none;
   transition: color var(--hdr-color-duration) var(--hdr-color-ease);
 }
 
 .brand-logo {
-  width: 32px;
   height: 32px;
+  width: auto;
   margin-right: 8px;
+  transition: filter var(--hdr-color-duration) var(--hdr-color-ease);
+}
+
+.site-header.is-gradient .brand-logo,
+.site-header.is-gradient ~ .brand-title .brand-logo {
+  filter: invert(1);
 }
 
 .brand-text {
@@ -113,16 +121,17 @@
   flex-direction: column;
   justify-content: center;
   line-height: 1;
-  height: 32px;
+  height: auto;
 }
 
 .brand-name {
   font-family: var(--font-mincho);
+  font-size: 128px;
 }
 
 .brand-tagline {
   font-family: var(--font-myeongjo);
-  font-size: 12px;
+  font-size: 36px;
 }
 
 .site-header .navbar {
@@ -137,19 +146,26 @@
   padding: 0;
 }
 
-.site-header nav a {
+.site-header nav .nav-item {
   margin: 0 12px;
   position: relative;
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 }
 
-.site-header nav a::after {
+.site-header nav .nav-item > a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.site-header nav .nav-item::after {
   content: "";
   position: absolute;
   left: 0;
   right: 0;
   bottom: -4px;
+  top: auto;
   height: 1px;
   background: currentColor;
   transform: scaleX(0);
@@ -157,7 +173,7 @@
   transition: transform .25s;
 }
 
-.site-header nav a:hover::after {
+.site-header nav .nav-item:hover::after {
   transform: scaleX(1);
   transform-origin: left;
 }
@@ -690,12 +706,23 @@
   overflow: hidden;
 }
 
+.intro-hero--video {
+  aspect-ratio: auto;
+  min-height: 0;
+}
 .intro-hero iframe {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+.intro-hero--video iframe {
+  position: static;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .hero {
