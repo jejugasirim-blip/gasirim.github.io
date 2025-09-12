@@ -666,10 +666,10 @@
 /* ===== Body Contents: Image ===== */
 .intro-hero {
   position: relative;
-  aspect-ratio: 3 / 2;
-  min-height: clamp(280px, 52vw, 803px);
+  aspect-ratio: 16 / 9;
+  min-height: clamp(315px, 56vw, 900px);
   margin: var(--section-gap) auto;
-  background: url('https://via.placeholder.com/1200x803') center/cover no-repeat;
+  background: url('https://via.placeholder.com/1200x675') center/cover no-repeat;
   overflow: hidden;
 }
 
