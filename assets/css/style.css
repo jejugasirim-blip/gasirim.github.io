@@ -110,10 +110,6 @@
   transition: filter var(--hdr-color-duration) var(--hdr-color-ease);
 }
 
-#landing-bar:has(.site-header.is-gradient) ~ #landing-header .brand-logo {
-  filter: invert(1);
-}
-
 .brand-text {
   display: flex;
   flex-direction: column;
