@@ -194,7 +194,6 @@
   inset: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   align-items: flex-end;
   gap: 2rem;
   padding: 4rem;
@@ -206,9 +205,37 @@
   max-width: 58ch;
 }
 
+.embla__copy h1 {
+  margin-bottom: .25rem;
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+
+.embla__copy p {
+  font-size: .875rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.text-variable {
+  color: hsla(40,20%,56.2%,1);
+}
+
 .embla__asset-text {
   position: relative;
   display: grid;
+  font-size: .875rem;
+  margin-left: auto;
+}
+
+.embla__asset-text a {
+  color: #fff;
+  text-decoration: none;
+  transition: opacity .2s ease;
+}
+
+.embla__asset-text a:hover {
+  opacity: .6;
 }
 
 .asset-text {
@@ -226,7 +253,6 @@
 .embla__controls {
   display: flex;
   gap: 1rem;
-  margin-top: 1rem;
 }
 
 .embla__prev,
@@ -272,6 +298,7 @@
 
 @media (max-width: 768px) {
   .embla__overlay { padding: 2rem; }
+  .embla__meta { gap: .5rem; }
   .embla__controls { gap: .5rem; }
 }
 
