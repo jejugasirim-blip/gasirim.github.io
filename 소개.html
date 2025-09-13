@@ -45,26 +45,26 @@
         <!-- 시설 공간 소개 -->
         <section id="panel-facility-detail" class="tab-panel" role="tabpanel" tabindex="0">
           <div class="cards reveal parallax from-up" height="409px">
-            <article class="space-card">
-              <img src="assets/img/main.jpg" alt="예시 이미지" class="space-card-img"/>
-              <h3 class="space-card-title">시설 카드</h3>
+            <article class="space-card" data-images="assets/img/유리온실.jpg,assets/img/유리온실2.jpg" data-title="유리온실" data-desc="유리온실에 관한 설명입니다.">
+              <img src="assets/img/유리온실.jpg" alt="유리온실 이미지" class="space-card-img"/>
+              <h3 class="space-card-title">유리온실</h3>
             </article>
-            <article class="space-card">
-              <img src="assets/img/main.jpg" alt="예시 이미지" class="space-card-img"/>
-              <h3 class="space-card-title">시설 카드</h3>
+            <article class="space-card" data-images="assets/img/카페.jpg,assets/img/가든센터.jpg" data-title="카페" data-desc="카페에 관한 설명입니다.">
+              <img src="assets/img/카페.jpg" alt="카페 이미지" class="space-card-img"/>
+              <h3 class="space-card-title">카페</h3>
             </article>
           </div>
         </section>
         <!-- 정원 공간 소개 -->
         <section id="panel-garden-detail" class="tab-panel" role="tabpanel" tabindex="0" hidden>
           <div class="cards reveal parallax from-up" height="409px">
-            <article class="space-card">
-              <img src="assets/img/main.jpg" alt="예시 이미지" class="space-card-img"/>
-              <h3 class="space-card-title">정원 카드</h3>
+            <article class="space-card" data-images="assets/img/가든센터.jpg,assets/img/유리온실.jpg" data-title="가든센터" data-desc="가든센터에 관한 설명입니다.">
+              <img src="assets/img/가든센터.jpg" alt="가든센터 이미지" class="space-card-img"/>
+              <h3 class="space-card-title">가든센터</h3>
             </article>
-            <article class="space-card">
-              <img src="assets/img/main.jpg" alt="예시 이미지" class="space-card-img"/>
-              <h3 class="space-card-title">정원 카드</h3>
+            <article class="space-card" data-images="assets/img/main.jpg,assets/img/유리온실2.jpg" data-title="정원" data-desc="정원 카드에 관한 설명입니다.">
+              <img src="assets/img/main.jpg" alt="정원 이미지" class="space-card-img"/>
+              <h3 class="space-card-title">정원</h3>
             </article>
           </div>
         </section>
@@ -109,8 +109,29 @@
             <article class="card">
               <img src="assets/img/main.jpg" alt="예시 이미지" class="card-img"/>
             </article>
-          </div>
+        </div>
       </section>
+      <!-- Space card modal -->
+      <div id="space-modal" class="space-modal" hidden>
+        <div class="space-modal-content" role="dialog" aria-modal="true">
+          <button class="space-modal-close" data-close>&times;</button>
+          <div class="embla space-modal-embla">
+            <div class="embla__viewport">
+              <div class="embla__container" id="modal-slides"></div>
+            </div>
+            <div class="embla__controls">
+              <button class="embla__prev" aria-label="Previous slide">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 20" fill="currentColor"><path d="M11.77 1.77 10 0 0 10l10 10 1.77-1.77L3.54 10l8.23-8.23Z"/></svg>
+              </button>
+              <button class="embla__next" aria-label="Next slide">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 20" fill="currentColor"><path d="M0 18.23 1.77 20l10-10-10-10L0 1.77 8.23 10 0 18.23Z"/></svg>
+              </button>
+            </div>
+          </div>
+          <h3 class="space-modal-title" id="modal-title"></h3>
+          <p class="space-modal-desc" id="modal-desc"></p>
+        </div>
+      </div>
     </main>
 
     <!-- Footer -->
@@ -123,5 +144,6 @@
   <script src="https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js" defer></script>
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/intro-tabs.js" defer></script>
+  <script src="assets/js/space-modal.js" defer></script>
 </body>
 </html>
