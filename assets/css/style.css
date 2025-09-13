@@ -1167,3 +1167,73 @@
 .tab-panel {
   padding-top: 40px;
 }
+
+/* ===== Space card modal ===== */
+.space-modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,.8);
+  z-index: 3000;
+}
+
+.space-modal-content {
+  position: relative;
+  background: #fff;
+  color: #111;
+  max-width: 800px;
+  width: 90%;
+  max-height: 90vh;
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  overflow: auto;
+}
+
+.space-modal-close {
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.space-modal-embla {
+  width: 100%;
+  height: 300px;
+  margin-bottom: 1rem;
+}
+
+.space-modal-embla .embla__viewport {
+  height: 100%;
+  border-radius: var(--radius-lg);
+}
+
+.space-modal-embla .embla__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.space-modal-embla .embla__controls {
+  justify-content: center;
+  margin-top: .5rem;
+}
+
+.space-modal-embla .embla__prev,
+.space-modal-embla .embla__next {
+  border-color: #111;
+  color: #111;
+}
+
+.space-modal-title {
+  margin: 0 0 .5rem;
+  font-size: 1.5rem;
+}
+
+.space-modal-desc {
+  margin: 0;
+}
