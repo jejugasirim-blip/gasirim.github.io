@@ -1169,6 +1169,10 @@
 }
 
 /* ===== Space card modal ===== */
+.space-modal[hidden] {
+  display: none;
+}
+
 .space-modal {
   position: fixed;
   inset: 0;
