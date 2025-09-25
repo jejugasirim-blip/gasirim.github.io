@@ -537,7 +537,6 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  min-width: 180px;
   border-radius: 8px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.25);
   z-index: 3;
@@ -693,21 +692,18 @@
 /* ===== Body Contents: Image ===== */
 .intro-hero {
   position: relative;
-  aspect-ratio: 16 / 9;
-  min-height: clamp(315px, 56vw, 900px);
-  width: 86%;
-  max-width: 1240px;
+  aspect-ratio: 16 / 9; 
+  min-height: clamp(280px, 52vw, 803px);
   margin: var(--section-gap) auto;
-  background: url('https://via.placeholder.com/1200x675') center/cover no-repeat;
+  background: none; 
   overflow: hidden;
 }
 
-.intro-hero iframe {
-  position: absolute;
-  inset: 0;
+.intro-video {
   width: 100%;
   height: 100%;
-  border: 0;
+  object-fit: cover; /* fill the box nicely */
+  border-radius: 6px; /* optional, to match your gallery tiles */
 }
 
 .hero {
