@@ -692,18 +692,63 @@
 /* ===== Body Contents: Image ===== */
 .intro-hero {
   position: relative;
-  aspect-ratio: 16 / 9; 
-  min-height: clamp(280px, 52vw, 803px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: clamp(260px, 60vw, 720px);
   margin: var(--section-gap) auto;
-  background: none; 
-  overflow: hidden;
+  background: none;
 }
 
 .intro-video {
   width: 100%;
-  height: 100%;
-  object-fit: cover; /* fill the box nicely */
-  border-radius: 6px; /* optional, to match your gallery tiles */
+  height: auto;
+  aspect-ratio: 16 / 9;
+  display: block;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+}
+
+.intro-video-play {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(62px, 11vw, 124px);
+  height: clamp(62px, 11vw, 124px);
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.62);
+  cursor: pointer;
+  outline: none;
+  z-index: 2;
+  transition: background 220ms ease, transform 220ms ease, opacity 220ms ease;
+}
+
+.intro-video-play span {
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: clamp(15px, 2.4vw, 28px) solid transparent;
+  border-bottom: clamp(15px, 2.4vw, 28px) solid transparent;
+  border-left: clamp(22px, 3.5vw, 38px) solid #fff;
+  margin-left: clamp(4px, 0.8vw, 8px);
+}
+
+.intro-video-play:hover,
+.intro-video-play:focus-visible {
+  background: rgba(0, 0, 0, 0.75);
+  transform: translate(-50%, -50%) scale(1.04);
+  outline: 3px solid rgba(255, 255, 255, 0.65);
+}
+
+.intro-hero.is-playing .intro-video-play {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.92);
 }
 
 .hero {
@@ -761,41 +806,101 @@
 
 .intro-gallery {
   position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
   width: 100%;
-  max-width: 100%;
-  min-height: 345px;
-  background: #3A3B32;
-  overflow: hidden;
   margin: var(--section-gap) auto;
+  gap: clamp(12px, 2vw, 28px);
+  background: transparent;
+}
+
+.intro-gallery-viewport {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
 }
 
 .intro-gallery-track {
-  position: relative;
-  width: 100%;
-  min-height: 361px;
-  margin: 0 auto;
-  /* background: #fff; */
-  overflow-x: auto;
-  white-space: nowrap;
   display: flex;
-  gap: 24px;
-  padding: 0 24px;
+  gap: 0;
   align-items: center;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
+  justify-content: center;
+  transform: translate3d(0, 0, 0);
+  transition: transform 600ms ease;
+  will-change: transform;
+}
+
+.intro-gallery-track.is-instant {
+  transition: none !important;
 }
 
 .gimg {
-  flex: 0 0 auto;
+  flex: 0 0 var(--intro-gallery-item-width, clamp(180px, 24vw, 260px));
+  width: var(--intro-gallery-item-width, clamp(180px, 24vw, 260px));
+  aspect-ratio: 4 / 5;
   background: center/cover no-repeat;
-  border-radius: 6px;
-  scroll-snap-align: center;
+  border-radius: 12px;
 }
 
 /* Gallery tiles — scale but never too small or too huge */
-.gimg-a { width: clamp(260px, 41vw, 600px); min-height: clamp(160px, 28vw, 416px); background-image: url('../img/가든센터.jpg'); }
-.gimg-b { width: clamp(280px, 48vw, 700px); min-height: clamp(160px, 26vw, 398px); background-image: url('../img/가든센터.jpg'); }
-.gimg-c { width: clamp(280px, 48vw, 700px); min-height: clamp(160px, 26vw, 398px); background-image: url('../img/가든센터.jpg'); }
+.gimg-a { background-image: url('../img/가든센터.jpg'); }
+.gimg-b { background-image: url('../img/가든센터.jpg'); }
+.gimg-c { background-image: url('../img/가든센터.jpg'); }
+
+.intro-gallery-nav {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: clamp(48px, 6vw, 72px);
+  aspect-ratio: 1;
+  border: none;
+  background: none;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  transition: transform 220ms ease;
+}
+
+.intro-gallery-nav::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.62);
+  transition: background 220ms ease, transform 220ms ease, opacity 220ms ease;
+}
+
+.intro-gallery-nav--prev::before {
+  clip-path: polygon(100% 0, 58% 0, 0 50%, 58% 100%, 100% 100%, 100% 65%, 40% 50%, 100% 35%);
+}
+
+.intro-gallery-nav--next::before {
+  clip-path: polygon(0 0, 42% 0, 100% 50%, 42% 100%, 0 100%, 0 65%, 60% 50%, 0 35%);
+}
+
+.intro-gallery-nav svg {
+  position: relative;
+  z-index: 1;
+  width: clamp(16px, 2.5vw, 24px);
+  height: clamp(16px, 2.5vw, 24px);
+}
+
+.intro-gallery-nav:hover::before,
+.intro-gallery-nav:focus-visible::before {
+  background: rgba(0, 0, 0, 0.78);
+}
+
+.intro-gallery-nav:hover,
+.intro-gallery-nav:focus-visible {
+  transform: scale(1.04);
+  outline: 3px solid rgba(255, 255, 255, 0.65);
+}
+
+.intro-gallery-nav:disabled {
+  opacity: 0.4;
+  cursor: default;
+  transform: none;
+}
 
 .intro-img-wide {
   position: relative;

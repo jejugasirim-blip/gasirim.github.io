@@ -47,6 +47,43 @@
     onScroll();
   }
 
+  // ---------- Intro video custom controls ----------
+  function initIntroVideo() {
+    const hero = document.querySelector('.intro-hero[data-video]');
+    const video = hero?.querySelector('video');
+    const playButton = hero?.querySelector('.intro-video-play');
+    if (!hero || !video || !playButton || !markOnce(hero, 'introVideoBound')) return;
+
+    const updateState = () => {
+      hero.classList.toggle('is-playing', !video.paused && !video.ended);
+    };
+
+    const attemptPlay = () => {
+      video.play().catch(() => {
+        /* ignore play promise rejection (user gesture requirements etc.) */
+      });
+    };
+
+    playButton.addEventListener('click', (event) => {
+      event.stopPropagation();
+      attemptPlay();
+    });
+
+    video.addEventListener('click', () => {
+      if (video.paused || video.ended) {
+        attemptPlay();
+      } else {
+        video.pause();
+      }
+    });
+
+    video.addEventListener('play', updateState);
+    video.addEventListener('pause', updateState);
+    video.addEventListener('ended', updateState);
+
+    updateState();
+  }
+
   // ---------- Dropdown menus (keyboard + click) ----------
   function initNavDropdowns() {
     const root = document.documentElement;
@@ -203,15 +240,132 @@
     embla.on('select', () => setAsset(embla.selectedScrollSnap()));
   }
 
+  // ---------- Intro gallery slider ----------
+  function initIntroGalleries() {
+    const galleries = document.querySelectorAll('[data-gallery]');
+    if (!galleries.length) return;
+
+    galleries.forEach((gallery) => {
+      if (!markOnce(gallery, 'introGalleryBound')) return;
+
+      const track = gallery.querySelector('.intro-gallery-track');
+      const viewport = gallery.querySelector('.intro-gallery-viewport');
+      const slides = track ? Array.from(track.children) : [];
+      const prev = gallery.querySelector('[data-gallery-prev]');
+      const next = gallery.querySelector('[data-gallery-next]');
+
+      if (!track || !viewport || slides.length <= 1) {
+        prev?.setAttribute('disabled', '');
+        next?.setAttribute('disabled', '');
+        return;
+      }
+
+      let index = 0;
+      let itemWidth = 0;
+      let autoplayId = null;
+      const motionQuery = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+      let allowAutoplay = !(motionQuery?.matches);
+
+      const measure = () => {
+        if (!slides.length) return;
+        const rect = slides[0].getBoundingClientRect();
+        if (!rect.width) {
+          requestAnimationFrame(measure);
+          return;
+        }
+        const style = window.getComputedStyle(slides[0]);
+        const margin = (parseFloat(style.marginLeft) || 0) + (parseFloat(style.marginRight) || 0);
+        itemWidth = rect.width + margin;
+        goTo(index, false);
+      };
+
+      const goTo = (nextIndex, animate = true) => {
+        if (!slides.length || !itemWidth) return;
+        index = (nextIndex + slides.length) % slides.length;
+        track.classList.toggle('is-instant', !animate);
+        const offset = -index * itemWidth;
+        track.style.transform = `translate3d(${offset}px, 0, 0)`;
+        if (!animate) {
+          requestAnimationFrame(() => track.classList.remove('is-instant'));
+        }
+      };
+
+      const startAutoplay = () => {
+        stopAutoplay();
+        if (!allowAutoplay) return;
+        if (!itemWidth) measure();
+        autoplayId = window.setInterval(() => {
+          goTo(index + 1);
+        }, 4500);
+      };
+
+      const stopAutoplay = () => {
+        if (autoplayId) {
+          window.clearInterval(autoplayId);
+          autoplayId = null;
+        }
+      };
+
+      prev?.addEventListener('click', () => {
+        goTo(index - 1);
+        startAutoplay();
+      });
+
+      next?.addEventListener('click', () => {
+        goTo(index + 1);
+        startAutoplay();
+      });
+
+      gallery.addEventListener('mouseenter', stopAutoplay);
+      gallery.addEventListener('mouseleave', startAutoplay);
+      gallery.addEventListener('focusin', stopAutoplay);
+      gallery.addEventListener('focusout', startAutoplay);
+
+      const onVisibilityChange = () => {
+        if (document.hidden) {
+          stopAutoplay();
+        } else {
+          startAutoplay();
+        }
+      };
+
+      document.addEventListener('visibilitychange', onVisibilityChange);
+
+      const onMotionPreferenceChange = () => {
+        allowAutoplay = !(motionQuery?.matches);
+        if (!allowAutoplay) {
+          stopAutoplay();
+        } else {
+          startAutoplay();
+        }
+      };
+      if (motionQuery?.addEventListener) {
+        motionQuery.addEventListener('change', onMotionPreferenceChange);
+      } else if (motionQuery?.addListener) {
+        motionQuery.addListener(onMotionPreferenceChange);
+      }
+
+      measure();
+      window.addEventListener('resize', measure, { passive: true });
+      if (document.hidden) {
+        stopAutoplay();
+      } else {
+        startAutoplay();
+      }
+    });
+  }
+
   // ---------- Boot ----------
   function initAll() {
     initReveal();
     initParallax();
+    initIntroVideo();
     initNavDropdowns();
     initMobileMenu();
     initNavResizeGuard();
     initHeaderScroll();
     initHeroCarousel();
+    initIntroGalleries();
   }
 
   document.addEventListener('DOMContentLoaded', initAll);
