@@ -25,62 +25,97 @@
     
     <!-- Header -->
     <div id="site-header" data-include="partials/header-site.html"></div>
-
-    <!-- 가시림 소개 -->
-    <section class="body-container" aria-labelledby="intro-heading">
-      <h2 id="intro-heading" class="sr-only">가시림 소개</h2>
-
-      <div class="article article-container reveal from-up">
-        <h3 class="h center">수목원을 넘어 복합 문화 공간을 지향하다.</h3>
-        <p class="p center">가시림은 제주 토박이 조경가가 30년 이상의 경력으로 직접 설계·조성한 4,000평 규모의 민간 수목원이며, 원예·명상·예술 등 다양한 문화 프로그램을 운영하는 복합 문화 공간이다.</p>
-      </div>
-
-      <div class="intro-hero reveal parallax from-up"></div>
-
-
-      <div class="article article-container reveal from-left">
-        <h3 class="h left">제주 4호 민간정원</h3>
-        <p class="p left">가시림 수목원은 정부에 등록된 제주 4호 민간정원으로 2023년 12월에 오픈했으며 <b>14개의 정원·숲·길</b>로 구성되어 있다. <b>200년 이상 된 수목</b>이 다수 존재하며, 단순한 포토스팟 조형물이 아닌 진정성 있는 식물 배치 철학을 바탕으로 운영된다. 대표가 매일 아침 직접 나와 세심하게 관리함으로써 사계절 각기 다른 경관을 제공하며, 한 곳에서 다양한 <b>희귀 식물</b>을 감상할 수 있는 독보적인 수목원으로 자리매김하고 있다.</p>
-      </div>
-
-      <section class="intro-gallery reveal from-up" aria-label="가시림 이미지 갤러리" data-gallery>
-        <button class="intro-gallery-nav intro-gallery-nav--prev" type="button" aria-label="이전 사진" data-gallery-prev>
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" fill="currentColor" />
-          </svg>
-        </button>
-        <div class="intro-gallery-viewport">
-          <div class="intro-gallery-track">
-            <div class="gimg gimg-a" role="img" aria-label="갤러리 이미지 A"></div>
-            <div class="gimg gimg-b" role="img" aria-label="갤러리 이미지 B"></div>
-            <div class="gimg gimg-c" role="img" aria-label="갤러리 이미지 C"></div>
-          </div>
+    <main class="shop-main" aria-labelledby="shop-heading">
+      <section class="shop-overview">
+        <div class="shop-overview__inner">
+          <p class="shop-overview__eyebrow">Shop</p>
+          <h2 class="shop-overview__title" id="shop-heading">자연을 닮은 오브제로 공간을 채우다</h2>
+          <p class="shop-overview__description">가시림의 명상과 원예 프로그램에서 영감을 받은 굿즈와 클래스를 엄선했습니다. 감각을 깨우는 수업과 숍 아이템을 통해 일상의 시간을 특별하게 채워보세요.</p>
         </div>
-        <button class="intro-gallery-nav intro-gallery-nav--next" type="button" aria-label="다음 사진" data-gallery-next>
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="m8.59 7.41 1.41-1.41 6 6-6 6-1.41-1.41L13.17 12z" fill="currentColor" />
-          </svg>
-        </button>
       </section>
 
-      <div class="article article-container reveal from-right">
-        <h3 class="h right">수목원은 어떻게 감상해야 하는가</h3>
-        <p class="p right">가시림은 단순한 수목 감상을 넘어, 자연 속에서 오감을 열고 자신을 바라보는 경험을 제공하는 공간이다. 자기 성찰과 휴식을 통해 이루어지는 치유를 지향하며, 수목원인 동시에 복합문화공간이기도 하다. <b>궁극적으로 가시림이 구현하고자 하는 것은 “치유의 정원”이다.</b></p>
-      </div>
+      <section class="shop-catalog" aria-label="가시림 상품 목록">
+        <div class="shop-catalog__header">
+          <div class="shop-filters" role="group" aria-label="상품 분류">
+            <button type="button" class="shop-filter is-active">All</button>
+            <button type="button" class="shop-filter">명상</button>
+            <button type="button" class="shop-filter">원예</button>
+            <button type="button" class="shop-filter">차</button>
+          </div>
+          <p class="shop-note">상품을 클릭하면 외부 스토어 페이지가 새 창에서 열립니다.</p>
+        </div>
 
-      <div class="intro-img-wide reveal from-left"></div>
-      <div class="intro-img-tall reveal from-right"></div>
-      <div class="intro-img-long reveal from-up"></div>
+        <div class="shop-grid">
+          <a class="product-card" href="https://example.com/program/meditation" target="_blank" rel="noopener noreferrer">
+            <figure class="product-card__media">
+              <img src="assets/img/유리온실2.jpg" alt="정규 명상 수업 상품 이미지" loading="lazy">
+            </figure>
+            <div class="product-card__copy">
+              <h3 class="product-card__title">정규 명상 수업</h3>
+              <p class="product-card__description">매주 화요일·목요일 오전 8시 30분, 숲 속 명상 세션</p>
+              <p class="product-card__price">25,000원</p>
+            </div>
+          </a>
 
-      <div class="article article-container reveal from-up">
-        <h3 class="h left">자연을 다각도에서 체험하다</h3>
-        <p class="p left">가시림은 <b>원예, 명상, 예술</b> 프로그램을 통해 <b>자연을 다각도로 체험</b>할 수 있도록 한다. 이를 통해 자신의 감각과 자연에 집중하고 마음을 편안히 가라앉히며 치유의 시간을 갖게 된다.</p>
-      </div>
+          <a class="product-card" href="https://example.com/program/forest" target="_blank" rel="noopener noreferrer">
+            <figure class="product-card__media">
+              <img src="assets/img/유리온실.jpg" alt="숲 명상 체험 상품 이미지" loading="lazy">
+            </figure>
+            <div class="product-card__copy">
+              <h3 class="product-card__title">숲 명상: 오감으로 느끼는 메타세쿼이아</h3>
+              <p class="product-card__description">숲 해설과 함께하는 90분 명상, 계절별 한정 운영</p>
+              <p class="product-card__price">28,000원</p>
+            </div>
+          </a>
 
-      <div class="intro-mosaic-right reveal from-right"></div>
-      <div class="intro-mosaic-left-top reveal from-left"></div>
-      <div class="intro-mosaic-left-bottom reveal from-left"></div>
-    </section>
+          <a class="product-card" href="https://example.com/program/floral" target="_blank" rel="noopener noreferrer">
+            <figure class="product-card__media">
+              <img src="assets/img/가든센터.jpg" alt="플라워 클래스 상품 이미지" loading="lazy">
+            </figure>
+            <div class="product-card__copy">
+              <h3 class="product-card__title">가드닝 &amp; 플라워 클래스</h3>
+              <p class="product-card__description">정원에서 직접 수확한 소재로 만드는 센터피스 작업</p>
+              <p class="product-card__price">45,000원</p>
+            </div>
+          </a>
+
+          <a class="product-card" href="https://example.com/product/tea" target="_blank" rel="noopener noreferrer">
+            <figure class="product-card__media">
+              <img src="assets/img/카페.jpg" alt="허브 티 세트 상품 이미지" loading="lazy">
+            </figure>
+            <div class="product-card__copy">
+              <h3 class="product-card__title">허브 블렌딩 티 세트</h3>
+              <p class="product-card__description">가시림 온실에서 말린 허브를 블렌딩한 시그니처 티</p>
+              <p class="product-card__price">19,000원</p>
+            </div>
+          </a>
+
+          <a class="product-card" href="https://example.com/program/workshop" target="_blank" rel="noopener noreferrer">
+            <figure class="product-card__media">
+              <img src="assets/img/유리온실2.jpg" alt="식물 번식 워크숍 상품 이미지" loading="lazy">
+            </figure>
+            <div class="product-card__copy">
+              <h3 class="product-card__title">식물 번식 워크숍</h3>
+              <p class="product-card__description">삽목과 분주 실습으로 배우는 홈 가드닝 핵심 스킬</p>
+              <p class="product-card__price">32,000원</p>
+            </div>
+          </a>
+
+          <a class="product-card" href="https://example.com/product/mist" target="_blank" rel="noopener noreferrer">
+            <figure class="product-card__media">
+              <img src="assets/img/main.jpg" alt="가시림 시그니처 룸 미스트 상품 이미지" loading="lazy">
+            </figure>
+            <div class="product-card__copy">
+              <h3 class="product-card__title">가시림 시그니처 룸 미스트</h3>
+              <p class="product-card__description">숲 내음과 감귤 향을 담은 공간향, 휴식의 순간을 완성</p>
+              <p class="product-card__price">21,000원</p>
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+
+
 
     <!-- Footer (loaded from /partials/footer.html) -->
     <div id="site-footer" data-include="partials/footer.html"></div>
