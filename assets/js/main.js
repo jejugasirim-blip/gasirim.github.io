@@ -316,11 +316,6 @@
         startAutoplay();
       });
 
-      gallery.addEventListener('mouseenter', stopAutoplay);
-      gallery.addEventListener('mouseleave', startAutoplay);
-      gallery.addEventListener('focusin', stopAutoplay);
-      gallery.addEventListener('focusout', startAutoplay);
-
       const onVisibilityChange = () => {
         if (document.hidden) {
           stopAutoplay();
