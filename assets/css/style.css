@@ -203,6 +203,83 @@
   height: 100%;
 }
 
+.hero-slideshow--video {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+}
+
+.hero-video__container {
+  position: relative;
+  height: 100%;
+}
+
+.hero-slideshow--video .intro-hero {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.hero-slideshow--video .intro-video {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  border-radius: 0;
+  box-shadow: none;
+  object-fit: cover;
+}
+
+.hero-slideshow--video .intro-video-play {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-slideshow--video .intro-video-play:hover,
+.hero-slideshow--video .intro-video-play:focus-visible {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.hero-video__overlay {
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  gap: clamp(1rem, 4vw, 2.5rem);
+}
+
+.hero-video__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.5rem;
+  justify-items: end;
+}
+
+.hero-video__list a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  opacity: 0.65;
+  transition: opacity 200ms ease;
+}
+
+.hero-video__list a:hover,
+.hero-video__list a:focus-visible {
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .hero-video__overlay {
+    align-items: flex-start;
+  }
+
+  .hero-video__list {
+    justify-items: start;
+    text-align: left;
+  }
+}
+
 .embla__slide {
   flex: 0 0 100%;
   position: relative;
@@ -806,12 +883,8 @@
 
 .intro-gallery {
   position: relative;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
   width: 100%;
   margin: var(--section-gap) auto;
-  gap: clamp(12px, 2vw, 28px);
   background: transparent;
 }
 
@@ -849,7 +922,8 @@
 .gimg-c { background-image: url('../img/가든센터.jpg'); }
 
 .intro-gallery-nav {
-  position: relative;
+  position: absolute;
+  top: clamp(12px, 3vw, 36px);
   display: grid;
   place-items: center;
   width: clamp(48px, 6vw, 72px);
@@ -859,8 +933,12 @@
   color: #fff;
   cursor: pointer;
   outline: none;
+  z-index: 2;
   transition: transform 220ms ease;
 }
+
+.intro-gallery-nav--prev { left: clamp(12px, 3vw, 36px); }
+.intro-gallery-nav--next { right: clamp(12px, 3vw, 36px); }
 
 .intro-gallery-nav::before {
   content: "";
