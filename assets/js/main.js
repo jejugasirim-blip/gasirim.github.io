@@ -47,41 +47,36 @@
     onScroll();
   }
 
-  // ---------- Intro video custom controls ----------
+  // ---------- Intro video autoplay ----------
   function initIntroVideo() {
     const hero = document.querySelector('.intro-hero[data-video]');
     const video = hero?.querySelector('video');
-    const playButton = hero?.querySelector('.intro-video-play');
-    if (!hero || !video || !playButton || !markOnce(hero, 'introVideoBound')) return;
+    if (!hero || !video || !markOnce(hero, 'introVideoBound')) return;
 
-    const updateState = () => {
-      hero.classList.toggle('is-playing', !video.paused && !video.ended);
-    };
+    video.muted = true;
+    video.loop = true;
+    video.autoplay = true;
+    video.controls = false;
+    video.setAttribute('muted', '');
+    video.setAttribute('autoplay', '');
+    video.setAttribute('loop', '');
 
     const attemptPlay = () => {
       video.play().catch(() => {
-        /* ignore play promise rejection (user gesture requirements etc.) */
+        /* Some browsers require user interaction before autoplay */
       });
     };
 
-    playButton.addEventListener('click', (event) => {
-      event.stopPropagation();
-      attemptPlay();
-    });
-
-    video.addEventListener('click', () => {
-      if (video.paused || video.ended) {
+    const onVisibilityChange = () => {
+      if (!document.hidden) {
         attemptPlay();
-      } else {
-        video.pause();
       }
-    });
+    };
 
-    video.addEventListener('play', updateState);
-    video.addEventListener('pause', updateState);
-    video.addEventListener('ended', updateState);
+    video.addEventListener('canplay', attemptPlay, { once: true });
+    document.addEventListener('visibilitychange', onVisibilityChange);
 
-    updateState();
+    attemptPlay();
   }
 
   // ---------- Dropdown menus (keyboard + click) ----------
@@ -250,71 +245,154 @@
 
       const track = gallery.querySelector('.intro-gallery-track');
       const viewport = gallery.querySelector('.intro-gallery-viewport');
-      const slides = track ? Array.from(track.children) : [];
+      const baseSlides = track ? Array.from(track.children) : [];
       const prev = gallery.querySelector('[data-gallery-prev]');
       const next = gallery.querySelector('[data-gallery-next]');
 
-      if (!track || !viewport || slides.length <= 1) {
+      if (!track || !viewport || baseSlides.length <= 1) {
         prev?.setAttribute('disabled', '');
         next?.setAttribute('disabled', '');
         return;
       }
 
-      let index = 0;
+      // Clone slides to create a seamless loop
+      baseSlides.forEach((slide) => {
+        const clone = slide.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        clone.dataset.clone = 'true';
+        track.appendChild(clone);
+      });
+
       let itemWidth = 0;
-      let autoplayId = null;
+      let loopWidth = 0;
+      let offset = 0;
+      let animationId = null;
+      let lastTs = null;
+      let pendingStart = false;
+      const requestedSpeed = Number(gallery.dataset.gallerySpeed);
+      const hasExplicitSpeed = Number.isFinite(requestedSpeed) && requestedSpeed > 0;
+      const requestedDuration = Number(gallery.dataset.galleryDuration || 20);
+      let pixelsPerSecond = hasExplicitSpeed ? requestedSpeed : 0;
       const motionQuery = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
       let allowAutoplay = !(motionQuery?.matches);
+      const getTransitionDuration = () => {
+        const raw = window.getComputedStyle(gallery).getPropertyValue('--intro-gallery-transition').trim();
+        if (!raw) return 600;
+        if (raw.endsWith('ms')) {
+          const value = parseFloat(raw);
+          return Number.isFinite(value) ? value : 600;
+        }
+        if (raw.endsWith('s')) {
+          const value = parseFloat(raw);
+          return Number.isFinite(value) ? value * 1000 : 600;
+        }
+        const value = parseFloat(raw);
+        return Number.isFinite(value) ? value : 600;
+      };
+      const transitionDurationMs = getTransitionDuration();
+
+      const wrapOffset = (value) => {
+        if (!loopWidth) return value;
+        let wrapped = value % loopWidth;
+        if (wrapped < 0) wrapped += loopWidth;
+        return wrapped;
+      };
+
+      const applyTransform = () => {
+        track.style.transform = `translate3d(${-offset}px, 0, 0)`;
+      };
 
       const measure = () => {
-        if (!slides.length) return;
-        const rect = slides[0].getBoundingClientRect();
+        if (!baseSlides.length) return;
+        const rect = baseSlides[0].getBoundingClientRect();
         if (!rect.width) {
           requestAnimationFrame(measure);
           return;
         }
-        const style = window.getComputedStyle(slides[0]);
+        const style = window.getComputedStyle(baseSlides[0]);
         const margin = (parseFloat(style.marginLeft) || 0) + (parseFloat(style.marginRight) || 0);
         itemWidth = rect.width + margin;
-        goTo(index, false);
+        loopWidth = itemWidth * baseSlides.length;
+        if (!hasExplicitSpeed) {
+          const duration = Number.isFinite(requestedDuration) && requestedDuration > 0 ? requestedDuration : 20;
+          pixelsPerSecond = loopWidth / duration;
+        }
+        offset = wrapOffset(offset);
+        applyTransform();
+        if (pendingStart && allowAutoplay && !animationId && !document.hidden) {
+          pendingStart = false;
+          startAutoplay();
+        }
       };
 
-      const goTo = (nextIndex, animate = true) => {
-        if (!slides.length || !itemWidth) return;
-        index = (nextIndex + slides.length) % slides.length;
-        track.classList.toggle('is-instant', !animate);
-        const offset = -index * itemWidth;
-        track.style.transform = `translate3d(${offset}px, 0, 0)`;
-        if (!animate) {
-          requestAnimationFrame(() => track.classList.remove('is-instant'));
+      const step = (ts) => {
+        if (!allowAutoplay) {
+          animationId = null;
+          return;
         }
+        if (lastTs == null) lastTs = ts;
+        const delta = ts - lastTs;
+        lastTs = ts;
+        if (loopWidth && delta > 0 && pixelsPerSecond > 0) {
+          const advance = (pixelsPerSecond * delta) / 1000;
+          offset = wrapOffset(offset + advance);
+          applyTransform();
+        }
+        animationId = requestAnimationFrame(step);
       };
 
       const startAutoplay = () => {
-        stopAutoplay();
-        if (!allowAutoplay) return;
-        if (!itemWidth) measure();
-        autoplayId = window.setInterval(() => {
-          goTo(index + 1);
-        }, 4500);
+        if (!allowAutoplay || animationId) return;
+        if (!itemWidth || !loopWidth) {
+          pendingStart = true;
+          measure();
+          return;
+        }
+        gallery.classList.add('is-autoplaying');
+        lastTs = null;
+        animationId = requestAnimationFrame(step);
       };
 
       const stopAutoplay = () => {
-        if (autoplayId) {
-          window.clearInterval(autoplayId);
-          autoplayId = null;
+        if (animationId) {
+          cancelAnimationFrame(animationId);
+          animationId = null;
         }
+        lastTs = null;
+        pendingStart = false;
+        gallery.classList.remove('is-autoplaying');
       };
 
-      prev?.addEventListener('click', () => {
-        goTo(index - 1);
-        startAutoplay();
-      });
+      const snapToNearest = () => {
+        if (!itemWidth || !loopWidth) return;
+        offset = wrapOffset(Math.round(offset / itemWidth) * itemWidth);
+        applyTransform();
+      };
 
-      next?.addEventListener('click', () => {
-        goTo(index + 1);
-        startAutoplay();
-      });
+      const shiftBy = (deltaSlides) => {
+        if (!itemWidth || !loopWidth) return;
+        stopAutoplay();
+        snapToNearest();
+        offset = wrapOffset(offset + deltaSlides * itemWidth);
+        track.classList.add('is-animating');
+        applyTransform();
+        const onEnd = () => {
+          track.classList.remove('is-animating');
+          track.removeEventListener('transitionend', onEnd);
+          startAutoplay();
+        };
+        track.addEventListener('transitionend', onEnd, { once: true });
+        // Fallback in case transitionend doesn't fire (e.g., reduced-motion settings)
+        window.setTimeout(() => {
+          if (track.classList.contains('is-animating')) {
+            track.classList.remove('is-animating');
+            startAutoplay();
+          }
+        }, transitionDurationMs + 100);
+      };
+
+      prev?.addEventListener('click', () => shiftBy(-1));
+      next?.addEventListener('click', () => shiftBy(1));
 
       const onVisibilityChange = () => {
         if (document.hidden) {
