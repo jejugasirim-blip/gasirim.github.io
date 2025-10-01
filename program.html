@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Programs | 가시림</title>
+  <meta name="description" content="가시림 명상 프로그램 — 숲과 원예, 감각을 깨우는 명상 수업 안내." />
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+  <!-- Preload the big header background (faster perceived load) -->
+  <link rel="preload" as="image" href="assets/img/main.jpg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Zen+Old+Mincho&family=Nanum+Myeongjo&display=swap"/>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/styleguide.css"/>
+  <link rel="stylesheet" href="assets/css/globals.css"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body>
+  <div class="page">
+    <!-- Header -->
+    <div id="site-header" data-include="partials/header-site.html"></div>
+
+    <main class="program-main" aria-labelledby="program-heading">
+      <section class="program-hero">
+        <div class="program-hero__grid">
+          <div class="program-hero__copy">
+            <p class="program-hero__eyebrow">Programs</p>
+            <h1 class="program-hero__title" id="program-heading">가시림 명상 프로그램</h1>
+            <p class="program-hero__lead">숲의 호흡을 닮은 루틴과 명상, 가드닝이 어우러진 가시림의 시그니처 프로그램을 소개합니다. 호흡을 따라 걷고, 계절의 향을 음미하며 자신과 마주하는 시간을 준비했습니다.</p>
+            <p class="program-hero__description">Interpret different emerging, even when venian anim aute carefully. Evocative Garden awesomely restorative practices mindful and intrinsic. Compose, slow intentional forest-bath rituals. Punctual alongside, essential inquiry eleven tempor ensured true.</p>
+          </div>
+          <figure class="program-hero__media">
+            <img src="assets/img/main.jpg" alt="나무 사이로 들어오는 햇살이 비추는 숲길" loading="lazy">
+          </figure>
+        </div>
+      </section>
+
+      <section class="program-catalog" aria-label="가시림 명상 프로그램 목록">
+        <div class="program-grid">
+          <article class="program-card" role="button" tabindex="0" aria-haspopup="dialog" data-program-id="regular-class">
+            <figure class="program-card__media">
+              <img src="assets/img/유리온실2.jpg" alt="정규 명상 수업 장면" loading="lazy">
+            </figure>
+            <div class="program-card__body">
+              <div class="program-card__meta">
+                <p class="program-card__category">정규 명상 수업</p>
+                <p class="program-card__subtitle">매주 화·목 08:30 — 숲길 호흡과 온실 명상</p>
+              </div>
+              <p class="program-card__description">여명의 빛이 드는 산책길을 따라 몸을 깨우고, 온실에서의 집중 호흡으로 하루를 단단하게 여는 정규 세션입니다. 초심자도 안전하게 따라올 수 있도록 호흡의 리듬과 마음챙김을 세심하게 안내합니다.</p>
+              <div class="program-card__footer">
+                <p class="program-card__duration">90분 프로그램</p>
+                <p class="program-card__price">25,000원</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="program-card" role="button" tabindex="0" aria-haspopup="dialog" data-program-id="forest-immersion">
+            <figure class="program-card__media">
+              <img src="assets/img/유리온실.jpg" alt="메타세쿼이아 숲 명상" loading="lazy">
+            </figure>
+            <div class="program-card__body">
+              <div class="program-card__meta">
+                <p class="program-card__category">숲 명상: 오감으로 느끼는 메타세쿼이아 숲</p>
+                <p class="program-card__subtitle">계절별 주말 10:00 — 숲 해설과 함께하는 깊은 몰입</p>
+              </div>
+              <p class="program-card__description">울창한 메타세쿼이아 숲에서 계절별 향과 색을 느끼며 감각을 열고, 자연의 소리를 오롯이 듣는 시간을 마련했습니다. 안내자의 세심한 해설과 함께 숲의 숨결에 집중하는 깊은 명상 여정을 경험해보세요.</p>
+              <div class="program-card__footer">
+                <p class="program-card__duration">120분 프로그램</p>
+                <p class="program-card__price">25,000원</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div class="program-modal" data-program-modal hidden>
+      <div class="program-modal__backdrop" data-program-modal-close></div>
+      <div class="program-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="program-modal-title" tabindex="-1">
+        <button type="button" class="program-modal__close" aria-label="닫기" data-program-modal-close>
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="program-modal__content" data-program-modal-content></div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="site-footer" data-include="partials/footer.html"></div>
+  </div>
+
+  <!-- JS -->
+  <script src="assets/js/includes.js" defer></script>
+  <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js" defer></script>
+  <script src="https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
