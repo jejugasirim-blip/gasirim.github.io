@@ -9,6 +9,255 @@
     return true;
   }
 
+  const PROGRAM_DATA = {
+    'regular-class': {
+      title: '정규 명상 수업',
+      subtitle: '숲길을 걷고 온실에서 호흡을 정리하며 하루의 호흡을 여는 90분 프로그램.',
+      ctaHref: 'https://forms.gle/7K6YRegularMeditation',
+      ctaLabel: '신청 하기',
+      gallery: [
+        { src: 'assets/img/유리온실2.jpg', alt: '아침 햇살이 드는 온실에서 명상 중인 참가자들' },
+        { src: 'assets/img/유리온실.jpg', alt: '숲길에서 호흡을 맞추며 걷는 정규 명상 수업' },
+        { src: 'assets/img/main.jpg', alt: '햇살이 스며드는 가시림 산책길' },
+        { src: 'assets/img/가든센터.jpg', alt: '온실 앞 휴식 공간에서 허브차를 즐기는 모습' }
+      ],
+      bodyHtml: `
+        <h3 class="program-modal__section-title">프로그램 소개</h3>
+        <p class="program-modal__paragraph">숲의 기운을 몸에 채우는 걷기 명상과 온실에서의 집중 호흡으로 구성된 가시림의 시그니처 정규 수업입니다. 호흡과 몸의 움직임을 섬세하게 정리하여 초심자도 안정적으로 몰입할 수 있도록 구성했습니다.</p>
+        <dl class="program-modal__facts">
+          <div class="program-modal__fact"><dt>진행 요일</dt><dd>매주 화 · 목 08:30 (90분)</dd></div>
+          <div class="program-modal__fact"><dt>장소</dt><dd>가시림 메타세쿼이아 산책길 &amp; 유리온실 명상실</dd></div>
+          <div class="program-modal__fact"><dt>정원</dt><dd>회차당 12명 내외 (선착순 마감)</dd></div>
+          <div class="program-modal__fact"><dt>참가비</dt><dd>25,000원 (허브티 &amp; 온실 입장 포함)</dd></div>
+        </dl>
+        <section class="program-modal__section">
+          <h4 class="program-modal__section-title">커리큘럼</h4>
+          <ol class="program-modal__list">
+            <li>숲길 호흡 워밍업 30분 — 보행 명상과 감각 깨우기</li>
+            <li>온실 프라이빗 스트레칭 20분 — 관절 이완과 중심 잡기</li>
+            <li>앉은 명상 &amp; 바디스캔 25분 — 호흡 리듬에 집중하며 내면 관찰</li>
+            <li>티 세레머니 15분 — 허브차와 함께 일상으로 부드럽게 복귀</li>
+          </ol>
+        </section>
+        <section class="program-modal__section">
+          <h4 class="program-modal__section-title">준비물</h4>
+          <ul class="program-modal__list">
+            <li>움직임이 편한 복장, 가벼운 겉옷</li>
+            <li>개인 물병 (온실 내 정수기 이용 가능)</li>
+            <li>필요 시 개인 요가 매트 (현장 대여 가능)</li>
+          </ul>
+        </section>
+        <section class="program-modal__section">
+          <h4 class="program-modal__section-title">안내 사항</h4>
+          <ul class="program-modal__list">
+            <li>시작 10분 전까지 가든센터 리셉션에서 체크인 해 주세요.</li>
+            <li>지각 시 안전을 위해 다음 회차로 이동될 수 있습니다.</li>
+            <li>우천 시에도 온실 내 프로그램은 정상 진행됩니다.</li>
+          </ul>
+          <p class="program-modal__note">문의: contact@gasirim.kr / 070-4281-0906</p>
+        </section>
+      `
+    },
+    'forest-immersion': {
+      title: '숲 명상: 오감으로 느끼는 메타세쿼이아 숲',
+      subtitle: '계절의 향과 소리를 따라 깊이 몰입하는 주말 집중 명상 여정.',
+      ctaHref: 'https://forms.gle/4V2ForestImmersion',
+      ctaLabel: '신청 하기',
+      gallery: [
+        { src: 'assets/img/유리온실.jpg', alt: '메타세쿼이아 숲길을 천천히 걷는 참가자들' },
+        { src: 'assets/img/main.jpg', alt: '나무 사이로 내리쬐는 햇살과 물안개' },
+        { src: 'assets/img/카페.jpg', alt: '숲 명상 후 티 브레이크를 즐기는 공간' },
+        { src: 'assets/img/가든센터.jpg', alt: '해설가와 함께 숲 식생을 살피는 모습' }
+      ],
+      bodyHtml: `
+        <h3 class="program-modal__section-title">프로그램 소개</h3>
+        <p class="program-modal__paragraph">울창한 메타세쿼이아 숲을 가이드와 함께 천천히 걷고, 향과 소리를 세밀하게 탐색하며 감각을 열어가는 주말 집중 프로그램입니다. 계절에 따라 달라지는 숲의 스토리를 담은 해설과 함께 깊은 몰입을 경험해 보세요.</p>
+        <dl class="program-modal__facts">
+          <div class="program-modal__fact"><dt>진행 요일</dt><dd>계절별 주말 10:00 (120분)</dd></div>
+          <div class="program-modal__fact"><dt>장소</dt><dd>가시림 메타세쿼이아 숲길 &amp; 야외 명상존</dd></div>
+          <div class="program-modal__fact"><dt>정원</dt><dd>회차당 16명 (사전 예약 필수)</dd></div>
+          <div class="program-modal__fact"><dt>참가비</dt><dd>25,000원 (숲 해설 &amp; 허브 블렌딩 포함)</dd></div>
+        </dl>
+        <section class="program-modal__section">
+          <h4 class="program-modal__section-title">커리큘럼</h4>
+          <ol class="program-modal__list">
+            <li>사운드 어웨어니스 25분 — 새소리와 바람을 듣는 호흡 정렬</li>
+            <li>포커스 워크 35분 — 식생 해설과 함께 감각 확장</li>
+            <li>야외 바디스캔 30분 — 자연물과 함께하는 촉각 명상</li>
+            <li>향 테라피 &amp; 쉐어링 30분 — 계절 허브 블렌딩과 나눔</li>
+          </ol>
+        </section>
+        <section class="program-modal__section">
+          <h4 class="program-modal__section-title">준비물</h4>
+          <ul class="program-modal__list">
+            <li>편안한 운동화 및 우천 대비 우비</li>
+            <li>개인 방석 또는 접이식 시트 (현장 대여 가능)</li>
+            <li>모기 기피제, 개인 보온 음료</li>
+          </ul>
+        </section>
+        <section class="program-modal__section">
+          <h4 class="program-modal__section-title">안내 사항</h4>
+          <ul class="program-modal__list">
+            <li>기상 상황에 따라 일부 코스는 숲 해설 데크로 대체될 수 있습니다.</li>
+            <li>자연 보호를 위해 개인 쓰레기는 반드시 되가져가 주세요.</li>
+            <li>10세 이하 아동은 보호자 동반 시 참여 가능합니다.</li>
+          </ul>
+          <p class="program-modal__note">문의: programs@gasirim.kr / 070-4281-0906</p>
+        </section>
+      `
+    }
+  };
+
+  function initProgramModals() {
+    const modal = document.querySelector('[data-program-modal]');
+    const cards = document.querySelectorAll('[data-program-id]');
+    if (!modal || !cards.length || !markOnce(modal, 'programModalBound')) return;
+
+    const dialog = modal.querySelector('.program-modal__dialog');
+    const content = modal.querySelector('[data-program-modal-content]');
+    const closeEls = modal.querySelectorAll('[data-program-modal-close]');
+    let activeTrigger = null;
+
+    const updateGallery = (galleryRoot, images) => {
+      const stageImg = galleryRoot.querySelector('[data-program-modal-stage]');
+      const thumbButtons = Array.from(galleryRoot.querySelectorAll('.program-modal__thumb'));
+      const prev = galleryRoot.querySelector('[data-program-modal-prev]');
+      const next = galleryRoot.querySelector('[data-program-modal-next]');
+      let activeIndex = 0;
+
+      const setActive = (index) => {
+        if (!images[index]) return;
+        activeIndex = index;
+        stageImg.src = images[index].src;
+        stageImg.alt = images[index].alt;
+        thumbButtons.forEach((btn, idx) => {
+          btn.classList.toggle('is-active', idx === index);
+          if (idx === index) {
+            btn.setAttribute('aria-current', 'true');
+            btn.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+          } else {
+            btn.removeAttribute('aria-current');
+          }
+        });
+      };
+
+      thumbButtons.forEach((btn, idx) => {
+        btn.addEventListener('click', () => setActive(idx));
+      });
+
+      prev?.addEventListener('click', () => {
+        const nextIndex = (activeIndex - 1 + images.length) % images.length;
+        setActive(nextIndex);
+      });
+
+      next?.addEventListener('click', () => {
+        const nextIndex = (activeIndex + 1) % images.length;
+        setActive(nextIndex);
+      });
+
+      setActive(0);
+    };
+
+    const renderModal = (id) => {
+      const data = PROGRAM_DATA[id];
+      if (!data) return false;
+      content.innerHTML = '';
+
+      const header = document.createElement('header');
+      header.className = 'program-modal__header';
+      header.innerHTML = `
+        <div class="program-modal__header-top">
+          <h2 class="program-modal__title" id="program-modal-title">${data.title}</h2>
+          <a class="program-modal__cta" href="${data.ctaHref}" target="_blank" rel="noopener noreferrer">${data.ctaLabel}</a>
+        </div>
+        <p class="program-modal__subtitle">${data.subtitle}</p>
+      `;
+      content.appendChild(header);
+
+      if (Array.isArray(data.gallery) && data.gallery.length) {
+        const gallery = document.createElement('section');
+        gallery.className = 'program-modal__gallery';
+        gallery.setAttribute('aria-label', '프로그램 이미지 갤러리');
+        gallery.innerHTML = `
+          <figure class="program-modal__stage">
+            <img src="${data.gallery[0].src}" alt="${data.gallery[0].alt}" data-program-modal-stage>
+          </figure>
+          <div class="program-modal__thumbs">
+            <button type="button" class="program-modal__thumb-arrow" data-program-modal-prev aria-label="이전 이미지">&#8592;</button>
+            <div class="program-modal__thumb-track" data-program-modal-track>
+              ${data.gallery.map((image, index) => `
+                <button type="button" class="program-modal__thumb${index === 0 ? ' is-active' : ''}" data-index="${index}">
+                  <img src="${image.src}" alt="${image.alt}">
+                </button>
+              `).join('')}
+            </div>
+            <button type="button" class="program-modal__thumb-arrow" data-program-modal-next aria-label="다음 이미지">&#8594;</button>
+          </div>
+        `;
+        content.appendChild(gallery);
+        updateGallery(gallery, data.gallery);
+      }
+
+      const article = document.createElement('article');
+      article.className = 'program-modal__article';
+      article.innerHTML = data.bodyHtml;
+      content.appendChild(article);
+
+      content.scrollTop = 0;
+      return true;
+    };
+
+    const closeModal = () => {
+      if (modal.hasAttribute('hidden')) return;
+      modal.setAttribute('hidden', '');
+      modal.classList.remove('is-open');
+      document.body.classList.remove('modal-open');
+      content.innerHTML = '';
+      if (activeTrigger) {
+        activeTrigger.focus();
+        activeTrigger = null;
+      }
+    };
+
+    const openModal = (id, trigger) => {
+      if (!renderModal(id)) return;
+      activeTrigger = trigger || null;
+      modal.classList.add('is-open');
+      modal.removeAttribute('hidden');
+      document.body.classList.add('modal-open');
+      if (dialog) {
+        dialog.scrollTop = 0;
+      }
+      dialog?.focus({ preventScroll: true });
+    };
+
+    closeEls.forEach((el) => {
+      el.addEventListener('click', closeModal);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !modal.hasAttribute('hidden')) {
+        event.preventDefault();
+        closeModal();
+      }
+    });
+
+    cards.forEach((card) => {
+      card.addEventListener('click', () => {
+        const id = card.dataset.programId;
+        openModal(id, card);
+      });
+
+      card.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          const id = card.dataset.programId;
+          openModal(id, card);
+        }
+      });
+    });
+  }
+
   // ---------- Reveal on scroll ----------
   function initReveal() {
     const root = document.documentElement;
@@ -439,6 +688,7 @@
     initHeaderScroll();
     initHeroCarousel();
     initIntroGalleries();
+    initProgramModals();
   }
 
   document.addEventListener('DOMContentLoaded', initAll);
