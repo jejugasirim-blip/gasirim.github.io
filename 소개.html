@@ -30,16 +30,16 @@
     <main>
       <!-- Navigation Tab -->
       <nav class="intro-tabs" data-tabs role="tablist" aria-label="소개 섹션">
-        <button class="tab-button active" role="tab" id="tab-space" aria-controls="panel-space" aria-selected="true" href="#공간소개">공간 소개</button>
-        <button class="tab-button" role="tab" id="tab-map" aria-controls="panel-map" aria-selected="false" href="#수목원지도">수목원 지도</button>
-        <button class="tab-button" role="tab" id="tab-tour" aria-controls="panel-tour" aria-selected="false" href="#둘러보기">둘러 보기</button>
+        <button class="tab-button active" type="button" role="tab" id="tab-space" aria-controls="공간소개" aria-selected="true" data-hash="공간소개">공간 소개</button>
+        <button class="tab-button" type="button" role="tab" id="tab-map" aria-controls="수목원지도" aria-selected="false" data-hash="수목원지도">수목원 지도</button>
+        <button class="tab-button" type="button" role="tab" id="tab-tour" aria-controls="둘러보기" aria-selected="false" data-hash="둘러보기">둘러 보기</button>
       </nav>
 
       <!-- 공간소개 -->
-      <section id="panel-space" class="tab-panel" role="tabpanel" tabindex="0" href="#공간소개">
+      <section id="공간소개" class="tab-panel" role="tabpanel" tabindex="0">
         <!-- Toggle Button -->
         <div class="space-tabs reveal parallax from-up" data-tabs role="tablist" aria-label="공간소개 분류">
-          <button class="tab-button active" role="tab" id="tab-facility" aria-controls="panel-facility" aria-selected="true">시설</button>
+          <button class="tab-button active" role="tab" id="tab-facility" aria-controls="panel-facility-detail" aria-selected="true">시설</button>
           <button class="tab-button" role="tab" id="tab-garden-detail" aria-controls="panel-garden-detail" aria-selected="false">정원</button>
         </div>
         <!-- 시설 공간 소개 -->
@@ -71,7 +71,7 @@
       </section>
 
       <!-- 수목원 지도 -->
-      <section id="panel-map" class="tab-panel" role="tabpanel" tabindex="0" href="#수목원지도">
+      <section id="수목원지도" class="tab-panel" role="tabpanel" tabindex="0" hidden>
         <!-- 지도 -->
         <div class="intro-hero reveal parallax from-up">
           <img src="assets/img/main.jpg" title="map">
@@ -80,7 +80,7 @@
       </section>
 
       <!-- 둘러 보기 -->
-      <section id="panel-tour" class="tab-panel" role="tabpanel" tabindex="0" hidden href="#둘러보기">
+      <section id="둘러보기" class="tab-panel" role="tabpanel" tabindex="0" hidden>
         <div class="gallery-cards reveal parallax from-up">
             <article class="card">
               <img src="assets/img/main.jpg" alt="예시 이미지" class="card-img"/>
