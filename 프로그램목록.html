@@ -26,9 +26,9 @@
     <div id="site-header" data-include="partials/header-site.html"></div>
     <div id="site-bar" data-include="partials/sticky-header-bar.html"></div>
 
-    <main class="program-main" aria-labelledby="program-heading">
+    <main>
       <!-- Navigation Tab -->
-      <nav class="program-tabs" data-tabs role="tablist" aria-label="프로그램 섹션">
+      <nav class="intro-tabs data-tabs role="tablist" aria-label="프로그램 섹션">
         <button class="tab-button active" type="button" role="tab" id="tab-space" aria-controls="All" aria-selected="true" data-hash="All">ALL</button>
         <button class="tab-button" type="button" role="tab" id="tab-map" aria-controls="산책명상" aria-selected="false" data-hash="명상">산책명상</button>
         <button class="tab-button" type="button" role="tab" id="tab-map" aria-controls="명상" aria-selected="false" data-hash="명상">명상</button>
@@ -134,7 +134,7 @@
       </section>
 
       <!-- 산책명상 -->
-      <section id="산책명상" class="tab-panel" role="tabpanel" tabindex="0">
+      <section id="산책명상" class="tab-panel" role="tabpanel" tabindex="0" hidden>
         <div class="program-catalog" aria-label="가시림 산책명상 프로그램 목록">
           <div class="program-grid">
             <article class="program-card" role="button" tabindex="0" aria-haspopup="dialog" data-program-id="sunrise-walk">
@@ -159,7 +159,7 @@
       </section>
 
       <!-- 명상 -->
-      <section id="명상" class="tab-panel" role="tabpanel" tabindex="0">
+      <section id="명상" class="tab-panel" role="tabpanel" tabindex="0" hidden>
         <div class="program-catalog" aria-label="가시림 명상 프로그램 목록">
           <div class="program-grid">
             <article class="program-card" role="button" tabindex="0" aria-haspopup="dialog" data-program-id="forest-immersion">
@@ -202,7 +202,7 @@
       </section>
 
       <!-- 원예 -->
-      <section id="원예" class="tab-panel" role="tabpanel" tabindex="0">
+      <section id="원예" class="tab-panel" role="tabpanel" tabindex="0" hidden>
         <div class="program-catalog" aria-label="가시림 원예 프로그램 목록"></div>
           <div class="program-grid">
             <article class="program-card" role="button" tabindex="0" aria-haspopup="dialog" data-program-id="horticulture-lab">
