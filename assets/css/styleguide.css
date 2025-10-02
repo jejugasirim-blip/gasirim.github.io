@@ -1,5 +1,5 @@
 :root {
-  --page-pad: clamp(16px, 4vw, 40px);
+  --page-pad: clamp(20px, 5vw, 72px);
   --section-gap: clamp(24px, 6vw, 64px);
   /* Colors */
   --color-bg: #ffffff;

@@ -30,8 +30,8 @@
     emblaInstance = EmblaCarousel(modal.querySelector('.embla__viewport'), { loop: true });
     const prev = modal.querySelector('.embla__prev');
     const next = modal.querySelector('.embla__next');
-    prev.onclick = emblaInstance.scrollPrev;
-    next.onclick = emblaInstance.scrollNext;
+    if (prev) prev.onclick = () => emblaInstance?.scrollPrev();
+    if (next) next.onclick = () => emblaInstance?.scrollNext();
   }
 
   function closeModal() {
@@ -44,10 +44,39 @@
     }
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('#panel-facility-detail .space-card, #panel-garden-detail .space-card').forEach(card => {
-      card.addEventListener('click', () => openModal(card));
+  const applyFilter = (filter, cards) => {
+    cards.forEach(card => {
+      const matches = filter === 'all' || card.dataset.spaceType === filter;
+      card.classList.toggle('is-hidden', !matches);
     });
+  };
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = Array.from(document.querySelectorAll('[data-space-gallery] .space-card'));
+    cards.forEach(card => {
+      card.addEventListener('click', () => openModal(card));
+      card.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openModal(card);
+        }
+      });
+    });
+
+    const filterButtons = Array.from(document.querySelectorAll('[data-space-filter]'));
+    if (filterButtons.length) {
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const filter = button.dataset.spaceFilter || 'all';
+          filterButtons.forEach(btn => {
+            const isActive = btn === button;
+            btn.classList.toggle('is-active', isActive);
+            btn.setAttribute('aria-pressed', String(isActive));
+          });
+          applyFilter(filter, cards);
+        });
+      });
+    }
 
     document.getElementById('space-modal').addEventListener('click', (e) => {
       if (e.target === e.currentTarget) closeModal();
@@ -62,5 +91,15 @@
         closeModal();
       }
     });
+
+    if (filterButtons.length) {
+      const active = filterButtons.find(btn => btn.classList.contains('is-active')) || filterButtons[0];
+      filterButtons.forEach(btn => {
+        const isActive = btn === active;
+        btn.classList.toggle('is-active', isActive);
+        btn.setAttribute('aria-pressed', String(isActive));
+      });
+      applyFilter(active ? active.dataset.spaceFilter || 'all' : 'all', cards);
+    }
   });
 })();
