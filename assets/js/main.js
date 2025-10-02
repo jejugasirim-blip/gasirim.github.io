@@ -47,14 +47,14 @@
             <li>필요 시 가벼운 장갑</li>
           </ul>
         </section>
-        <section class="program-modal__notice">
-          <h4 class="program-modal__notice-title">안내 사항</h4>
-          <ul class="program-modal__notice-list">
+        <section class="program-modal__section">
+          <h4 class="program-modal__section-title">안내 사항</h4>
+          <ul class="program-modal__list">
             <li>일출 시각에 따라 시작 시간이 10분 내외로 조정될 수 있습니다.</li>
             <li>우천 시에는 온실 내 걷기 명상으로 대체 진행합니다.</li>
             <li>노약자는 스태프의 별도 안내에 따라 진행합니다.</li>
           </ul>
-          <p class="program-modal__notice-contact">문의: walk@gasirim.kr / 070-4281-0906</p>
+          <p class="program-modal__note">문의: walk@gasirim.kr / 070-4281-0906</p>
         </section>
       `
     },
@@ -95,14 +95,14 @@
             <li>모기 기피제, 개인 보온 음료</li>
           </ul>
         </section>
-        <section class="program-modal__notice">
-          <h4 class="program-modal__notice-title">안내 사항</h4>
-          <ul class="program-modal__notice-list">
+        <section class="program-modal__section">
+          <h4 class="program-modal__section-title">안내 사항</h4>
+          <ul class="program-modal__list">
             <li>기상 상황에 따라 일부 코스는 숲 해설 데크로 대체될 수 있습니다.</li>
             <li>자연 보호를 위해 개인 쓰레기는 반드시 되가져가 주세요.</li>
             <li>10세 이하 아동은 보호자 동반 시 참여 가능합니다.</li>
           </ul>
-          <p class="program-modal__notice-contact">문의: programs@gasirim.kr / 070-4281-0906</p>
+          <p class="program-modal__note">문의: programs@gasirim.kr / 070-4281-0906</p>
         </section>
       `
     },
@@ -143,14 +143,14 @@
             <li>필요 시 개인 요가 매트 (현장 대여 가능)</li>
           </ul>
         </section>
-        <section class="program-modal__notice">
-          <h4 class="program-modal__notice-title">안내 사항</h4>
-          <ul class="program-modal__notice-list">
+        <section class="program-modal__section">
+          <h4 class="program-modal__section-title">안내 사항</h4>
+          <ul class="program-modal__list">
             <li>시작 10분 전까지 가든센터 리셉션에서 체크인 해 주세요.</li>
             <li>지각 시 안전을 위해 다음 회차로 이동될 수 있습니다.</li>
             <li>우천 시에도 온실 내 프로그램은 정상 진행됩니다.</li>
           </ul>
-          <p class="program-modal__notice-contact">문의: contact@gasirim.kr / 070-4281-0906</p>
+          <p class="program-modal__note">문의: contact@gasirim.kr / 070-4281-0906</p>
         </section>
       `
     },
@@ -191,14 +191,14 @@
             <li>물병 또는 따뜻한 차</li>
           </ul>
         </section>
-        <section class="program-modal__notice">
-          <h4 class="program-modal__notice-title">안내 사항</h4>
-          <ul class="program-modal__notice-list">
+        <section class="program-modal__section">
+          <h4 class="program-modal__section-title">안내 사항</h4>
+          <ul class="program-modal__list">
             <li>프로그램 시작 15분 전까지 전자기기를 보관함에 보관해 주세요.</li>
             <li>사운드 배스 특성상 중도 입장이 어렵습니다.</li>
             <li>특정 사운드에 민감하다면 사전 문의 부탁드립니다.</li>
           </ul>
-          <p class="program-modal__notice-contact">문의: meditation@gasirim.kr / 070-4281-0906</p>
+          <p class="program-modal__note">문의: meditation@gasirim.kr / 070-4281-0906</p>
         </section>
       `
     },
@@ -239,14 +239,14 @@
             <li>필요 시 개인 장갑</li>
           </ul>
         </section>
-        <section class="program-modal__notice">
-          <h4 class="program-modal__notice-title">안내 사항</h4>
-          <ul class="program-modal__notice-list">
+        <section class="program-modal__section">
+          <h4 class="program-modal__section-title">안내 사항</h4>
+          <ul class="program-modal__list">
             <li>재료 준비를 위해 예약은 최소 2일 전까지 완료해 주세요.</li>
             <li>알레르기 정보가 있다면 신청 시 알려 주세요.</li>
             <li>완성 작품은 안전 포장 후 가져가실 수 있습니다.</li>
           </ul>
-          <p class="program-modal__notice-contact">문의: garden@gasirim.kr / 070-4281-0906</p>
+          <p class="program-modal__note">문의: garden@gasirim.kr / 070-4281-0906</p>
         </section>
       `
     },
@@ -287,14 +287,14 @@
             <li>작품 운반용 에코백 (현장 구매 가능)</li>
           </ul>
         </section>
-        <section class="program-modal__notice">
-          <h4 class="program-modal__notice-title">안내 사항</h4>
-          <ul class="program-modal__notice-list">
+        <section class="program-modal__section">
+          <h4 class="program-modal__section-title">안내 사항</h4>
+          <ul class="program-modal__list">
             <li>어린이는 보호자 동반 시 참여 가능합니다.</li>
             <li>완성 작품은 안전 포장해 드립니다.</li>
             <li>예약 변경은 3일 전까지 가능합니다.</li>
           </ul>
-          <p class="program-modal__notice-contact">문의: garden@gasirim.kr / 070-4281-0906</p>
+          <p class="program-modal__note">문의: garden@gasirim.kr / 070-4281-0906</p>
         </section>
       `
     }
@@ -869,86 +869,8 @@
     });
   }
 
-  // ---------- Page transitions ----------
-  function initPageTransitions() {
-    const body = document.body;
-    if (!body || !markOnce(body, 'pageTransitionInit')) return;
-
-    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReduced) return;
-
-    const overlay = document.createElement('div');
-    overlay.className = 'page-transition';
-    body.appendChild(overlay);
-
-    let isNavigating = false;
-
-    const clearOverlay = () => {
-      if (!overlay.classList.contains('is-visible')) return;
-      overlay.classList.add('is-leaving');
-    };
-
-    overlay.addEventListener('transitionend', (event) => {
-      if (event.propertyName !== 'transform') return;
-      if (overlay.classList.contains('is-leaving')) {
-        overlay.classList.remove('is-visible', 'is-leaving');
-        body.classList.remove('is-transitioning');
-      }
-    });
-
-    requestAnimationFrame(() => {
-      overlay.classList.add('is-visible');
-      requestAnimationFrame(clearOverlay);
-    });
-
-    const handleClick = (event) => {
-      const link = event.currentTarget;
-      if (event.defaultPrevented || isNavigating) return;
-
-      const href = link.getAttribute('href');
-      if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
-      if (link.target && link.target.toLowerCase() !== '_self') return;
-
-      const url = new URL(href, window.location.href);
-      if (url.origin !== window.location.origin) return;
-      if (url.pathname === window.location.pathname && url.hash) return;
-
-      event.preventDefault();
-      isNavigating = true;
-      overlay.classList.remove('is-leaving');
-      overlay.classList.add('is-visible');
-      body.classList.add('is-transitioning');
-
-      const onCoverComplete = (ev) => {
-        if (ev.propertyName !== 'transform') return;
-        overlay.removeEventListener('transitionend', onCoverComplete);
-        window.location.href = url.href;
-      };
-
-      overlay.addEventListener('transitionend', onCoverComplete);
-    };
-
-    const bindLinks = () => {
-      document.querySelectorAll('a[href]').forEach((link) => {
-        link.addEventListener('click', handleClick);
-      });
-    };
-
-    bindLinks();
-    document.addEventListener('partials:loaded', bindLinks);
-
-    window.addEventListener('pageshow', (event) => {
-      isNavigating = false;
-      if (event.persisted) {
-        overlay.classList.add('is-visible');
-        requestAnimationFrame(clearOverlay);
-      }
-    });
-  }
-
   // ---------- Boot ----------
   function initAll() {
-    initPageTransitions();
     initReveal();
     initParallax();
     initIntroVideo();
