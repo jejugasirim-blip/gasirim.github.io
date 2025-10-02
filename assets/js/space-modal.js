@@ -45,20 +45,58 @@
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('#panel-facility-detail .space-card, #panel-garden-detail .space-card').forEach(card => {
+    const modalRoot = document.getElementById('space-modal');
+    const grid = document.querySelector('[data-space-grid]');
+    const cards = grid ? Array.from(grid.querySelectorAll('.space-card')) : [];
+    const filters = Array.from(document.querySelectorAll('.space-filter'));
+
+    const bindCard = (card) => {
+      if (!card) return;
       card.addEventListener('click', () => openModal(card));
+      card.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openModal(card);
+        }
+      });
+    };
+
+    cards.forEach(bindCard);
+
+    const applyFilter = (value) => {
+      const normalized = value === 'facility' ? 'facility' : value === 'garden' ? 'garden' : 'all';
+      cards.forEach((card) => {
+        const category = card.dataset.category || '';
+        const match = normalized === 'all' || category === normalized;
+        card.toggleAttribute('hidden', !match);
+      });
+      grid?.classList.remove('is-filtering');
+      requestAnimationFrame(() => {
+        grid?.classList.add('is-filtering');
+      });
+    };
+
+    filters.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        filters.forEach(b => b.classList.toggle('is-active', b === btn));
+        applyFilter(btn.dataset.filter || 'all');
+      });
     });
 
-    document.getElementById('space-modal').addEventListener('click', (e) => {
+    if (filters.length) {
+      applyFilter(filters.find(btn => btn.classList.contains('is-active'))?.dataset.filter || 'all');
+    }
+
+    modalRoot?.addEventListener('click', (e) => {
       if (e.target === e.currentTarget) closeModal();
     });
 
-    document.querySelectorAll('#space-modal [data-close]').forEach(btn => {
+    modalRoot?.querySelectorAll('[data-close]').forEach(btn => {
       btn.addEventListener('click', closeModal);
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !document.getElementById('space-modal').hidden) {
+      if (e.key === 'Escape' && modalRoot && !modalRoot.hidden) {
         closeModal();
       }
     });
