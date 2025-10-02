@@ -17,30 +17,442 @@
   <link rel="stylesheet" href="assets/css/globals.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
 
-  
+  <style>
+    :root {
+      --visit-ink: #1a1f1c;
+      --visit-muted: rgba(26, 31, 28, 0.7);
+      --visit-accent: #446652;
+      --visit-highlight: rgba(124, 164, 140, 0.15);
+      --visit-blur: blur(60px);
+    }
+
+    .visit-page {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(72px, 9vw, 120px);
+      padding: clamp(120px, 18vh, 220px) 0 clamp(96px, 16vh, 160px);
+      background: radial-gradient(circle at top right, rgba(124, 164, 140, 0.12), transparent 45%),
+        radial-gradient(circle at bottom left, rgba(171, 196, 177, 0.18), transparent 52%),
+        #f9f8f3;
+      color: var(--visit-ink);
+    }
+
+    .visit-container {
+      width: min(1120px, calc(100% - 2 * var(--page-pad)));
+      margin: 0 auto;
+      padding: 0 var(--page-pad);
+    }
+
+    .visit-hero {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      border-radius: clamp(26px, 4vw, 38px);
+      background: linear-gradient(135deg, rgba(37, 63, 48, 0.92), rgba(25, 44, 36, 0.88)),
+        url('assets/img/유리온실.jpg') center/cover no-repeat;
+      min-height: clamp(360px, 48vh, 520px);
+      color: #f4f3ee;
+      box-shadow: 0 30px 80px rgba(13, 27, 19, 0.32);
+    }
+
+    .visit-hero::before,
+    .visit-hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      filter: var(--visit-blur);
+      opacity: 0.6;
+      pointer-events: none;
+      animation: floaty 24s linear infinite;
+    }
+
+    .visit-hero::before {
+      width: clamp(220px, 32vw, 320px);
+      height: clamp(220px, 32vw, 320px);
+      background: radial-gradient(circle, rgba(175, 214, 185, 0.9), transparent 70%);
+      top: clamp(-70px, -6vw, -30px);
+      right: clamp(-80px, -4vw, -24px);
+    }
+
+    .visit-hero::after {
+      width: clamp(260px, 34vw, 360px);
+      height: clamp(260px, 34vw, 360px);
+      background: radial-gradient(circle, rgba(208, 188, 151, 0.95), transparent 72%);
+      bottom: clamp(-120px, -12vw, -60px);
+      left: clamp(-100px, -8vw, -32px);
+      animation-direction: reverse;
+    }
+
+    .visit-hero__content {
+      position: relative;
+      z-index: 2;
+      padding: clamp(48px, 7vw, 80px);
+      display: flex;
+      flex-direction: column;
+      gap: clamp(20px, 2vw, 28px);
+      max-width: min(560px, 90%);
+    }
+
+    .visit-hero__eyebrow {
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(244, 243, 238, 0.75);
+    }
+
+    .visit-hero h1 {
+      font-family: var(--font-mincho);
+      font-size: clamp(2.3rem, 4vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: -0.015em;
+    }
+
+    .visit-hero p {
+      font-family: var(--font-sans);
+      font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+      line-height: 1.8;
+      color: rgba(244, 243, 238, 0.85);
+    }
+
+    .visit-hero__chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 0.75rem;
+    }
+
+    .visit-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.4rem;
+      border-radius: 999px;
+      background: rgba(248, 246, 240, 0.16);
+      color: inherit;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid rgba(244, 243, 238, 0.28);
+      backdrop-filter: blur(12px);
+      transition: transform 0.35s ease, background 0.35s ease, border 0.35s ease;
+    }
+
+    .visit-chip:hover {
+      transform: translateY(-4px);
+      background: rgba(248, 246, 240, 0.28);
+      border-color: rgba(244, 243, 238, 0.48);
+    }
+
+    .visit-section {
+      display: grid;
+      gap: clamp(32px, 5vw, 48px);
+    }
+
+    .visit-section__header {
+      max-width: 640px;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .visit-section__label {
+      font-size: 0.85rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: rgba(26, 31, 28, 0.48);
+    }
+
+    .visit-section__title {
+      font-family: var(--font-mincho);
+      font-size: clamp(2.1rem, 3vw, 2.8rem);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+
+    .visit-section__lead {
+      font-family: var(--font-sans);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--visit-muted);
+    }
+
+    .visit-grid {
+      display: grid;
+      gap: clamp(20px, 3vw, 28px);
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .visit-card {
+      position: relative;
+      padding: clamp(24px, 4vw, 32px);
+      border-radius: clamp(18px, 3vw, 24px);
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 24px 60px rgba(31, 46, 36, 0.1);
+      border: 1px solid rgba(103, 132, 112, 0.22);
+      backdrop-filter: blur(18px);
+      display: grid;
+      gap: 1rem;
+      overflow: hidden;
+    }
+
+    .visit-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(circle at top left, rgba(124, 164, 140, 0.18), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.45s ease;
+      pointer-events: none;
+    }
+
+    .visit-card:hover::before {
+      opacity: 1;
+    }
+
+    .visit-card h3 {
+      font-family: var(--font-sans);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--visit-ink);
+    }
+
+    .visit-card p,
+    .visit-card li {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--visit-muted);
+    }
+
+    .visit-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .visit-card ul li::before {
+      content: "•";
+      color: var(--visit-accent);
+      margin-right: 0.6rem;
+      font-weight: 600;
+    }
+
+    .visit-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(68, 102, 82, 0.12);
+      color: var(--visit-accent);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .visit-map {
+      position: relative;
+      border-radius: clamp(24px, 4vw, 32px);
+      overflow: hidden;
+      box-shadow: 0 40px 100px rgba(13, 27, 19, 0.18);
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(68, 102, 82, 0.18);
+      min-height: 320px;
+    }
+
+    .visit-map iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      filter: saturate(1.1) contrast(0.97);
+    }
+
+    .visit-map__badge {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: rgba(16, 29, 22, 0.88);
+      color: #f3f2ee;
+      padding: 0.55rem 1rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      backdrop-filter: blur(12px);
+    }
+
+    .visit-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .visit-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      padding: 0.85rem 1.6rem;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+    }
+
+    .visit-button--primary {
+      background: #f4f2ea;
+      color: var(--visit-ink);
+      box-shadow: 0 18px 40px rgba(16, 29, 22, 0.15);
+    }
+
+    .visit-button--primary:hover {
+      transform: translateY(-4px);
+      background: #fffdf5;
+      box-shadow: 0 24px 60px rgba(16, 29, 22, 0.2);
+    }
+
+    .visit-button--ghost {
+      border: 1px solid rgba(26, 31, 28, 0.16);
+      color: var(--visit-ink);
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(14px);
+    }
+
+    .visit-button--ghost:hover {
+      transform: translateY(-4px);
+      border-color: rgba(26, 31, 28, 0.34);
+      background: rgba(255, 255, 255, 0.85);
+    }
+
+    .contact-grid {
+      display: grid;
+      gap: clamp(20px, 3vw, 28px);
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .contact-card {
+      padding: clamp(22px, 3.5vw, 28px);
+      border-radius: clamp(18px, 3vw, 24px);
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(68, 102, 82, 0.18);
+      box-shadow: 0 20px 50px rgba(31, 46, 36, 0.12);
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .contact-card span {
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(26, 31, 28, 0.4);
+      font-weight: 600;
+    }
+
+    .contact-card a {
+      color: var(--visit-accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-card a:hover {
+      text-decoration: underline;
+    }
+
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(32px);
+      animation: riseFade 0.9s cubic-bezier(0.23, 0.92, 0.34, 1) forwards;
+      animation-delay: var(--delay, 0s);
+    }
+
+    .visit-hero[data-animate] {
+      transform: translateY(18px);
+    }
+
+    @keyframes riseFade {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floaty {
+      0% {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      50% {
+        transform: translate3d(12px, -18px, 0) scale(1.04);
+      }
+      100% {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+    }
+
+    @media (max-width: 960px) {
+      .visit-page {
+        padding-top: clamp(120px, 22vh, 200px);
+      }
+
+      .visit-hero {
+        border-radius: clamp(22px, 6vw, 32px);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .visit-hero__content {
+        padding: clamp(36px, 10vw, 52px);
+      }
+
+      .visit-chip {
+        padding: 0.55rem 1.1rem;
+      }
+
+      .visit-section__title {
+        font-size: clamp(1.9rem, 6vw, 2.4rem);
+      }
+
+      .visit-map__badge {
+        position: static;
+        margin: 18px;
+        align-self: flex-start;
+      }
+
+      .visit-map {
+        min-height: 280px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .visit-chip,
+      .visit-button,
+      .visit-card::before,
+      .visit-hero::before,
+      .visit-hero::after,
+      .visit-page,
+      [data-animate] {
+        transition: none !important;
+        animation: none !important;
+      }
+
+      [data-animate] {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="page">
     <div id="site-header" data-include="partials/header-site.html"></div>
-    <div id="site-bar" data-include="partials/sticky-header-bar.html"></div>
 
-    <main class="visit-main page-main" aria-labelledby="visit-heading">
-      <section class="visit-hero">
-        <div class="visit-hero__inner">
-          <div class="visit-hero__copy">
-            <p class="visit-hero__eyebrow">Visit Gasirim</p>
-            <h1 class="visit-hero__title" id="visit-heading">자연을 만나는 길, 가시림 방문 안내</h1>
-            <p class="visit-hero__lead">사계절 다른 얼굴을 가진 가시림을 가장 아름답게 즐기는 방법을 안내합니다. 운영 시간과 이용 요금, 오시는 길, 단체 문의까지 한 번에 확인하세요.</p>
-            <div class="visit-chip-list">
-              <span class="visit-chip">연중무휴</span>
-              <span class="visit-chip">사전 예약 권장</span>
-              <span class="visit-chip">제주 4호 민간정원</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="이용안내" class="visit-section visit-container" aria-labelledby="section-usage">
+    <main class="visit-page" aria-labelledby="visit-heading">
+      <section id="이용안내" class="visit-section visit-container" aria-labelledby="section-usage" data-animate style="--delay: 0.15s">
         <div class="visit-section__header">
           <span class="visit-section__label">Information</span>
           <h2 id="section-usage" class="visit-section__title">이용 시간 및 요금 안내</h2>
@@ -78,7 +490,7 @@
         </div>
       </section>
 
-      <section id="오시는길" class="visit-section visit-container" aria-labelledby="section-directions">
+      <section id="오시는길" class="visit-section visit-container" aria-labelledby="section-directions" data-animate style="--delay: 0.25s">
         <div class="visit-section__header">
           <span class="visit-section__label">Directions</span>
           <h2 id="section-directions" class="visit-section__title">오시는 길</h2>
@@ -100,7 +512,7 @@
         </div>
       </section>
 
-      <section id="단체문의" class="visit-section visit-container" aria-labelledby="section-group">
+      <section id="단체문의" class="visit-section visit-container" aria-labelledby="section-group" data-animate style="--delay: 0.35s">
         <div class="visit-section__header">
           <span class="visit-section__label">Group Booking</span>
           <h2 id="section-group" class="visit-section__title">단체 예약 및 대관 문의</h2>
