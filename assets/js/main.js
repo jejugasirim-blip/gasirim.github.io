@@ -14,7 +14,7 @@
       title: '새벽 산책 명상',
       subtitle: '숲의 첫 공기를 마시며 리듬을 깨우는 75분 보행 명상.',
       ctaHref: 'https://forms.gle/2SunriseWalk',
-      ctaLabel: '신청 하기',
+      ctaLabel: '신청하기',
       gallery: [
         { src: 'assets/img/main.jpg', alt: '새벽 햇살이 비치는 가시림 숲길' },
         { src: 'assets/img/유리온실.jpg', alt: '숲 해설가와 함께 걷는 참가자들' },
@@ -47,7 +47,7 @@
             <li>필요 시 가벼운 장갑</li>
           </ul>
         </section>
-        <section class="program-modal__section">
+        <aside class="program-modal__notice">
           <h4 class="program-modal__section-title">안내 사항</h4>
           <ul class="program-modal__list">
             <li>일출 시각에 따라 시작 시간이 10분 내외로 조정될 수 있습니다.</li>
@@ -55,14 +55,14 @@
             <li>노약자는 스태프의 별도 안내에 따라 진행합니다.</li>
           </ul>
           <p class="program-modal__note">문의: walk@gasirim.kr / 070-4281-0906</p>
-        </section>
+        </aside>
       `
     },
     'forest-immersion': {
       title: '숲 명상: 오감으로 느끼는 메타세쿼이아 숲',
       subtitle: '계절의 향과 소리를 따라 깊이 몰입하는 주말 집중 명상 여정.',
       ctaHref: 'https://forms.gle/4V2ForestImmersion',
-      ctaLabel: '신청 하기',
+      ctaLabel: '신청하기',
       gallery: [
         { src: 'assets/img/유리온실.jpg', alt: '메타세쿼이아 숲길을 천천히 걷는 참가자들' },
         { src: 'assets/img/main.jpg', alt: '나무 사이로 내리쬐는 햇살과 물안개' },
@@ -95,7 +95,7 @@
             <li>모기 기피제, 개인 보온 음료</li>
           </ul>
         </section>
-        <section class="program-modal__section">
+        <aside class="program-modal__notice">
           <h4 class="program-modal__section-title">안내 사항</h4>
           <ul class="program-modal__list">
             <li>기상 상황에 따라 일부 코스는 숲 해설 데크로 대체될 수 있습니다.</li>
@@ -103,14 +103,14 @@
             <li>10세 이하 아동은 보호자 동반 시 참여 가능합니다.</li>
           </ul>
           <p class="program-modal__note">문의: programs@gasirim.kr / 070-4281-0906</p>
-        </section>
+        </aside>
       `
     },
     'regular-class': {
       title: '정규 명상 수업',
       subtitle: '숲길을 걷고 온실에서 호흡을 정리하며 하루의 호흡을 여는 90분 프로그램.',
       ctaHref: 'https://forms.gle/7K6YRegularMeditation',
-      ctaLabel: '신청 하기',
+      ctaLabel: '신청하기',
       gallery: [
         { src: 'assets/img/유리온실2.jpg', alt: '아침 햇살이 드는 온실에서 명상 중인 참가자들' },
         { src: 'assets/img/유리온실.jpg', alt: '숲길에서 호흡을 맞추며 걷는 정규 명상 수업' },
@@ -143,7 +143,7 @@
             <li>필요 시 개인 요가 매트 (현장 대여 가능)</li>
           </ul>
         </section>
-        <section class="program-modal__section">
+        <aside class="program-modal__notice">
           <h4 class="program-modal__section-title">안내 사항</h4>
           <ul class="program-modal__list">
             <li>시작 10분 전까지 가든센터 리셉션에서 체크인 해 주세요.</li>
@@ -151,14 +151,14 @@
             <li>우천 시에도 온실 내 프로그램은 정상 진행됩니다.</li>
           </ul>
           <p class="program-modal__note">문의: contact@gasirim.kr / 070-4281-0906</p>
-        </section>
+        </aside>
       `
     },
     'deep-rest': {
       title: '사운드 배스 명상: 딥레스트 세션',
       subtitle: '촛불과 싱잉볼 사운드로 몸과 마음을 깊이 이완하는 야간 명상.',
       ctaHref: 'https://forms.gle/6DeepRestSound',
-      ctaLabel: '신청 하기',
+      ctaLabel: '신청하기',
       gallery: [
         { src: 'assets/img/카페.jpg', alt: '촛불이 켜진 명상 공간' },
         { src: 'assets/img/유리온실2.jpg', alt: '온실 내부의 조용한 명상 공간' },
@@ -191,7 +191,7 @@
             <li>물병 또는 따뜻한 차</li>
           </ul>
         </section>
-        <section class="program-modal__section">
+        <aside class="program-modal__notice">
           <h4 class="program-modal__section-title">안내 사항</h4>
           <ul class="program-modal__list">
             <li>프로그램 시작 15분 전까지 전자기기를 보관함에 보관해 주세요.</li>
@@ -199,14 +199,14 @@
             <li>특정 사운드에 민감하다면 사전 문의 부탁드립니다.</li>
           </ul>
           <p class="program-modal__note">문의: meditation@gasirim.kr / 070-4281-0906</p>
-        </section>
+        </aside>
       `
     },
     'horticulture-lab': {
       title: '감각원예 워크숍',
       subtitle: '계절 식물을 손끝으로 돌보며 식물 케어 루틴을 배우는 가드닝 클래스.',
       ctaHref: 'https://forms.gle/3HortiLab',
-      ctaLabel: '신청 하기',
+      ctaLabel: '신청하기',
       gallery: [
         { src: 'assets/img/가든센터.jpg', alt: '분갈이 도구와 식물을 준비하는 모습' },
         { src: 'assets/img/유리온실2.jpg', alt: '온실에서 식물을 살피는 참가자' },
@@ -239,7 +239,7 @@
             <li>필요 시 개인 장갑</li>
           </ul>
         </section>
-        <section class="program-modal__section">
+        <aside class="program-modal__notice">
           <h4 class="program-modal__section-title">안내 사항</h4>
           <ul class="program-modal__list">
             <li>재료 준비를 위해 예약은 최소 2일 전까지 완료해 주세요.</li>
@@ -247,14 +247,14 @@
             <li>완성 작품은 안전 포장 후 가져가실 수 있습니다.</li>
           </ul>
           <p class="program-modal__note">문의: garden@gasirim.kr / 070-4281-0906</p>
-        </section>
+        </aside>
       `
     },
     'terrarium-clinic': {
       title: '테라리움 클리닉',
       subtitle: '자신만의 미니 정원을 디자인하고 오래도록 건강하게 돌보는 클래스.',
       ctaHref: 'https://forms.gle/5TerrariumClinic',
-      ctaLabel: '신청 하기',
+      ctaLabel: '신청하기',
       gallery: [
         { src: 'assets/img/가든센터.jpg', alt: '테라리움 재료를 고르는 참가자' },
         { src: 'assets/img/카페.jpg', alt: '완성된 테라리움을 감상하는 모습' },
@@ -287,7 +287,7 @@
             <li>작품 운반용 에코백 (현장 구매 가능)</li>
           </ul>
         </section>
-        <section class="program-modal__section">
+        <aside class="program-modal__notice">
           <h4 class="program-modal__section-title">안내 사항</h4>
           <ul class="program-modal__list">
             <li>어린이는 보호자 동반 시 참여 가능합니다.</li>
@@ -295,7 +295,7 @@
             <li>예약 변경은 3일 전까지 가능합니다.</li>
           </ul>
           <p class="program-modal__note">문의: garden@gasirim.kr / 070-4281-0906</p>
-        </section>
+        </aside>
       `
     }
   };
