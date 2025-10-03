@@ -712,7 +712,7 @@
       let pendingStart = false;
       const requestedSpeed = Number(gallery.dataset.gallerySpeed);
       const hasExplicitSpeed = Number.isFinite(requestedSpeed) && requestedSpeed > 0;
-      const requestedDuration = Number(gallery.dataset.galleryDuration || 20);
+      const requestedDuration = Number(gallery.dataset.galleryDuration || 35);
       let pixelsPerSecond = hasExplicitSpeed ? requestedSpeed : 0;
       const motionQuery = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
       let allowAutoplay = !(motionQuery?.matches);
