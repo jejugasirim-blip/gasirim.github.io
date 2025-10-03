@@ -1,22 +1,56 @@
 <a class="brand-title" href="/gasirim.github.io/">
-  <img src="./assets/img/logo_text_white.png" class="brand-logo" />
-  <!-- <span class="brand-text">
-    <span class="brand-name">加 時 林</span>
-    <span class="brand-tagline">치유의 정원</span>
-  </span> -->
+  <img src="./assets/img/logo_text_white.png" class="brand-logo" alt="가시림" />
 </a>
-<section class="hero-slideshow hero-slideshow--video">
-  <div class="hero-video__container">
-    <div class="intro-hero" data-video>
-      <video class="intro-video" preload="auto" autoplay muted loop playsinline webkit-playsinline disablePictureInPicture controlsList="nodownload noplaybackrate noremoteplayback nofullscreen">
-        <source src="./assets/video/gasirim.mp4" type="video/mp4">
-        비디오를 재생할 수 없는 환경입니다.
-      </video>
-    </div>
-    <div class="embla__overlay">
-      <div class="embla__copy">
-        <h1>제주가 품은 정원,<br><span>마음을 여는 공간</span></h1>
-      </div>
-    </div>
+<section class="page-hero" aria-label="페이지 히어로 섹션">
+  <figure class="page-hero__media">
+    <img
+      src="./assets/img/main.jpg"
+      alt="가시림 정원 전경"
+      class="page-hero__image"
+      decoding="async"
+      loading="eager"
+      data-default-src="./assets/img/main.jpg"
+    />
+  </figure>
+  <div class="page-hero__overlay">
+    <h1 class="page-hero__title">가시림</h1>
   </div>
 </section>
+<script>
+  (function() {
+    const script = document.currentScript;
+    const includeRoot = script?.closest('[data-include]');
+    const host = includeRoot || script?.parentElement;
+    if (!host) return;
+
+    const hero = host.querySelector('.page-hero');
+    if (!hero) return;
+
+    const img = hero.querySelector('.page-hero__image');
+    const titleEl = hero.querySelector('.page-hero__title');
+
+    const dataset = includeRoot?.dataset || {};
+    const resolveAttr = (name, fallback = '') => {
+      if (dataset && dataset[name] !== undefined) return dataset[name];
+      if (host.hasAttribute(`data-${name.replace(/[A-Z]/g, m => '-' + m.toLowerCase())}`)) {
+        return host.getAttribute(`data-${name.replace(/[A-Z]/g, m => '-' + m.toLowerCase())}`);
+      }
+      return fallback;
+    };
+
+    const defaultTitle = titleEl?.textContent?.trim() || '가시림';
+    const resolvedTitle = resolveAttr('heroTitle', defaultTitle) || defaultTitle;
+    const defaultSrc = img?.dataset.defaultSrc || img?.getAttribute('src') || './assets/img/main.jpg';
+    const resolvedImage = resolveAttr('heroImage', defaultSrc) || defaultSrc;
+    const resolvedAlt = resolveAttr('heroAlt', resolvedTitle) || resolvedTitle;
+
+    if (img) {
+      img.src = resolvedImage;
+      img.alt = resolvedAlt;
+    }
+
+    if (titleEl) {
+      titleEl.textContent = resolvedTitle;
+    }
+  })();
+</script>

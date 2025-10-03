@@ -23,7 +23,7 @@
 <body>
   <div class="page">
     <!-- Header -->
-    <div id="site-header" data-include="partials/header-site.html"></div>
+    <div id="site-header" data-include="partials/header-site.html" data-hero-title="프로그램 소개" data-hero-image="assets/img/유리온실2.jpg" data-hero-alt="프로그램이 열리는 가시림 온실 전경"></div>
     <div id="site-bar" data-include="partials/sticky-header-bar.html"></div>
 
     <main class="program-main" aria-labelledby="program-heading">
@@ -157,7 +157,7 @@
       <div class="program-modal" data-program-modal hidden>
         <div class="program-modal__backdrop" data-program-modal-close></div>
         <div class="program-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="program-modal-title" tabindex="-1">
-          <button class="program-modal__close" data-close>&times;</button>
+          <button class="program-modal__close" type="button" data-program-modal-close aria-label="닫기">&times;</button>
           <div class="program-modal__content" data-program-modal-content></div>
         </div>
       </div>

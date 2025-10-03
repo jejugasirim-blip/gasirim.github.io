@@ -23,16 +23,16 @@
 <body>
   <div class="page">
     <!-- Header -->
-    <div id="site-header" data-include="partials/header-site.html"></div>
+    <div id="site-header" data-include="partials/header-site.html" data-hero-title="프로그램 목록" data-hero-image="assets/img/가든센터.jpg" data-hero-alt="가시림 가든센터 외관"></div>
     <div id="site-bar" data-include="partials/sticky-header-bar.html"></div>
 
     <main>
       <!-- Navigation Tab -->
-      <nav class="intro-tabs data-tabs role="tablist" aria-label="프로그램 섹션">
-        <button class="tab-button active" type="button" role="tab" id="tab-space" aria-controls="All" aria-selected="true" data-hash="All">ALL</button>
-        <button class="tab-button" type="button" role="tab" id="tab-map" aria-controls="산책명상" aria-selected="false" data-hash="명상">산책명상</button>
-        <button class="tab-button" type="button" role="tab" id="tab-map" aria-controls="명상" aria-selected="false" data-hash="명상">명상</button>
-        <button class="tab-button" type="button" role="tab" id="tab-tour" aria-controls="원예" aria-selected="false" data-hash="원예">원예</button>
+      <nav class="intro-tabs" data-tabs role="tablist" aria-label="프로그램 섹션">
+        <button class="tab-button active" type="button" role="tab" id="tab-all" aria-controls="All" aria-selected="true" data-hash="All">ALL</button>
+        <button class="tab-button" type="button" role="tab" id="tab-walk" aria-controls="산책명상" aria-selected="false" data-hash="산책명상">산책명상</button>
+        <button class="tab-button" type="button" role="tab" id="tab-meditation" aria-controls="명상" aria-selected="false" data-hash="명상">명상</button>
+        <button class="tab-button" type="button" role="tab" id="tab-gardening" aria-controls="원예" aria-selected="false" data-hash="원예">원예</button>
       </nav>
 
       <!-- ALL -->
@@ -244,11 +244,11 @@
         </div>
       </section>
 
-     <!-- Modal -->
+      <!-- Modal -->
       <div class="program-modal" data-program-modal hidden>
         <div class="program-modal__backdrop" data-program-modal-close></div>
         <div class="program-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="program-modal-title" tabindex="-1">
-          <button class="program-modal__close" data-close>&times;</button>
+          <button class="program-modal__close" type="button" data-program-modal-close aria-label="닫기">&times;</button>
           <div class="program-modal__content" data-program-modal-content></div>
         </div>
       </div>
