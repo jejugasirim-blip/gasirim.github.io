@@ -53,6 +53,18 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     const cards = Array.from(document.querySelectorAll('[data-space-gallery] .space-card'));
+    const normalise = (value) => (value || '').toString().trim().toLowerCase();
+    const slugify = (value) => normalise(value).replace(/\s+/gu, '-');
+
+    cards.forEach((card) => {
+      if (!card.dataset.spaceId) {
+        const fallback = card.dataset.title || card.querySelector('.space-card__title')?.textContent || '';
+        if (fallback) {
+          card.dataset.spaceId = fallback.trim();
+        }
+      }
+    });
+
     cards.forEach(card => {
       card.addEventListener('click', () => openModal(card));
       card.addEventListener('keydown', (event) => {
@@ -101,5 +113,31 @@
       });
       applyFilter(active ? active.dataset.spaceFilter || 'all' : 'all', cards);
     }
+
+    const openFromQuery = () => {
+      const params = new URLSearchParams(window.location.search);
+      let requested = params.get('space');
+      if (!requested && window.location.hash.startsWith('#space=')) {
+        requested = window.location.hash.slice('#space='.length);
+      }
+      if (!requested) return;
+
+      const decoded = decodeURIComponent(requested);
+      const target = normalise(decoded);
+      const targetSlug = slugify(decoded);
+
+      const match = cards.find((card) => {
+        const id = card.dataset.spaceId || '';
+        const idNorm = normalise(id);
+        const idSlug = slugify(id);
+        return idNorm === target || idSlug === targetSlug;
+      });
+
+      if (match) {
+        openModal(match);
+      }
+    };
+
+    openFromQuery();
   });
 })();
