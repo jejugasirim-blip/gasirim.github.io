@@ -64,5 +64,5 @@ h6 {
 }
 
 :root {
-  --page-pad: clamp(20px, 5vw, 72px);
+  --page-pad: clamp(18px, 4.5vw, 60px);
 }

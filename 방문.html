@@ -26,63 +26,210 @@
 
     <main class="visit-main" aria-labelledby="visit-heading">
 
-      <section id="이용안내" class="visit-section" aria-labelledby="section-usage">
-        <div class="visit-section__header">
-          <span class="visit-section__label">Information</span>
-          <h2 id="section-usage" class="visit-section__title">이용 시간 및 요금 안내</h2>
-          <p class="visit-section__lead">사계절 내내 열린 가시림에서는 계절마다 다른 자연의 표정을 만나실 수 있습니다. 여유로운 방문을 위해 운영 시간과 요금을 미리 확인해 주세요.</p>
+      <section class="visit-overview" aria-labelledby="visit-heading">
+        <div class="visit-overview__intro">
+          <span class="visit-overview__eyebrow">Plan your visit</span>
+          <h1 id="visit-heading" class="visit-overview__title">방문 안내</h1>
+          <p class="visit-overview__lead">가시림 수목원에 오시는 길과 운영 정보를 한눈에 확인하세요. 방문 목적에 맞는 안내를 빠르게 찾아볼 수 있도록 주요 섹션을 정리했습니다.</p>
         </div>
-        <div class="visit-grid">
-          <article class="visit-card">
-            <span class="visit-badge">운영 시간</span>
-            <p class="visit-card__title">매일 09:30 – 18:00 (수요일 제외)</p>
-            <ul>
-              <li>마지막 입장 17:00</li>
-              <li>사전 예약 없이 현장 입장 가능</li>
-            </ul>
-            <p>폭우나 강풍 등 기상 상황에 따라 운영 시간이 변동될 수 있으니 방문 전 공지 사항을 확인해 주세요.</p>
-          </article>
-          <article class="visit-card">
-            <span class="visit-badge">이용 요금</span>
-            <p class="visit-card__title">연령별 요금 안내</p>
-            <ul>
-              <li>일반: 6,000원</li>
-              <li>어린이·청소년: 5,000원</li>
-              <li>우대 할인: 5,000원 (36개월 미만 무료)/li>
-              <li>무료 입장: 영유아·가시림 주민/li>
-            </ul>
-          </article>
-          <article class="visit-card">
-            <span class="visit-badge">방문 안내</span>
-            <p class="visit-card__title">편의 사항</p>
-            <ul>
-              <li>무료 주차장이 구비되어 있습니다</li>
-              <li>반려동물은 목줄 착용 시 동반 입장이 가능합니다 (중형견까지 가능)</li>
-              <li>지역화폐 (탐나는전) 사용 가능합니다</li>
-              <li>휠체어 입장 가능합니다 (이용 가능한 산책로가 한정적일 수 있음)</li>
-              <li>계절별 추천 코스를 매표소에서 받내보세요</li>
-            </ul>
+        <nav class="visit-overview__tags" aria-label="방문 안내 섹션">
+          <a class="visit-tag" href="#visit-location">위치 및 운영</a>
+          <a class="visit-tag" href="#visit-tickets">이용 요금</a>
+          <a class="visit-tag" href="#visit-guides">방문 전 알아두기</a>
+          <a class="visit-tag" href="#visit-amenities">편의 시설</a>
+          <a class="visit-tag" href="#visit-directions">오시는 길</a>
+          <a class="visit-tag" href="#visit-contact">문의</a>
+        </nav>
+      </section>
+
+      <section id="visit-location" class="visit-section visit-section--location" aria-labelledby="section-location">
+        <div class="visit-section__header">
+          <span class="visit-section__label">Locations &amp; Hours</span>
+          <h2 id="section-location" class="visit-section__title">위치 및 운영 안내</h2>
+          <p class="visit-section__lead">사계절 내내 이어지는 가시림의 일상을 가까이에서 만나보세요. 운영 시간과 휴무일, 입장 마감 정보를 미리 확인하시면 더욱 여유로운 방문을 도와드립니다.</p>
+        </div>
+        <div class="visit-location__grid">
+          <figure class="visit-location__image">
+            <img src="assets/img/유리온실.jpg" alt="가시림 수목원의 온실 외관" loading="lazy" />
+            <figcaption class="visit-location__caption">가시림 수목원 유리온실 전경</figcaption>
+          </figure>
+          <article class="visit-hours-card" aria-label="운영 정보">
+            <span class="visit-status visit-status--open">오늘 운영 중 · 09:30 – 18:00</span>
+            <dl class="visit-hours-list">
+              <div class="visit-hours-list__item">
+                <dt>정규 운영</dt>
+                <dd>매일 09:30 – 18:00</dd>
+              </div>
+              <div class="visit-hours-list__item">
+                <dt>휴무</dt>
+                <dd>매주 수요일 정기 휴무 (시설 점검)</dd>
+              </div>
+              <div class="visit-hours-list__item">
+                <dt>입장 마감</dt>
+                <dd>17:00 (프로그램 예약 시 시작 10분 전 도착 권장)</dd>
+              </div>
+              <div class="visit-hours-list__item">
+                <dt>현장 안내</dt>
+                <dd>예약 없이 방문 가능하며, 기상 상황에 따라 일부 구역 운영이 변경될 수 있습니다.</dd>
+              </div>
+            </dl>
+            <p class="visit-hours-note">네비게이션에서 ‘가시림 수목원’을 검색하거나 주소 <span lang="en">3266 Gasi-ri, Pyoseon-myeon</span>을 입력해 주세요.</p>
           </article>
         </div>
       </section>
 
-      <section id="오시는길" class="visit-section" aria-labelledby="section-directions">
+      <section id="visit-tickets" class="visit-section visit-section--tickets" aria-labelledby="section-tickets">
+        <div class="visit-section__header">
+          <span class="visit-section__label">Tickets</span>
+          <h2 id="section-tickets" class="visit-section__title">이용 요금</h2>
+          <p class="visit-section__lead">현장에서 카드, 모바일 결제, 지역화폐(탐나는전)를 모두 지원합니다. 단체 예약은 사전 문의해 주시면 맞춤 견적을 안내드립니다.</p>
+        </div>
+        <div class="visit-rate-table" role="region" aria-labelledby="section-tickets">
+          <table class="rate-table">
+            <caption class="sr-only">가시림 수목원 이용 요금표</caption>
+            <thead>
+              <tr>
+                <th scope="col">구분</th>
+                <th scope="col">요금</th>
+                <th scope="col">비고</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">일반</th>
+                <td>6,000원</td>
+                <td>만 19세 이상</td>
+              </tr>
+              <tr>
+                <th scope="row">어린이·청소년</th>
+                <td>5,000원</td>
+                <td>만 3세 – 18세</td>
+              </tr>
+              <tr>
+                <th scope="row">우대 할인</th>
+                <td>5,000원</td>
+                <td>만 65세 이상, 국가유공자, 장애인 (증빙 지참)</td>
+              </tr>
+              <tr>
+                <th scope="row">영유아·가시리 주민</th>
+                <td>무료</td>
+                <td>36개월 미만, 가시리 주민 (신분증 지참)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="visit-rate-note">단체(20인 이상) 또는 프로그램 연계 방문 시 <a href="#visit-contact">문의 섹션</a>을 통해 맞춤 상담을 신청해 주세요.</p>
+      </section>
+
+      <section id="visit-guides" class="visit-section visit-section--guides" aria-labelledby="section-guides">
+        <div class="visit-section__header">
+          <span class="visit-section__label">Know Before You Go</span>
+          <h2 id="section-guides" class="visit-section__title">방문 전 알아두기</h2>
+          <p class="visit-section__lead">편안한 방문을 위해 꼭 확인해야 할 사항을 정리했습니다. 궁금한 내용을 펼쳐 보세요.</p>
+        </div>
+        <div class="visit-guideline-list">
+          <details class="visit-guideline" open>
+            <summary>입장 및 관람</summary>
+            <div class="visit-guideline__body">
+              <p>입장권은 현장 매표소에서 발권하며 재입장은 당일에 한해 가능합니다. 우천 시 실내 온실과 전시관을 우선 이용하시길 권장합니다.</p>
+            </div>
+          </details>
+          <details class="visit-guideline">
+            <summary>체험 프로그램</summary>
+            <div class="visit-guideline__body">
+              <p>원예 클래스, 숲 해설 등 프로그램은 사전 예약제로 운영됩니다. 예약 확정 후 방문해 주시면 준비된 재료와 안내를 제공해 드립니다.</p>
+            </div>
+          </details>
+          <details class="visit-guideline">
+            <summary>촬영 및 대관</summary>
+            <div class="visit-guideline__body">
+              <p>스냅 촬영, 방송 촬영 등 상업 목적 촬영은 허가가 필요합니다. 일정과 목적을 <a href="#visit-contact">문의 채널</a>로 보내주시면 담당자가 확인 후 회신드립니다.</p>
+            </div>
+          </details>
+          <details class="visit-guideline">
+            <summary>안전 수칙</summary>
+            <div class="visit-guideline__body">
+              <p>관람 동선 내에서는 지정된 산책로를 이용해 주시고, 식물 채집 및 반출은 금지되어 있습니다. 반려동물은 목줄 착용 및 배변 봉투 지참이 필수입니다.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section id="visit-amenities" class="visit-section visit-section--amenities" aria-labelledby="section-amenities">
+        <div class="visit-section__header">
+          <span class="visit-section__label">Amenities</span>
+          <h2 id="section-amenities" class="visit-section__title">편의 시설</h2>
+          <p class="visit-section__lead">방문객을 위한 주요 편의 사항을 확인하세요. 아이콘을 눌러 상세 설명을 읽어볼 수 있습니다.</p>
+        </div>
+        <ul class="amenity-list">
+          <li class="amenity-list__item">
+            <span class="amenity-list__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /><path d="M10.2 7.2h2.7a2.4 2.4 0 1 1 0 4.8h-2.7v4.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </span>
+            <span class="amenity-list__text">무료주차장 완비 — 주차 걱정 없이 방문하세요.</span>
+          </li>
+          <li class="amenity-list__item">
+            <span class="amenity-list__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><circle cx="7.8" cy="10" r="1.5" fill="currentColor" /><circle cx="10.4" cy="7.2" r="1.4" fill="currentColor" /><circle cx="13.6" cy="7.2" r="1.4" fill="currentColor" /><circle cx="16.2" cy="10" r="1.5" fill="currentColor" /><path d="M12 12.7c-1.8 0-3.1 1.1-3.1 2.7 0 1.2.8 2.1 1.9 2.7.7.4 1.7.4 2.4 0 1.1-.6 1.9-1.5 1.9-2.7 0-1.6-1.3-2.7-3.1-2.7Z" fill="currentColor" /></svg>
+            </span>
+            <span class="amenity-list__text">반려동물 동반 가능 — 목줄 착용 시 중형견까지 입장 가능합니다.</span>
+          </li>
+          <li class="amenity-list__item">
+            <span class="amenity-list__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><rect x="3" y="6" width="18" height="12" rx="2.5" ry="2.5" fill="none" stroke="currentColor" stroke-width="1.6" /><path d="M3 10.5h18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /><path d="M6.5 15h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /><path d="M15.5 15h2.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg>
+            </span>
+            <span class="amenity-list__text">지역화폐 및 다양한 결제 수단 지원 — 탐나는전, 카드, 모바일 결제 가능.</span>
+          </li>
+          <li class="amenity-list__item">
+            <span class="amenity-list__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="5.5" r="2" fill="currentColor" /><path d="M8 9.5h8M12 9.5l2.7 4.6h3.1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /><path d="M12 11.6 10 16.2a3.3 3.3 0 1 0 1.6.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </span>
+            <span class="amenity-list__text">휠체어 접근 가능 — 완만한 진입로와 보조 동선을 안내해 드립니다.</span>
+          </li>
+          <li class="amenity-list__item">
+            <span class="amenity-list__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M12 3.2a6.3 6.3 0 0 0-6.3 6.3c0 3.2 2.6 6.3 6.3 11.3 3.7-5 6.3-8.1 6.3-11.3A6.3 6.3 0 0 0 12 3.2Zm0 9.2a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" fill="currentColor" /></svg>
+            </span>
+            <span class="amenity-list__text">계절별 추천 코스 — 매표소에서 맞춤 방문 지도를 받아보세요.</span>
+          </li>
+        </ul>
+      </section>
+
+      <section id="visit-directions" class="visit-section visit-section--map" aria-labelledby="section-directions">
         <div class="visit-section__header">
           <span class="visit-section__label">Directions</span>
           <h2 id="section-directions" class="visit-section__title">오시는 길</h2>
           <p class="visit-section__lead">네비게이션에서 ‘가시림’ 또는 ‘가시림 수목원’을 검색해 주세요. 제주공항에서 자동차로 약 1시간 거리에 위치해 있습니다.</p>
         </div>
-        <div class="visit-grid">
-          <div class="visit-map">
+        <div class="visit-map__layout">
+          <figure class="visit-map__frame">
             <div class="visit-map__badge">3266 가시리</div>
-            <iframe title="가시림 위치 지도" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=3266%20Gasi-ri,%20Pyoseon-myeon,%20%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84,%20Seogwipo,%20Jeju-do,%20South%20Korea&output=embed"></iframe>
-          </div>
+            <iframe title="가시림 위치 지도" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=3266%20Gasi-ri,%20Pyoseon-myeon,%20%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84,%20Seogwipo,%20Jeju-do,%20South%20Korea&z=16&output=embed"></iframe>
+          </figure>
+          <aside class="visit-map__details">
+            <h3 class="visit-map__title">가시림 수목원 안내</h3>
+            <p class="visit-map__address">제주특별자치도 서귀포시 표선면 녹산로5번길 171</p>
+            <dl class="visit-directions">
+              <div class="visit-directions__row">
+                <dt>자동차</dt>
+                <dd>제주국제공항 → 번영로 → 표선면 방면 약 60분 소요 (주차장 무료)</dd>
+              </div>
+              <div class="visit-directions__row">
+                <dt>버스</dt>
+                <dd>201, 221 번 노선 이용 후 ‘가시리입구’ 하차, 도보 10분</dd>
+              </div>
+              <div class="visit-directions__row">
+                <dt>택시</dt>
+                <dd>공항에서 약 35,000원 내외, 기사님께 ‘가시림 수목원’으로 말씀해 주세요.</dd>
+              </div>
+            </dl>
+          </aside>
         </div>
       </section>
 
-      <section id="단체문의" class="visit-section" aria-labelledby="section-group">
+      <section id="visit-contact" class="visit-section visit-section--contact" aria-labelledby="section-group">
         <div class="visit-section__header">
-          <span class="visit-section__label">Group Booking</span>
+          <span class="visit-section__label">Contact</span>
           <h2 id="section-group" class="visit-section__title">단체 예약 및 대관 문의</h2>
           <p class="visit-section__lead">기업 워크숍, 원예 클래스, 스냅 촬영 등 목적에 맞춘 맞춤형 프로그램과 공간을 제안해 드립니다. 방문 희망일과 인원, 요청 사항을 남겨 주시면 전담 매니저가 빠르게 연락드립니다.</p>
         </div>
