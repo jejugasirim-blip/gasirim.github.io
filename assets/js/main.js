@@ -308,6 +308,23 @@
     const dialog = modal.querySelector('.program-modal__dialog');
     const content = modal.querySelector('[data-program-modal-content]');
     let activeTrigger = null;
+    
+    const bindCloseTargets = () => {
+      const closers = modal.querySelectorAll('[data-program-modal-close]');
+      closers.forEach((target) => {
+        if (!markOnce(target, 'programModalCloseBound')) return;
+        target.addEventListener('click', (event) => {
+          event.preventDefault();
+          closeModal();
+        });
+        target.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            closeModal();
+          }
+        });
+      });
+    };
 
     const updateGallery = (galleryRoot, images) => {
       const stageImg = galleryRoot.querySelector('[data-program-modal-stage]');
@@ -410,6 +427,8 @@
       }
     };
 
+    bindCloseTargets();
+
     const openModal = (id, trigger) => {
       if (!renderModal(id)) return;
       activeTrigger = trigger || null;
@@ -494,6 +513,8 @@
   function initIntroVideo() {
     const hero = document.querySelector('.intro-hero[data-video]');
     const video = hero?.querySelector('video');
+    const toggle = hero?.querySelector('[data-video-toggle]');
+    const toggleText = toggle?.querySelector('.intro-video__toggle-text');
     if (!hero || !video || !markOnce(hero, 'introVideoBound')) return;
 
     video.muted = true;
@@ -504,9 +525,21 @@
     video.setAttribute('autoplay', '');
     video.setAttribute('loop', '');
 
+    const updateToggle = (isPlaying) => {
+      if (!toggle) return;
+      toggle.classList.toggle('is-paused', !isPlaying);
+      toggle.setAttribute('aria-pressed', String(!isPlaying));
+      const label = isPlaying ? '영상 일시 정지' : '영상 재생';
+      toggle.setAttribute('aria-label', label);
+      if (toggleText) {
+        toggleText.textContent = isPlaying ? '일시 정지' : '재생';
+      }
+    };
+
     const attemptPlay = () => {
       video.play().catch(() => {
         /* Some browsers require user interaction before autoplay */
+        updateToggle(!video.paused);
       });
     };
 
@@ -516,9 +549,32 @@
       }
     };
 
+    const onToggleClick = () => {
+      if (video.paused) {
+        video.play().catch(() => {
+          updateToggle(false);
+        });
+      } else {
+        video.pause();
+      }
+    };
+
+    if (toggle) {
+      toggle.addEventListener('click', onToggleClick);
+      toggle.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          onToggleClick();
+        }
+      });
+    }
+
     video.addEventListener('canplay', attemptPlay, { once: true });
     document.addEventListener('visibilitychange', onVisibilityChange);
+    video.addEventListener('play', () => updateToggle(true));
+    video.addEventListener('pause', () => updateToggle(false));
 
+    updateToggle(!video.paused);
     attemptPlay();
   }
 
@@ -940,9 +996,13 @@
     initShopFilters();
   }
 
-  document.addEventListener('DOMContentLoaded', initAll);
+  function main() {
+    initAll();
+  }
+
+  document.addEventListener('DOMContentLoaded', main);
   // Fired by includes.js after partials are injected
-  document.addEventListener('partials:loaded', initAll);
+  document.addEventListener('partials:loaded', main);
   
   // ---------- Page heading auto-fill ----------
   document.addEventListener("DOMContentLoaded", () => {
