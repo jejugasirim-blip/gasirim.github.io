@@ -307,7 +307,6 @@
 
     const dialog = modal.querySelector('.program-modal__dialog');
     const content = modal.querySelector('[data-program-modal-content]');
-    const closeEls = modal.querySelectorAll('[data-program-modal-close]');
     let activeTrigger = null;
 
     const updateGallery = (galleryRoot, images) => {
@@ -423,8 +422,11 @@
       dialog?.focus({ preventScroll: true });
     };
 
-    closeEls.forEach((el) => {
-      el.addEventListener('click', closeModal);
+    modal.addEventListener('click', (event) => {
+      if (event.target.closest('[data-program-modal-close]')) {
+        event.preventDefault();
+        closeModal();
+      }
     });
 
     document.addEventListener('keydown', (event) => {
@@ -869,6 +871,60 @@
     });
   }
 
+  // ---------- Shop filtering ----------
+  function initShopFilters() {
+    const catalog = document.querySelector('.shop-catalog');
+    if (!catalog || !markOnce(catalog, 'shopFiltersBound')) return;
+
+    const buttons = Array.from(catalog.querySelectorAll('[data-filter]'));
+    const cards = Array.from(catalog.querySelectorAll('[data-category]'));
+    if (!buttons.length || !cards.length) return;
+
+    const normalise = (value) => (value || '').trim().toLowerCase();
+
+    const applyFilter = (filter) => {
+      const target = normalise(filter) || 'all';
+      cards.forEach((card) => {
+        const category = normalise(card.dataset.category);
+        const matches = target === 'all' || category === target;
+        card.classList.toggle('is-hidden', !matches);
+      });
+    };
+
+    const updateUrl = (filter) => {
+      if (!window.history?.replaceState) return;
+      const url = new URL(window.location.href);
+      if (!filter || normalise(filter) === 'all') {
+        url.searchParams.delete('category');
+      } else {
+        url.searchParams.set('category', normalise(filter));
+      }
+      window.history.replaceState({}, '', url);
+    };
+
+    const activate = (button) => {
+      const filter = button?.dataset.filter || 'all';
+      buttons.forEach((btn) => {
+        const isActive = btn === button;
+        btn.classList.toggle('is-active', isActive);
+        btn.setAttribute('aria-pressed', String(isActive));
+      });
+      applyFilter(filter);
+      updateUrl(filter);
+    };
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        activate(button);
+      });
+    });
+
+    const params = new URLSearchParams(window.location.search);
+    const requested = normalise(params.get('category'));
+    const initialButton = buttons.find((btn) => normalise(btn.dataset.filter) === requested) || buttons[0];
+    activate(initialButton);
+  }
+
   // ---------- Boot ----------
   function initAll() {
     initReveal();
@@ -881,6 +937,7 @@
     initHeroCarousel();
     initIntroGalleries();
     initProgramModals();
+    initShopFilters();
   }
 
   document.addEventListener('DOMContentLoaded', initAll);
