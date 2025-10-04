@@ -1794,43 +1794,45 @@ body.modal-open {
 
 /* ===== Shop page ===== */
 .shop-main {
-  padding: clamp(96px, 14vw, 180px) var(--page-pad) clamp(140px, 18vw, 220px);
+  padding: clamp(72px, 10vw, 120px) var(--page-pad) clamp(120px, 14vw, 160px);
   display: flex;
   flex-direction: column;
-  gap: clamp(60px, 12vw, 80px);
-}
-
-.shop-main > * {
-  width: min(1200px, 100%);
-  margin: 0 auto;
+  gap: clamp(56px, 9vw, 88px);
+  background: #f7f9f6;
 }
 
 .shop-overview {
-  display: flex;
-  justify-content: flex-start;
+  width: min(1080px, 100%);
+  margin: 0 auto;
+  gap: clamp(24px, 4vw, 36px);
+  display: grid;
 }
 
 .shop-overview__inner {
-  display: flex;
-  flex-direction: column;
-  gap: clamp(16px, 3vw, 28px);
+  display: grid;
+  gap: 0.75rem;
 }
 
 .shop-overview__eyebrow {
-  font-size: 0.875rem;
-  letter-spacing: 0.28em;
+  font-size: 0.78rem;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: #828282;
+  font-weight: 600;
+  color: rgba(19, 41, 28, 0.52);
 }
 
 .shop-overview__title {
-  font-weight: 400;
+  margin: 0;
+  font-size: clamp(2.5rem, 5vw, 3.2rem);
+  font-weight: 500;
+  color: #13291c;
 }
 
 .shop-overview__description {
-  font-size: clamp(18px, 2.4vw, 22px);
-  line-height: 1.6;
-  color: #4f4f4f;
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: rgba(19, 41, 28, 0.68);
 }
 
 .shop-catalog {
@@ -2490,7 +2492,7 @@ body.modal-open {
 .visit-overview__title {
   margin: 0;
   font-size: clamp(2.5rem, 5vw, 3.2rem);
-  font-weight: 600;
+  font-weight: 500;
   color: #13291c;
 }
 
@@ -2614,22 +2616,6 @@ body.modal-open {
   display: grid;
   gap: 1.25rem;
   box-shadow: 0 16px 40px rgba(19, 41, 28, 0.08);
-}
-
-.visit-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.5rem 1rem;
-  border-radius: 999px;
-  font-size: 0.95rem;
-  font-weight: 600;
-}
-
-.visit-status--open {
-  background: rgba(43, 140, 94, 0.12);
-  color: #1f6d4a;
-  border: 1px solid rgba(31, 109, 74, 0.35);
 }
 
 .visit-hours-list {
