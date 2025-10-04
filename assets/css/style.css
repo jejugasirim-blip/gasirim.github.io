@@ -277,7 +277,7 @@
   position: relative;
   width: 100%;
   height: min(50vh, 520px);
-  min-height: clamp(240px, 42vh, 420px);
+  min-height: clamp(200px, 100vh, 420px);
   margin: 0;
   overflow: hidden;
   border-radius: 0;
@@ -314,7 +314,7 @@
   margin: 0;
   font-weight: 300;
   font-size: clamp(2.25rem, 5vw, 3.75rem);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.25em;
   text-shadow: 0 12px 32px rgba(0,0,0,0.45);
 }
 
