@@ -2564,7 +2564,7 @@ body.modal-open {
 .visit-section__title {
   margin: 0;
   font-size: clamp(1.7rem, 3.4vw, 2.2rem);
-  font-weight: 600;
+  font-weight: 400;
   color: #13291c;
 }
 
@@ -2615,7 +2615,6 @@ body.modal-open {
   padding: clamp(24px, 4vw, 32px);
   display: grid;
   gap: 1.25rem;
-  box-shadow: 0 16px 40px rgba(19, 41, 28, 0.08);
 }
 
 .visit-hours-list {
@@ -2659,7 +2658,6 @@ body.modal-open {
   border-radius: 18px;
   overflow: hidden;
   background: #ffffff;
-  box-shadow: 0 10px 26px rgba(19, 41, 28, 0.05);
 }
 
 .rate-table {
@@ -2720,7 +2718,6 @@ body.modal-open {
   border: 1px solid rgba(24, 66, 47, 0.14);
   border-radius: 18px;
   background: #ffffff;
-  box-shadow: 0 12px 28px rgba(19, 41, 28, 0.05);
   overflow: hidden;
 }
 
@@ -2790,7 +2787,6 @@ body.modal-open {
   border-radius: 16px;
   border: 1px solid rgba(24, 66, 47, 0.12);
   background: #ffffff;
-  box-shadow: 0 8px 24px rgba(19, 41, 28, 0.04);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
