@@ -2,139 +2,297 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>가시림 | 加 時 林</title>
-  <meta name="description" content="가시림 — 제주 민간정원, 원예·명상·예술 프로그램이 있는 치유의 정원.">
-  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <meta name="description" content="가시림 — 제주 민간정원, 원예·명상·예술 프로그램이 있는 치유의 정원." />
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
 
-  <!-- Preload the big header background (faster perceived load) -->
-  <link rel="preload" as="image" href="assets/img/main.jpg">  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Zen+Old+Mincho&family=Nanum+Myeongjo&display=swap" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Zen+Old+Mincho&family=Nanum+Myeongjo&display=swap"/>
+  <style>
+    :root {
+      color-scheme: light;
+      --page-max-width: min(1120px, 100%);
+      --content-padding-inline: clamp(1.5rem, 4vw, 4rem);
+      --section-spacing: clamp(3.5rem, 6vw, 6rem);
+      --grid-gap: clamp(0.75rem, 2vw, 1.5rem);
+      --text-color: #1f1f1f;
+      --muted-color: #5a5a5a;
+      --accent-color: #2a5f3a;
+      --background-color: #f6f6f2;
+      font-size: 16px;
+    }
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/styleguide.css"/>
-  <link rel="stylesheet" href="assets/css/globals.css"/>
-  <link rel="stylesheet" href="assets/css/style.css"/>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", "Nanum Myeongjo", "Noto Sans KR", sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      line-height: 1.7;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: var(--section-spacing);
+      margin: 0 auto;
+      padding: clamp(3rem, 8vw, 8rem) var(--content-padding-inline) clamp(4rem, 10vw, 10rem);
+      max-width: var(--page-max-width);
+    }
+
+    header.gallery-intro {
+      display: grid;
+      gap: clamp(1.5rem, 3vw, 2.25rem);
+      text-align: left;
+    }
+
+    .gallery-intro h1 {
+      font-family: "Zen Old Mincho", "Nanum Myeongjo", serif;
+      font-size: clamp(2.25rem, 4vw, 3.25rem);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+
+    .gallery-intro p {
+      margin: 0;
+      max-width: 60ch;
+      color: var(--muted-color);
+      font-size: clamp(1rem, 2vw, 1.05rem);
+    }
+
+    section.gallery-section {
+      display: grid;
+      gap: var(--section-spacing);
+    }
+
+    .section-heading {
+      display: grid;
+      gap: clamp(0.75rem, 2vw, 1.25rem);
+      max-width: 62ch;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-family: "Zen Old Mincho", "Nanum Myeongjo", serif;
+      font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted-color);
+      font-size: clamp(1rem, 2vw, 1.05rem);
+    }
+
+    .gallery-row {
+      display: grid;
+      gap: var(--grid-gap);
+    }
+
+    .gallery-row img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 14px;
+      filter: saturate(1.05);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .gallery-row--halves {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .gallery-row--halves figure:nth-child(1) img {
+      aspect-ratio: 5 / 3;
+    }
+
+    .gallery-row--halves figure:nth-child(2) img {
+      aspect-ratio: 5 / 3;
+    }
+
+    .gallery-row--quarters {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .gallery-row--quarters img {
+      aspect-ratio: 4 / 3;
+    }
+
+    .gallery-row--triptych {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .gallery-row--triptych img {
+      aspect-ratio: 3 / 2;
+    }
+
+    .gallery-row--panorama {
+      grid-template-columns: 1fr;
+    }
+
+    .gallery-row--panorama img {
+      aspect-ratio: 21 / 9;
+    }
+
+    .gallery-row--stacked {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-auto-rows: 1fr;
+    }
+
+    .gallery-row--stacked figure:nth-child(1) {
+      grid-row: span 2;
+    }
+
+    .gallery-row--stacked figure:nth-child(1) img {
+      height: 100%;
+      aspect-ratio: 2 / 3;
+    }
+
+    .gallery-row--stacked figure:nth-child(n + 2) img {
+      aspect-ratio: 4 / 3;
+    }
+
+    figure {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    footer.gallery-footer {
+      padding-top: clamp(2rem, 6vw, 4rem);
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      color: var(--muted-color);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 960px) {
+      .gallery-row--triptych {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      main {
+        padding: clamp(2.5rem, 7vw, 4rem) var(--content-padding-inline) clamp(3rem, 8vw, 6rem);
+      }
+
+      .gallery-row--halves,
+      .gallery-row--quarters,
+      .gallery-row--triptych,
+      .gallery-row--stacked {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-row--stacked figure:nth-child(1) {
+        grid-row: auto;
+      }
+
+      .gallery-row--panorama img {
+        aspect-ratio: 16 / 9;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="page">
-    
-    <div id="landing-bar" data-include="partials/sticky-header-bar.html"></div>
-    <div id="landing-header" data-include="partials/header-landing.html"></div>
+  <main>
+    <header class="gallery-intro">
+      <h1>조용한 숲을 찾아와보면</h1>
+      <p>도심에서 멀어질수록 숲의 숨결은 더욱 선명해집니다. 잎사귀 사이로 스며드는 빛과 분홍빛 향기가 만들어 내는 순간, 우리는 비로소 자연의 속도에 맞춰 숨을 고르게 됩니다.</p>
+      <p>천천히 걸으며 나무의 결을 손끝에 담고, 머무는 시선마다 계절의 조각이 포개집니다. 깊어진 시간만큼 고요해진 풍경이 이곳에서 당신을 기다립니다.</p>
+    </header>
 
-    <!-- 가시림 소개 -->
-    <section class="body-container body-container--stacked" aria-labelledby="intro-heading">
-      <h2 id="intro-heading" class="sr-only">가시림 소개</h2>
-
-      <div class="article article-container reveal from-up">
-        <h3 class="h center">수목원을 넘어 복합 문화 공간을 지향하다.</h3>
-        <p class="p center">가시림은 제주 토박이 조경가가 30년 이상의 경력으로 직접 설계·조성한 4,000평 규모의 민간 수목원이며, 원예·명상·예술 등 다양한 문화 프로그램을 운영하는 복합 문화 공간이다.</p>
+    <section class="gallery-section" aria-label="숲 풍경 갤러리">
+      <div class="gallery-row gallery-row--halves">
+        <figure>
+          <img src="https://picsum.photos/960/540?random=1" alt="햇살이 비치는 숲길" loading="lazy" />
+        </figure>
+        <figure>
+          <img src="https://picsum.photos/961/540?random=2" alt="연못 위 나뭇잎 그림자" loading="lazy" />
+        </figure>
       </div>
 
-      <div class="intro-hero reveal parallax from-up" data-video>
-        <video class="intro-video" preload="auto" autoplay muted loop playsinline webkit-playsinline disablePictureInPicture controlsList="nodownload noplaybackrate noremoteplayback nofullscreen">
-          <source src="assets/video/gasirim.mp4" type="video/mp4">
-          비디오를 재생할 수 없는 환경입니다.
-        </video>
-        <div class="intro-video__controls">
-          <button type="button" class="intro-video__toggle" data-video-toggle aria-pressed="false">
-            <span class="intro-video__toggle-icon" aria-hidden="true">
-              <svg class="icon--pause" viewBox="0 0 24 24" focusable="false">
-                <path d="M7 4h3v16H7zM14 4h3v16h-3z" fill="currentColor" />
-              </svg>
-              <svg class="icon--play" viewBox="0 0 24 24" focusable="false">
-                <path d="M8 5v14l10-7z" fill="currentColor" />
-              </svg>
-            </span>
-            <span class="intro-video__toggle-text">일시 정지</span>
-          </button>
-        </div>
+      <div class="gallery-row gallery-row--quarters">
+        <figure>
+          <img src="https://picsum.photos/640/480?random=3" alt="초록이 가득한 숲" loading="lazy" />
+        </figure>
+        <figure>
+          <img src="https://picsum.photos/641/480?random=4" alt="물가에 비친 나무" loading="lazy" />
+        </figure>
+        <figure>
+          <img src="https://picsum.photos/642/480?random=5" alt="분홍빛 꽃" loading="lazy" />
+        </figure>
+        <figure>
+          <img src="https://picsum.photos/643/480?random=6" alt="소담한 이끼 숲" loading="lazy" />
+        </figure>
       </div>
 
-      <div class="article article-container reveal from-left">
-        <h3 class="h left">제주 4호 민간정원</h3>
-        <p class="p left">가시림 수목원은 정부에 등록된 제주 4호 민간정원으로 2023년 12월에 오픈했으며 <b>14개의 정원·숲·길</b>로 구성되어 있다. <b>200년 이상 된 수목</b>이 다수 존재하며, 단순한 포토스팟 조형물이 아닌 진정성 있는 식물 배치 철학을 바탕으로 운영된다. 대표가 매일 아침 직접 나와 세심하게 관리함으로써 사계절 각기 다른 경관을 제공하며, 한 곳에서 다양한 <b>희귀 식물</b>을 감상할 수 있는 독보적인 수목원으로 자리매김하고 있다.</p>
+      <div class="section-heading">
+        <h2>숲길을 거닐며 듣는 낮은 숨소리</h2>
+        <p>초록의 향기가 가득한 길을 따라 걷다 보면, 나무와 바람이 들려주는 서늘한 속삭임이 들려옵니다. 익숙한 걸음을 잠시 멈추고 눈을 감으면, 잎과 잎 사이로 흐르는 시간이 온전히 나의 것이 됩니다.</p>
       </div>
 
-      <section class="intro-gallery reveal from-up" aria-label="가시림 이미지 갤러리" data-gallery>
-        <button class="intro-gallery-nav intro-gallery-nav--prev embla__prev" type="button" aria-label="이전 사진" data-gallery-prev>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 20" fill="currentColor" aria-hidden="true" focusable="false">
-            <path d="M11.77 1.77 10 0 0 10l10 10 1.77-1.77L3.54 10l8.23-8.23Z" />
-          </svg>
-        </button>
-        <div class="intro-gallery-viewport">
-          <div class="intro-gallery-track">
-            <div class="gimg gimg-a" role="img" aria-label="갤러리 이미지 A"></div>
-            <div class="gimg gimg-b" role="img" aria-label="갤러리 이미지 B"></div>
-            <div class="gimg gimg-c" role="img" aria-label="갤러리 이미지 C"></div>
-            <div class="gimg gimg-d" role="img" aria-label="갤러리 이미지 D"></div>
-          </div>
-        </div>
-        <button class="intro-gallery-nav intro-gallery-nav--next embla__next" type="button" aria-label="다음 사진" data-gallery-next>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 20" fill="currentColor" aria-hidden="true" focusable="false">
-            <path d="M0 18.23 1.77 20l10-10-10-10L0 1.77 8.23 10 0 18.23Z" />
-          </svg>
-        </button>
-      </section>
-
-      <div class="article article-container reveal from-right">
-        <h3 class="h right">수목원은 어떻게 감상해야 하는가</h3>
-        <p class="p right">가시림은 단순한 수목 감상을 넘어, 자연 속에서 오감을 열고 자신을 바라보는 경험을 제공하는 공간이다. 자기 성찰과 휴식을 통해 이루어지는 치유를 지향하며, 수목원인 동시에 복합문화공간이기도 하다. <b>궁극적으로 가시림이 구현하고자 하는 것은 “치유의 정원”이다.</b></p>
+      <div class="gallery-row gallery-row--triptych">
+        <figure>
+          <img src="https://picsum.photos/520/360?random=7" alt="나무 사이에 내려앉은 빛" loading="lazy" />
+        </figure>
+        <figure>
+          <img src="https://picsum.photos/521/360?random=8" alt="유리 온실 내부" loading="lazy" />
+        </figure>
+        <figure>
+          <img src="https://picsum.photos/522/360?random=9" alt="연못과 나무" loading="lazy" />
+        </figure>
       </div>
 
-      <div class="intro-img-wide reveal from-left"></div>
-      <div class="intro-img-tall reveal from-right"></div>
-      <div class="intro-img-long reveal from-up"></div>
-
-      <div class="article article-container reveal from-up">
-        <h3 class="h left">자연을 다각도에서 체험하다</h3>
-        <p class="p left">가시림은 <b>원예, 명상, 예술</b> 프로그램을 통해 <b>자연을 다각도로 체험</b>할 수 있도록 한다. 이를 통해 자신의 감각과 자연에 집중하고 마음을 편안히 가라앉히며 치유의 시간을 갖게 된다.</p>
+      <div class="gallery-row gallery-row--panorama">
+        <figure>
+          <img src="https://picsum.photos/1280/480?random=10" alt="넓게 펼쳐진 수목원 풍경" loading="lazy" />
+        </figure>
       </div>
 
-      <div class="intro-mosaic-right reveal from-right"></div>
-      <div class="intro-mosaic-left-top reveal from-left"></div>
-      <div class="intro-mosaic-left-bottom reveal from-left"></div>
-    </section>
+      <div class="section-heading">
+        <h2>꽃과 바람이 머무는 온실</h2>
+        <p>유리벽 너머로 스며드는 빛과 물소리가 어우러지는 순간, 온실은 작은 우주가 됩니다. 계절마다 바뀌는 꽃 향기 속에서 우리의 일상도 잠시 숨을 고릅니다.</p>
+      </div>
 
-    <!-- Main Space Section -->
-    <section class="cards-container" id="space" aria-labelledby="space-heading">
-      <h2 id="space-heading" class="cards-title">Space</h2>
-      <div class="cards">
-        <a class="card" href="공간소개.html?space=%EC%9C%A0%EB%A6%AC%20%EC%98%A8%EC%8B%A4" aria-label="가든 센터">
-          <div class="card-img" style="--bg:url('../img/가든센터.jpg');"></div>
-          <div class="card-overlay"></div>
-          <div class="card-label">식물 온실</div>
-        </a>
-        <a class="card" href="공간소개.html?space=%ED%94%8C%EB%9E%9C%ED%8A%B8%20%EC%B9%B4%ED%8E%98" aria-label="카페">
-          <div class="card-img" style="--bg:url('../img/카페.jpg');"></div>
-          <div class="card-overlay"></div>
-          <div class="card-label">카페</div>
-        </a>
-        <a class="card" href="공간소개.html?space=%EB%A7%88%EC%9D%8C%20%EC%98%A8%EC%8B%A4%20%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4" aria-label="교육실">
-          <div class="card-img" style="--bg:url('../img/유리온실2.jpg');"></div>
-          <div class="card-overlay"></div>
-          <div class="card-label">마음 온실</div>
-        </a>
-        <a class="card" href="공간소개.html?space=%EA%B0%80%EB%93%A0%EC%84%BC%ED%84%B0" aria-label="미정 공간">
-          <div class="card-img" style="--bg:url('../img/유리온실.jpg');"></div>
-          <div class="card-overlay"></div>
-          <div class="card-label">식물 가게</div>
-        </a>
+      <div class="gallery-row gallery-row--stacked">
+        <figure>
+          <img src="https://picsum.photos/520/780?random=11" alt="온실 속 키 큰 나무" loading="lazy" />
+        </figure>
+        <figure>
+          <img src="https://picsum.photos/520/360?random=12" alt="카페 테이블 위 식물" loading="lazy" />
+        </figure>
+        <figure>
+          <img src="https://picsum.photos/520/360?random=13" alt="차분한 명상 공간" loading="lazy" />
+        </figure>
+      </div>
+
+      <div class="gallery-row gallery-row--quarters">
+        <figure>
+          <img src="https://picsum.photos/644/480?random=14" alt="숲속의 작은 길" loading="lazy" />
+        </figure>
+        <figure>
+          <img src="https://picsum.photos/645/480?random=15" alt="나무와 의자" loading="lazy" />
+        </figure>
+        <figure>
+          <img src="https://picsum.photos/646/480?random=16" alt="정원에서 즐기는 티타임" loading="lazy" />
+        </figure>
+        <figure>
+          <img src="https://picsum.photos/647/480?random=17" alt="숲을 찾은 사람들" loading="lazy" />
+        </figure>
       </div>
     </section>
 
-    <!-- Footer (loaded from /partials/footer.html) -->
-    <div id="site-footer" data-include="partials/footer.html"></div>
-  </div>
-
-  <!-- JS -->
-  <script src="assets/js/includes.js" defer></script>
-  <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js" defer></script>
-  <script src="https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js" defer></script>
-  <script src="assets/js/main.js" defer></script>
+    <footer class="gallery-footer">
+      이 페이지는 가시림 수목원의 풍경과 일상을 담기 위한 레이아웃 샘플입니다. 사진은 임시로 사용된 더미 이미지이며, 실제 촬영 이미지로 대체될 예정입니다.
+    </footer>
+  </main>
 </body>
 </html>
