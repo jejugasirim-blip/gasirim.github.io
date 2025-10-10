@@ -22,7 +22,7 @@ html, body {
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
-  background: #fff;
+  background: #f7f9f6;
 
   /*spacer for fixed sticky header bar
   padding-top: var(--hdr-h, 96px);  */
