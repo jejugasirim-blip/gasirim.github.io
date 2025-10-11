@@ -2363,7 +2363,6 @@ body.modal-open {
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  border-radius: var(--radius-lg);
   text-decoration: none;
   transition: transform 400ms cubic-bezier(.2,.7,.2,1), box-shadow 400ms ease;
 }
