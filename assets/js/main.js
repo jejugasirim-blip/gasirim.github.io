@@ -625,38 +625,37 @@
 
   // ---------- Mobile hamburger (animated, top-right popover) ----------
   function initMobileMenu() {
-    // If header is injected into #landing-header or #site-header, bind within it; otherwise fall back to document
-    const host = document.querySelector('#landing-header, #site-header') || document;
+    const toggles = document.querySelectorAll('.nav-toggle');
+    if (!toggles.length) return;
 
-    const toggle = host.querySelector('.nav-toggle');
-    const navbar = host.querySelector('.navbar');
-    if (!toggle || !navbar) return;
+    toggles.forEach((toggle) => {
+      if (!markOnce(toggle, 'menuBound')) return;
 
-    // prevent double-binding if partials fire multiple times
-    if (!markOnce(toggle, 'menuBound')) return;
+      const container = toggle.closest('header, [data-include]') || document;
+      const navbar = container.querySelector('.navbar') || document.querySelector('.navbar');
+      if (!navbar) return;
 
-    const close = () => {
-      navbar.classList.remove('is-open');
-      toggle.classList.remove('is-active');
-      toggle.setAttribute('aria-expanded', 'false');
-    };
+      const close = () => {
+        navbar.classList.remove('is-open');
+        toggle.classList.remove('is-active');
+        toggle.setAttribute('aria-expanded', 'false');
+      };
 
-    toggle.addEventListener('click', () => {
-      const open = !navbar.classList.contains('is-open');
-      navbar.classList.toggle('is-open', open);
-      toggle.classList.toggle('is-active', open); // rotates the icon via CSS
-      toggle.setAttribute('aria-expanded', String(open));
-    });
+      toggle.addEventListener('click', () => {
+        const open = !navbar.classList.contains('is-open');
+        navbar.classList.toggle('is-open', open);
+        toggle.classList.toggle('is-active', open);
+        toggle.setAttribute('aria-expanded', String(open));
+      });
 
-    // Click-away to close
-    document.addEventListener('click', (e) => {
-      if (!navbar.classList.contains('is-open')) return;
-      if (!navbar.contains(e.target) && !toggle.contains(e.target)) close();
-    });
+      document.addEventListener('click', (e) => {
+        if (!navbar.classList.contains('is-open')) return;
+        if (!navbar.contains(e.target) && !toggle.contains(e.target)) close();
+      });
 
-    // Escape to close
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') close();
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') close();
+      });
     });
   }
 
