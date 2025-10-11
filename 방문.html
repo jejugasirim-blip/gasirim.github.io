@@ -7,6 +7,9 @@
   <meta name="description" content="가시림 방문 안내 — 이용 요금, 오시는 길, 단체 예약 및 문의 정보를 확인하세요." />
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
 
+  <!-- Preload the big header background (faster perceived load) -->
+  <link rel="preload" as="image" href="assets/img/pageheader/visit-page.jpg">
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,7 +24,7 @@
 </head>
 <body>
   <div class="page">
-    <div id="site-header" data-include="partials/header-site.html" data-hero-title="방문 안내" data-hero-image="assets/img/banner-fourseasons/fall.jpg" data-hero-alt="가을빛으로 물든 가시림 산책로"></div>
+    <div id="site-header" data-include="partials/header-site.html" data-hero-title="방문 안내" data-hero-image="assets/img/pageheader/visit-page.jpg"></div>
     <div id="site-bar" data-include="partials/sticky-header-bar.html"></div>
 
     <main class="visit-main" aria-labelledby="visit-heading">
