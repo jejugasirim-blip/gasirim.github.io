@@ -817,7 +817,7 @@
 }
 
 .body-container--stacked .intro-gallery {
-  width: min(86%, 1240px);
+  width: min(100%, 1440px);
 }
 
 
@@ -1006,22 +1006,12 @@
 }
 
 .intro-gallery {
-  --intro-gallery-visible: 1;
   --intro-gallery-transition: 600ms;
-  --intro-gallery-gap: clamp(12px, 2.8vw, 32px);
-  --intro-gallery-height: clamp(200px, 38vw, 460px);
   position: relative;
-
-  width: 100vw;               /* span full viewport width */
-  left: 50%;                  /* move anchor to page center */
-  right: 50%;
-  margin-left: -50vw;         /* pull left edge to viewport edge */
-  margin-right: -50vw;        /* pull right edge to viewport edge */
-  margin-top: var(--section-gap);
-  margin-bottom: var(--section-gap);
+  width: 100%;
+  margin: var(--section-gap) 0;
   background: transparent;
-  max-width: none;
-  transform: translateX(0);   /* ensure no extra shifts */
+  align-self: stretch;
 }
 
 .intro-gallery-viewport {
@@ -1033,8 +1023,9 @@
 
 .intro-gallery-track {
   display: flex;
-  align-items: stretch;
+  align-items: center;
   justify-content: flex-start;
+  gap: 0;
   transform: translate3d(0, 0, 0);
   transition: none;
   will-change: transform;
@@ -1046,39 +1037,20 @@
   transition: transform var(--intro-gallery-transition) ease;
 }
 
-.intro-gallery-track > .gimg {
-  flex: 0 0 calc(
-    (100% - (var(--intro-gallery-visible) - 1) * var(--intro-gallery-gap)) /
-    var(--intro-gallery-visible)
-  );
-  margin-right: var(--intro-gallery-gap);
+.intro-gallery__slide {
+  flex: 0 0 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.gimg {
+.intro-gallery__slide img {
+  display: block;
   width: 100%;
-  height: var(--intro-gallery-height);
-  background: center/cover no-repeat;
+  height: auto;
+  object-fit: contain;
 }
-
-/* Gallery tiles — scale but never too small or too huge */
-.gimg-1  { background-image: url('../img/mainimages/Mainpage1.png'); }
-.gimg-2  { background-image: url('../img/mainimages/Mainpage2.png'); }
-.gimg-3  { background-image: url('../img/mainimages/Mainpage3.png'); }
-.gimg-4  { background-image: url('../img/mainimages/Mainpage4.png'); }
-.gimg-5  { background-image: url('../img/mainimages/Mainpage5.png'); }
-.gimg-6  { background-image: url('../img/mainimages/Mainpage6.png'); }
-.gimg-7  { background-image: url('../img/mainimages/Mainpage7.png'); }
-.gimg-8  { background-image: url('../img/mainimages/Mainpage8.png'); }
-.gimg-9  { background-image: url('../img/mainimages/Mainpage9.png'); }
-.gimg-10 { background-image: url('../img/mainimages/Mainpage10.png'); }
-.gimg-11 { background-image: url('../img/mainimages/Mainpage11.png'); }
-.gimg-12 { background-image: url('../img/mainimages/Mainpage12.png'); }
-.gimg-13 { background-image: url('../img/mainimages/Mainpage13.png'); }
-.gimg-14 { background-image: url('../img/mainimages/Mainpage14.png'); }
-.gimg-15 { background-image: url('../img/mainimages/Mainpage15.png'); }
-.gimg-16 { background-image: url('../img/mainimages/Mainpage16.png'); }
-.gimg-17 { background-image: url('../img/mainimages/Mainpage17.png'); }
-.gimg-18 { background-image: url('../img/mainimages/Mainpage18.png'); }
 
 
 .intro-gallery-nav {
@@ -1094,40 +1066,25 @@
 .intro-gallery-nav--prev { left: clamp(12px, 3vw, 36px); }
 .intro-gallery-nav--next { right: clamp(12px, 3vw, 36px); }
 
-@media (min-width: 640px) {
-  .intro-gallery { --intro-gallery-visible: 2; }
-}
-
-@media (min-width: 900px) {
-  .intro-gallery { --intro-gallery-visible: 3; }
-}
-
-@media (min-width: 1100px) {
-  .intro-gallery {
-    --intro-gallery-visible: 4;
-  }
-}
-
-.intro-img-wide1 {
+.intro-img-wide {
+  width: 100%;
+  margin: var(--section-gap) 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: clamp(260px, 60vw, 720px);
-  position: relative;
-  margin: var(--section-gap) auto;
-  height: clamp(220px, 46vw, 520px);
-  background: url('../img/pageheader/visit-page.jpg') center/cover no-repeat;
+  flex-direction: column;
+  gap: clamp(12px, 3vw, 24px);
+  align-self: stretch;
 }
 
-.intro-img-wide2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: clamp(260px, 60vw, 720px);
-  position: relative;
-  margin: var(--section-gap) auto;
-  height: clamp(220px, 46vw, 520px);
-  background: url('../img/main-cafe.jpg') center/cover no-repeat;
+.intro-img-wide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.intro-img-wide__caption {
+  margin: 0;
+  width: 100%;
 }
 
 /* Reveal on scroll */
@@ -1948,9 +1905,10 @@ body.modal-open {
 }
 
 .product-card__title {
-  font-weight: 500;
-  line-height: 1.3;
-  font-size: clamp(20px, 2.4vw, 22px);
+  font-weight: 300;
+  line-height: 1.35;
+  font-size: clamp(14px, 1.6vw, 16px);
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .product-card__description {
