@@ -1122,7 +1122,7 @@
   width: clamp(260px, 60vw, 720px);
   position: relative;
   margin: var(--section-gap) auto;
-  background: url('../img/pageheader/shop-page.jpg') center/cover no-repeat;
+  background: url('../img/main-cafe.jpg') center/cover no-repeat;
 }
 
 /* Reveal on scroll */
