@@ -28,3 +28,15 @@
   --brand-width: 180px;
   --brand-gap: 300px;
 }
+
+@media (max-width: 768px) {
+  :root {
+    --brand-width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --brand-width: 128px;
+  }
+}
