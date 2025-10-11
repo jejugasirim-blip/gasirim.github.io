@@ -2,7 +2,7 @@
   --page-pad: clamp(18px, 4.5vw, 60px);
   --section-gap: clamp(24px, 6vw, 64px);
   /* Colors */
-  --color-bg: #ffffff;
+  --color-bg: #f7f9f6;
   --color-text: #000000;
   --color-muted: rgba(0,0,0,.75);
   --color-border: #E6E6E6;
