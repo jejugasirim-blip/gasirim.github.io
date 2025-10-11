@@ -1927,8 +1927,8 @@ body.modal-open {
 
 .facility-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(2, minmax(240px, 1fr));
+  gap: 30px;
 }
 
 @media (min-width: 1024px) {
@@ -1948,7 +1948,7 @@ body.modal-open {
 .facility-card {
   display: flex;
   flex-direction: column;
-  gap: clamp(12px, 3vw, 24px);
+  gap: clamp(12px, 3vw, 15px);
   color: inherit;
   text-decoration: none;
 }
