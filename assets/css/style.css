@@ -1008,6 +1008,8 @@
 .intro-gallery {
   --intro-gallery-visible: 1;
   --intro-gallery-transition: 600ms;
+  --intro-gallery-gap: clamp(12px, 2.8vw, 32px);
+  --intro-gallery-height: clamp(200px, 38vw, 460px);
   position: relative;
 
   width: 100vw;               /* span full viewport width */
@@ -1054,6 +1056,7 @@
 
 .gimg {
   width: 100%;
+  height: var(--intro-gallery-height);
   background: center/cover no-repeat;
 }
 
@@ -1112,6 +1115,7 @@
   width: clamp(260px, 60vw, 720px);
   position: relative;
   margin: var(--section-gap) auto;
+  height: clamp(220px, 46vw, 520px);
   background: url('../img/pageheader/visit-page.jpg') center/cover no-repeat;
 }
 
@@ -1122,6 +1126,7 @@
   width: clamp(260px, 60vw, 720px);
   position: relative;
   margin: var(--section-gap) auto;
+  height: clamp(220px, 46vw, 520px);
   background: url('../img/main-cafe.jpg') center/cover no-repeat;
 }
 
