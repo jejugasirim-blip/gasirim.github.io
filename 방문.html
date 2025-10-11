@@ -19,11 +19,11 @@
   <link rel="stylesheet" href="assets/css/styleguide.css" />
   <link rel="stylesheet" href="assets/css/globals.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
-
-  
 </head>
 <body>
   <div class="page">
+
+    <!-- Header -->
     <div id="site-header" data-include="partials/header-site.html" data-hero-title="방문 안내" data-hero-image="assets/img/pageheader/visit-page.jpg"></div>
     <div id="site-bar" data-include="partials/sticky-header-bar.html"></div>
 
@@ -263,10 +263,13 @@
       </section>
     </main>
 
+    <!-- Footer (loaded from /partials/footer.html) -->
     <div id="site-footer" data-include="partials/footer.html"></div>
   </div>
 
   <script src="assets/js/includes.js" defer></script>
+  <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js" defer></script>
+  <script src="https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js" defer></script>
   <script src="assets/js/main.js" defer></script>
 </body>
 </html>
