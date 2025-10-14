@@ -633,12 +633,22 @@
 
       const container = toggle.closest('header, [data-include]') || document;
       const navbar = container.querySelector('.navbar') || document.querySelector('.navbar');
+      const backdrop = container.querySelector('[data-nav-backdrop]');
       if (!navbar) return;
+
+      const updateToggleLabel = (open) => {
+        toggle.setAttribute('aria-label', open ? '메인 메뉴 닫기' : '메인 메뉴 열기');
+      };
 
       const close = () => {
         navbar.classList.remove('is-open');
         toggle.classList.remove('is-active');
         toggle.setAttribute('aria-expanded', 'false');
+        updateToggleLabel(false);
+        container.classList.remove('menu-open');
+        document.body.classList.remove('nav-open');
+        navbar.querySelectorAll('.nav-sub.is-active').forEach((menu) => menu.classList.remove('is-active'));
+        navbar.querySelectorAll('.nav-item[aria-expanded="true"]').forEach((item) => item.setAttribute('aria-expanded', 'false'));
       };
 
       toggle.addEventListener('click', () => {
@@ -646,6 +656,17 @@
         navbar.classList.toggle('is-open', open);
         toggle.classList.toggle('is-active', open);
         toggle.setAttribute('aria-expanded', String(open));
+        container.classList.toggle('menu-open', open);
+        document.body.classList.toggle('nav-open', open);
+        updateToggleLabel(open);
+      });
+
+      backdrop?.addEventListener('click', close);
+
+      navbar.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 992) close();
+        });
       });
 
       document.addEventListener('click', (e) => {
@@ -656,6 +677,8 @@
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') close();
       });
+
+      updateToggleLabel(false);
     });
   }
 
@@ -667,12 +690,16 @@
     const onResize = () => {
       const navbar = document.querySelector('.navbar');
       const toggle = document.querySelector('.nav-toggle');
+      const header = toggle?.closest('header, [data-include]');
       if (!navbar || !toggle) return;
 
       if (window.innerWidth > 992 && navbar.classList.contains('is-open')) {
         navbar.classList.remove('is-open');
         toggle.classList.remove('is-active');
         toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', '메인 메뉴 열기');
+        header?.classList.remove('menu-open');
+        document.body.classList.remove('nav-open');
       }
     };
     window.addEventListener('resize', onResize, { passive: true });
