@@ -46,13 +46,17 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // Click to activate
+  const initialHashTab = findTabByHash(window.location.hash);
+
   document.querySelectorAll(TABLIST_SEL).forEach(tabList => {
     const tabs = Array.from(tabList.querySelectorAll(TAB_SEL));
+    if (!tabs.length) return;
 
-    // Initial tabindex/selected normalization
-    const initiallyActive = tabs.find(t => t.classList.contains('active')) || tabs[0];
-    tabs.forEach(t => t.setAttribute('tabindex', t === initiallyActive ? '0' : '-1'));
-    if (initiallyActive) setActive(initiallyActive);
+    const fallbackActive = tabs.find(t => t.classList.contains('active')) || tabs[0];
+    const initial = tabs.includes(initialHashTab) ? initialHashTab : fallbackActive;
+
+    tabs.forEach(t => t.setAttribute('tabindex', t === initial ? '0' : '-1'));
+    if (initial) setActive(initial);
 
     tabs.forEach((tab, idx) => {
       tab.addEventListener('click', () => setActive(tab, true));
@@ -76,10 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
-
-  // Activate from URL on load
-  const hashTab = findTabByHash(window.location.hash);
-  if (hashTab) setActive(hashTab, true);
 
   // React to manual hash changes
   window.addEventListener('hashchange', () => {
