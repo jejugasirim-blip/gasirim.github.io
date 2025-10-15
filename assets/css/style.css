@@ -368,7 +368,7 @@
 
 .embla__copy h1 {
   margin: 0;
-  font-size: 18px;
+  font-size: clamp(12px, 1.8vw, 18px);
   font-weight: 300;
   font-family: var(--font-myeongjo);
   line-height: 2;
@@ -2304,7 +2304,7 @@ body.modal-open {
   }
 
   .운영시간__grid,
-  .퍄ㅑmap__layout {
+  .visit-map__layout {
     gap: clamp(20px, 6vw, 32px);
   }
 
