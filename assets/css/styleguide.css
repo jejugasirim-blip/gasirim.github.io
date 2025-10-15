@@ -24,6 +24,8 @@
   --hdr-shadow: 0 10px 30px rgba(0,0,0,.06);
   --gradient-direction: to bottom;
   --gradient-hsl-values: 0, 0%, 0%;
+  --header-padding-block: clamp(20px, 4vw, 56px);
+  --header-padding-inline: clamp(24px, 8vw, 350px);
   --brand-left: 60px;
   --brand-width: 180px;
   --brand-gap: 300px;
@@ -31,12 +33,16 @@
 
 @media (max-width: 768px) {
   :root {
+    --header-padding-block: clamp(16px, 5vw, 22px);
+    --header-padding-inline: clamp(18px, 6vw, 28px);
     --brand-width: 150px;
   }
 }
 
 @media (max-width: 480px) {
   :root {
+    --header-padding-block: clamp(14px, 5.5vw, 20px);
+    --header-padding-inline: clamp(16px, 7vw, 24px);
     --brand-width: 128px;
   }
 }

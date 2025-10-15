@@ -635,17 +635,33 @@
       const navbar = container.querySelector('.navbar') || document.querySelector('.navbar');
       if (!navbar) return;
 
+      const resetSubmenus = () => {
+        navbar.querySelectorAll('.nav-sub.is-active')
+          .forEach((submenu) => submenu.classList.remove('is-active'));
+        navbar.querySelectorAll('.nav-item[aria-expanded="true"]')
+          .forEach((item) => item.setAttribute('aria-expanded', 'false'));
+      };
+
+      const openMenu = () => {
+        navbar.classList.add('is-open');
+        toggle.classList.add('is-active');
+        toggle.setAttribute('aria-expanded', 'true');
+      };
+
       const close = () => {
         navbar.classList.remove('is-open');
         toggle.classList.remove('is-active');
         toggle.setAttribute('aria-expanded', 'false');
+        resetSubmenus();
       };
 
       toggle.addEventListener('click', () => {
-        const open = !navbar.classList.contains('is-open');
-        navbar.classList.toggle('is-open', open);
-        toggle.classList.toggle('is-active', open);
-        toggle.setAttribute('aria-expanded', String(open));
+        if (navbar.classList.contains('is-open')) {
+          close();
+        } else {
+          resetSubmenus();
+          openMenu();
+        }
       });
 
       document.addEventListener('click', (e) => {
@@ -673,6 +689,10 @@
         navbar.classList.remove('is-open');
         toggle.classList.remove('is-active');
         toggle.setAttribute('aria-expanded', 'false');
+        navbar.querySelectorAll('.nav-sub.is-active')
+          .forEach((submenu) => submenu.classList.remove('is-active'));
+        navbar.querySelectorAll('.nav-item[aria-expanded="true"]')
+          .forEach((item) => item.setAttribute('aria-expanded', 'false'));
       }
     };
     window.addEventListener('resize', onResize, { passive: true });
