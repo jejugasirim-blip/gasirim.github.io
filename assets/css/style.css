@@ -368,6 +368,7 @@
   font-weight: 300;
   font-family: var(--font-myeongjo);
   line-height: 2;
+  text-shadow: 0px 0px 7px black;
   animation: emblaHeadline 1400ms ease both;
 }
 
