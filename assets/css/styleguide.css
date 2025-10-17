@@ -24,7 +24,7 @@
   --hdr-shadow: 0 10px 30px rgba(0,0,0,.06);
   --gradient-direction: to bottom;
   --gradient-hsl-values: 0, 0%, 0%;
-  --header-padding-block: clamp(20px, 4vw, 56px);
+  --header-padding-block: clamp(20px, 4vw, 35px);
   --header-padding-inline: clamp(24px, 8vw, 350px);
   --brand-left: 60px;
   --brand-width: 180px;
