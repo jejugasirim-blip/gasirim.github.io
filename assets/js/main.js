@@ -455,6 +455,8 @@
       }
     });
 
+    const normalise = (value) => (value || '').toString().trim().toLowerCase();
+
     cards.forEach((card) => {
       card.addEventListener('click', () => {
         const id = card.dataset.programId;
@@ -469,6 +471,64 @@
         }
       });
     });
+
+    const openFromQuery = () => {
+      const params = new URLSearchParams(window.location.search);
+      let requested = params.get('program');
+      if (!requested && window.location.hash.startsWith('#program=')) {
+        requested = window.location.hash.slice('#program='.length);
+      }
+      if (!requested) return;
+
+      const decoded = decodeURIComponent(requested);
+      const target = normalise(decoded);
+
+      const match = Array.from(cards).find((card) => normalise(card.dataset.programId) === target);
+      if (match) {
+        openModal(match.dataset.programId, match);
+      }
+    };
+
+    openFromQuery();
+  }
+
+  function initHomeProgramList() {
+    const container = document.querySelector('[data-program-list]');
+    if (!container || !markOnce(container, 'homeProgramListBound')) return;
+
+    const list = container.querySelector('[data-program-list-target]');
+    if (!list) return;
+
+    list.innerHTML = '';
+    const fragment = document.createDocumentFragment();
+    const entries = Object.entries(PROGRAM_DATA);
+
+    entries.forEach(([id, data]) => {
+      const item = document.createElement('li');
+      item.className = 'home-programs__item';
+
+      const title = document.createElement('h4');
+      title.className = 'home-programs__title';
+      title.textContent = data.title;
+
+      const subtitle = document.createElement('p');
+      subtitle.className = 'home-programs__subtitle';
+      subtitle.textContent = data.subtitle;
+
+      const link = document.createElement('a');
+      link.className = 'home-programs__link';
+      const encodedId = encodeURIComponent(id);
+      link.href = `프로그램소개.html?program=${encodedId}`;
+      link.textContent = '프로그램 자세히 보기';
+      link.setAttribute('aria-label', `${data.title} 프로그램 자세히 보기`);
+
+      item.appendChild(title);
+      item.appendChild(subtitle);
+      item.appendChild(link);
+      fragment.appendChild(item);
+    });
+
+    list.appendChild(fragment);
   }
 
   // ---------- Reveal on scroll ----------
@@ -1011,6 +1071,7 @@
     initHeaderScroll();
     initHeroCarousel();
     initIntroGalleries();
+    initHomeProgramList();
     initProgramModals();
     initShopFilters();
   }
