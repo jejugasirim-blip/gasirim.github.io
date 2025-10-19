@@ -32,7 +32,7 @@
       <!-- SECTION 1-->
       <section class="intro-feature-grid" style="display: grid; grid-template-columns: 60% 40%;">
         <!-- 홍보 영상 -->
-        <div class="intro-hero" data-video>
+        <div class="intro-hero reveal from-left" data-video>
           <video class="intro-video" preload="auto" autoplay muted loop playsinline webkit-playsinline disablePictureInPicture controlsList="nodownload noplaybackrate noremoteplayback nofullscreen">
             <source src="assets/video/gasirim.mp4" type="video/mp4">
             비디오를 재생할 수 없는 환경입니다.
@@ -51,19 +51,34 @@
           </div>
         </div>
         <!-- Article-->
-        <div class="article article-container intro-feature-grid__article reveal from-left">
-          <p class="home-programs__eyebrow right">ARBORETUM</p>
-          <h3 class="h right">제주 4호 민간정원</h3>
+        <div class="article article-container intro-feature-grid__article reveal from-right" style="align-items: end;">
+          <p class="home-programs__eyebrow">ARBORETUM</p>
+          <h3 class="h">제주 4호 민간정원</h3>
           <p class="p right">가시림 수목원은 정부에 등록된 제주 4호 민간정원으로 2023년 12월에 오픈했습니다. 150년 이상 된 수목들과 제주 자생 식물들, 그리고 다양한 희귀 식물들을 한 곳에서 감상할 수 있는 수목원으로 자리매김하고 있습니다.</p>
-          <p class="p left">가시림은 진정성 있는 식물 배치 철학을 바탕으로 운영됩니다. 사계절의 변화하는 모습을 온전히 담아내고자 하는 마음으로 가꾸어진 가시림의 풍경을 즐겨보세요.</p>
-          <div class="intro-feature-grid__button right">
-            <button class="intro-button">수목원 갤러리</button>
-          </div>
+          <p class="p right">가시림은 진정성 있는 식물 배치 철학을 바탕으로 운영됩니다. 사계절의 변화하는 모습을 온전히 담아내고자 하는 마음으로 가꾸어진 가시림의 풍경을 즐겨보세요.</p>
+          <a href="소개.html#둘러보기" class="intro-button">수목원 둘러보기</a>
         </div>
       </section>
 
-      <!-- SECTION 2: Photo Gallery -->
-      <section class="intro-gallery reveal from-up" aria-label="가시림 이미지 갤러리" data-gallery data-gallery-duration="120">
+      <!-- SECTION 2: Healing-->
+      <section class="intro-feature-grid" style="display: grid; grid-template-columns: 40% 60%;">
+      <!-- Article-->
+        <div class="article article-container reveal from-left">
+          <p class="home-programs__eyebrow">HEALING</p>
+          <h3 class="h left">자연의 치유를 전하다</h3>
+          <p class="p left">30여 년간 제주의 자연과 함께 걸어온 조경가 강남춘 대표는, 그 속에서 깨달은 치유의 에너지를 많은 사람들에게 전하고자 가시림 수목원을 만들었습니다.</p>
+          <p class="p left">가시림은 단순히 꽃과 나무를 감상하는 곳이 아니라, 자연 속에서 오감을 열고 자신을 돌아보는 경험을 제공하는 공간입니다.
+                            자기 성찰과 휴식을 통해 이루어지는 치유의 여정을 전하며, 수목원을 넘어 복합 문화 공간으로 여러분과 만나고자 합니다.</p>
+          <a href="프로그램소개.html" class="intro-button">원예·명상 프로그램</a>
+        </div>
+        <!-- Photo -->
+        <figure class="intro-img-wide2 reveal from-right">
+          <img src="assets/img/main-cafe.jpg" alt="가시림 카페에서 바라본 곶자왈 정원" loading="lazy">
+        </figure>
+      </section>
+
+      <!-- SECTION 3: Photo Gallery -->
+      <section class="intro-gallery" aria-label="가시림 이미지 갤러리" data-gallery data-gallery-duration="120">
         <button class="intro-gallery-nav intro-gallery-nav--prev embla__prev" type="button" aria-label="이전 사진" data-gallery-prev>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 20" fill="currentColor" aria-hidden="true" focusable="false">
             <path d="M11.77 1.77 10 0 0 10l10 10 1.77-1.77L3.54 10l8.23-8.23Z" />
@@ -134,57 +149,50 @@
         </button>
       </section> 
 
-      <!-- SECTION 3: Healing-->
-      <section class="intro-feature-grid" style="display: grid; grid-template-columns: 40% 60%;">
-      <!-- Article-->
-        <div class="article article-container reveal from-left">
-          <p class="home-programs__eyebrow">HEALING</p>
-          <h3 class="h left">자연의 치유를 전하다</h3>
-          <p class="p left">30여 년간 제주의 자연과 함께 걸어온 조경가 강남춘 대표는, 그 속에서 깨달은 치유의 에너지를 많은 사람들에게 전하고자 가시림 수목원을 만들었습니다.</p>
-          <p class="p left">가시림은 단순히 꽃과 나무를 감상하는 곳이 아니라, 자연 속에서 오감을 열고 자신을 돌아보는 경험을 제공하는 공간입니다.
-                            자기 성찰과 휴식을 통해 이루어지는 치유의 여정을 전하며, 수목원을 넘어 복합 문화 공간으로 여러분과 만나고자 합니다.</p>
-          <button class="intro-button">원예·명상 프로그램</button>
-        </div>
-        <!-- Photo -->
-        <figure class="intro-img-wide2 reveal from-right">
-          <img src="assets/img/main-cafe.jpg" alt="가시림 카페에서 바라본 곶자왈 정원" loading="lazy">
-        </figure>
-      </section>
-
-      <!-- Section 5: Facilities -->
-      <section class="facility-grid">
-        <a class="facility-card" data-category="experience">
-          <figure class="product-card__media">
-            <img src="assets/img/facility/facility1.png" alt="유리온실" loading="lazy">
-          </figure>
-          <div class="product-card__copy">
-            <p class="product-card__title">명상 스튜디오</p>
-          </div>
-        </a>
-        <a class="facility-card" data-category="experience">
-          <figure class="product-card__media">
-            <img src="assets/img/facility/facility2.png" alt="가든센터" loading="lazy">
-          </figure>
-          <div class="product-card__copy">
-            <p class="product-card__title">식물 판매장</p>
-          </div>
-        </a>
-        <a class="facility-card" data-category="experience">
-          <figure class="product-card__media">
-            <img src="assets/img/facility/facility3.png" alt="카페" loading="lazy">
-          </figure>
-          <div class="product-card__copy">
-            <p class="product-card__title">카페</p>
-          </div>
-        </a>
-        <a class="facility-card" data-category="experience">
-          <figure class="product-card__media">
-            <img src="assets/img/facility/facility4.png" alt="가든센터2" loading="lazy">
-          </figure>
-          <div class="product-card__copy">
-            <p class="product-card__title">체험장</p>
-          </div>
-        </a>
+      <!-- SECTION 4: Facilities -->
+      <section class="article article-container reveal from-up">
+        <p class="home-programs__eyebrow center">SPACES</p>
+        <h class="space-card__title center">가시림 주요 시설</h>
+        <section class="facility-grid">
+          <a class="facility-card" data-category="experience">
+            <div class="facility-card__media">
+              <div class="facility-card__media img">
+                <img src="assets/img/facility/facility2.png" alt="식물판매장" loading="lazy">
+              </div>
+              <div class="facility-card__overlay">
+                <p class="facility-card__title">식물판매장</p>
+              </div>
+            </div>
+          </a>
+          <a class="facility-card" data-category="experience">
+            <div class="facility-card__media">
+              <img src="assets/img/facility/facility1.png" alt="명상스튜디오" loading="lazy"></img>
+              <div class="facility-card__overlay">
+                <p class="facility-card__title">명상스튜디오</p>
+              </div>
+            </div>
+          </a>
+          <a class="facility-card" data-category="experience">
+            <div class="facility-card__media">
+              <div class="facility-card__media img">
+                <img src="assets/img/facility/facility3.png" alt="카페" loading="lazy">
+              </div>
+              <div class="facility-card__overlay">
+                <p class="facility-card__title">카페</p>
+              </div>
+            </div>
+          </a>
+          <a class="facility-card" data-category="experience">
+            <div class="facility-card__media">
+              <div class="facility-card__media img">
+                <img src="assets/img/facility/facility4.png" alt="체험장" loading="lazy">
+              </div>
+              <div class="facility-card__overlay">
+                <p class="facility-card__title">체험장</p>
+              </div>
+            </div>
+          </a>
+        </section>
       </section>
     </section>
 
