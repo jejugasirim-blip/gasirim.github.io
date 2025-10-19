@@ -909,6 +909,7 @@
   background: transparent;
   box-sizing: border-box;
   display: flex;
+  row-gap: 150px;
 }
 
 .article-container {
@@ -931,31 +932,50 @@
   margin: 0;
 }
 
-
 .body-container--intro {
   padding-left: 0;
   padding-right: 0;
 }
 
-.body-container--intro .article-container {
-  padding-left: var(--page-pad);
-  padding-right: var(--page-pad);
-}
-
-.body-container--intro .intro-gallery,
-.body-container--intro .home-programs,
-.body-container--intro .intro-img-wide,
+.body-container--intro .article-container,
 .body-container--intro .facility-grid {
   padding-left: var(--page-pad);
   padding-right: var(--page-pad);
 }
 
+.intro-feature-grid__button {
+  display: right;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.intro-button {
+  align-items: center;
+  margin-top: 30px;
+  padding: 0.6rem 1.1rem;
+  border: 1.5px solid rgba(0, 0, 0, 0.5);
+  background: #f7f9f6;
+  color: #000000;
+  font-weight: 500;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.intro-button:hover {
+  border-color: rgba(0, 0, 0, 0.719);
+  box-shadow: 0 10px 20px rgba(19, 41, 28, 0.08);
+}
+
+.intro-button:focus-visible {
+  outline: 2px solid #1f6d4a;
+  outline-offset: 2px;
+}
+
 .intro-feature-grid {
   display: grid;
-  grid-template-columns: 60% 40%;
   gap: 0;
   width: 100%;
-  margin-bottom: 100px;
   justify-items: stretch;
   align-items: stretch;
 }
@@ -984,37 +1004,18 @@
 }
 
 .intro-feature-grid__article .h {
-  font-size: clamp(35px, 3vw, 50px);
+  font-size: clamp(55px, 3vw, 75px);
 }
 
 .intro-feature-grid__article .p {
-  font-size: clamp(13px, 1.9vw, 18px);
+  font-size: clamp(15px, 1.9vw, 20px);
   line-height: 1.7;
-}
-
-.home-programs {
-  width: min(1080px, 100%);
-  margin: calc(var(--section-gap) * 1.2) auto;
-  display: flex;
-  flex-direction: column;
-  gap: clamp(18px, 5vw, 36px);
-}
-
-.home-programs__header {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  max-width: 680px;
 }
 
 .home-programs__eyebrow {
   font-size: 0.8rem;
   letter-spacing: 0.28em;
   font-weight: 500;
-}
-
-.home-programs__intro {
-  max-width: 54ch;
 }
 
 .home-programs__list {
@@ -1079,12 +1080,11 @@
 
 .body-container--stacked .article-container,
 .body-container--stacked .intro-hero,
-.body-container--stacked .intro-gallery,
 .body-container--stacked .intro-img-wide,
 .body-container--stacked .facility-grid {
   width: min(1080px, 100%);
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .body-container--stacked .intro-hero {
@@ -1104,6 +1104,16 @@
   gap: 24px;
 }
 
+.article .h {
+  font-size: clamp(55px, 3vw, 75px);
+}
+
+.article .p {
+  font-size: clamp(12px, 2vw, 15px);
+  line-height: 1.75;
+  color: #000000;
+}
+
 .h {
   font-weight: 500;
   font-size: clamp(24px, 3.4vw, 44px);
@@ -1119,13 +1129,6 @@
   line-height: 1.75;
   color: #000000;
   margin: 0;
-}
-
-.article .p {
-  font-size: clamp(12px, 2vw, 15px);
-  line-height: 1.75;
-  color: #000000;
-  margin-bottom: 20px;
 }
 
 .center { text-align: center; align-self: stretch; }
@@ -1289,11 +1292,11 @@
 }
 
 .intro-gallery {
-  --intro-gallery-transition: 600ms;
+  --intro-gallery-transition: 400ms;
   position: relative;
+  padding-top: 5px;
   width: 100%;
-  margin: var(--section-gap) 0;
-  background: transparent;
+  background: #2a2f14;
   align-self: stretch;
 }
 
@@ -1312,8 +1315,6 @@
   transform: translate3d(0, 0, 0);
   transition: none;
   will-change: transform;
-  padding-left: 0;
-  padding-right: 0;
 }
 
 .intro-gallery-track.is-animating {
@@ -1321,8 +1322,7 @@
 }
 
 .intro-gallery__slide {
-  flex: 0 0 60%;
-  max-width: 60%;
+  flex: 0 0 30%;
   margin: 0;
   display: flex;
   align-items: center;
@@ -2436,17 +2436,18 @@ body.modal-open {
     padding: clamp(56px, 14vw, 96px) var(--page-pad) clamp(96px, 18vw, 160px);
     flex-direction: column;
     align-items: center;
+    row-gap: 100px;
   }
 
   .article-container {
-    width: min(1080px, 100%);
     padding: 0 var(--page-pad);
     min-height: auto;
+    width: 100%;
+    margin-bottom: 100px;
   }
 
   .body-container--stacked .article-container,
   .body-container--stacked .intro-hero,
-  .body-container--stacked .intro-gallery,
   .body-container--stacked .intro-img-wide,
   .body-container--stacked .facility-grid {
     width: min(1080px, 100%);

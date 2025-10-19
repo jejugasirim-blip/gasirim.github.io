@@ -28,9 +28,9 @@
     <div id="landing-header" data-include="partials/header-landing.html"></div>
 
     <!-- 가시림 소개 -->
-    <!-- Section 1-->
     <section class="body-container body-container--stacked body-container--intro" aria-labelledby="intro-heading">
-      <div class="intro-feature-grid">
+      <!-- SECTION 1-->
+      <section class="intro-feature-grid" style="display: grid; grid-template-columns: 60% 40%;">
         <!-- 홍보 영상 -->
         <div class="intro-hero" data-video>
           <video class="intro-video" preload="auto" autoplay muted loop playsinline webkit-playsinline disablePictureInPicture controlsList="nodownload noplaybackrate noremoteplayback nofullscreen">
@@ -50,26 +50,19 @@
             </button>
           </div>
         </div>
-        <!-- Article 1 -->
+        <!-- Article-->
         <div class="article article-container intro-feature-grid__article reveal from-left">
-          <h3 class="h right" font-weight="400">제주 4호 민간정원</h3>
+          <p class="home-programs__eyebrow right">ARBORETUM</p>
+          <h3 class="h right">제주 4호 민간정원</h3>
           <p class="p right">가시림 수목원은 정부에 등록된 제주 4호 민간정원으로 2023년 12월에 오픈했습니다. 150년 이상 된 수목들과 제주 자생 식물들, 그리고 다양한 희귀 식물들을 한 곳에서 감상할 수 있는 수목원으로 자리매김하고 있습니다.</p>
+          <p class="p left">가시림은 진정성 있는 식물 배치 철학을 바탕으로 운영됩니다. 사계절의 변화하는 모습을 온전히 담아내고자 하는 마음으로 가꾸어진 가시림의 풍경을 즐겨보세요.</p>
+          <div class="intro-feature-grid__button right">
+            <button class="intro-button">수목원 갤러리</button>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <!-- Section 2 -->
-      <!-- Photo -->
-        <figure class="intro-img-wide intro-img-wide2 reveal from-left">
-          <img src="assets/img/main-cafe.jpg" alt="가시림 카페에서 바라본 곶자왈 정원" loading="lazy">
-        </figure>
-      <!-- Article 2 -->
-      <div class="article article-container intro-feature-grid__article reveal from-right">
-        <h1 class="h left">사계절의 정원</h1>
-        <p class="p left">가시림은 진정성 있는 식물 배치 철학을 바탕으로 운영됩니다.</p>
-        <p class="p left">사계절의 변화하는 모습을 온전히 담아내고자 하는 마음으로 가꾸어진 가시림의 풍경을 즐겨보세요.</p>
-      </div>
-        
-      <!-- Photo Gallery -->
+      <!-- SECTION 2: Photo Gallery -->
       <section class="intro-gallery reveal from-up" aria-label="가시림 이미지 갤러리" data-gallery data-gallery-duration="120">
         <button class="intro-gallery-nav intro-gallery-nav--prev embla__prev" type="button" aria-label="이전 사진" data-gallery-prev>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 20" fill="currentColor" aria-hidden="true" focusable="false">
@@ -139,40 +132,27 @@
             <path d="M0 18.23 1.77 20l10-10-10-10L0 1.77 8.23 10 0 18.23Z" />
           </svg>
         </button>
-      </section>
+      </section> 
 
-      <!-- Section 3 -->
-      <div class="intro-feature-grid" grid-template-columns="50% 50%"></div>
-      <!-- Photo -->
-        <figure class="intro-img-wide intro-img-wide2 reveal from-left">
+      <!-- SECTION 3: Healing-->
+      <section class="intro-feature-grid" style="display: grid; grid-template-columns: 40% 60%;">
+      <!-- Article-->
+        <div class="article article-container reveal from-left">
+          <p class="home-programs__eyebrow">HEALING</p>
+          <h3 class="h left">자연의 치유를 전하다</h3>
+          <p class="p left">30여 년간 제주의 자연과 함께 걸어온 조경가 강남춘 대표는, 그 속에서 깨달은 치유의 에너지를 많은 사람들에게 전하고자 가시림 수목원을 만들었습니다.</p>
+          <p class="p left">가시림은 단순히 꽃과 나무를 감상하는 곳이 아니라, 자연 속에서 오감을 열고 자신을 돌아보는 경험을 제공하는 공간입니다.
+                            자기 성찰과 휴식을 통해 이루어지는 치유의 여정을 전하며, 수목원을 넘어 복합 문화 공간으로 여러분과 만나고자 합니다.</p>
+          <button class="intro-button">원예·명상 프로그램</button>
+        </div>
+        <!-- Photo -->
+        <figure class="intro-img-wide2 reveal from-right">
           <img src="assets/img/main-cafe.jpg" alt="가시림 카페에서 바라본 곶자왈 정원" loading="lazy">
         </figure>
-        <!-- Article 3 -->
-        <div class="article article-container reveal from-right">
-          <h3 class="h right">자연이 주는 치유를 전달하다</h3>
-          <p class="p right">가시림의 강남춘 대표는 30년 동안 조경 사업에 몸담아 온 제주도 토박이입니다.</p>
-          <p class="p right">자연이 지닌 치유의 힘을 긴 세월 직접 경험해온 강 대표는 
-                            그 소중한 경험을 더 많은 사람들과 나누고자 하는 마음으로 가시림 수목원을 조성했습니다.</p>
-        </div>
-
-      <!-- Section 3 -->
-      <!-- Article 4 -->
-      <div class="article article-container reveal from-left">
-        <h1 class="h left">치유의 정원</h1>
-        <p class="p left">가시림은 단순한 수목 감상을 넘어, 자연 속에서 오감을 열고 자신을 바라보는 경험을 제공하는 공간입니다. 자기 성찰과 휴식을 통해 이루어지는 치유를 전달하고자 수목원인 동시에 복합 문화 공간으로서 여러분께 다가갑니다.</p>
-      </div>
-
-      <!-- Section 4: Programs -->
-      <section class="home-programs reveal from-up" aria-labelledby="home-programs-heading" data-program-list>
-        <div class="home-programs__header">
-          <p class="home-programs__eyebrow">PROGRAMS</p>
-          <h3 class="h left" id="home-programs-heading">가시림 프로그램 안내</h3>
-          <p class="p left home-programs__intro"><b>원예, 명상, 예술</b> 프로그램들을 통해 자연을 다각도로 체험할 수 있는 경험을 선사합니다. 자신의 감각과 자연에 집중하고 마음을 편안히 가라앉히며 치유의 시간을 가져보세요.</p>
-        </div>
-        <ul class="home-programs__list" data-program-list-target></ul>
       </section>
+
       <!-- Section 5: Facilities -->
-      <div class="facility-grid">
+      <section class="facility-grid">
         <a class="facility-card" data-category="experience">
           <figure class="product-card__media">
             <img src="assets/img/facility/facility1.png" alt="유리온실" loading="lazy">
@@ -205,7 +185,7 @@
             <p class="product-card__title">체험장</p>
           </div>
         </a>
-      </div>
+      </section>
     </section>
 
     <!-- Footer (loaded from /partials/footer.html) -->
