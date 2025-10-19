@@ -1125,7 +1125,7 @@
   font-size: clamp(12px, 2vw, 15px);
   line-height: 1.75;
   color: #000000;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .center { text-align: center; align-self: stretch; }
