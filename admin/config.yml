@@ -1,19 +1,31 @@
 backend:
-  name: github
-  repo: jejugasirim-blip/gasirim.github.io
+  name: git-gateway
   branch: main
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
+publish_mode: editorial_workflow   # optional: draft → review → publish
+
 collections:
   - name: "popups"
-    label: "Pop-ups"
-    folder: "assets/popups"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Content", name: "content", widget: "text" }
-      - { label: "Image", name: "image", widget: "image", required: false }
-      - { label: "Active", name: "active", widget: "boolean", default: false }
+    label: "Popups"
+    format: "json"
+    files:
+      - name: "site_popups"
+        label: "Popup List"
+        file: "data/popups.json"
+        fields:
+          - { name: "items", label: "Items", widget: "list", collapsed: true, fields: [
+              { name: "enabled", label: "Enabled", widget: "boolean", default: true },
+              { name: "priority", label: "Priority", widget: "number", default: 10, value_type: "int" },
+              { name: "locale", label: "Locale", widget: "string", default: "ko", required: false },
+              { name: "title", label: "Title", widget: "string" },
+              { name: "body", label: "Body", widget: "text" },
+              { name: "btn_text", label: "Button Text", widget: "string", default: "지금 보기", required: false },
+              { name: "btn_url", label: "Button URL", widget: "string", required: false },
+              { name: "image", label: "Image", widget: "image", required: false },
+              { name: "start_date", label: "Start Date", widget: "date", format: "YYYY-MM-DD" },
+              { name: "end_date", label: "End Date", widget: "date", format: "YYYY-MM-DD" },
+              { name: "once_per_day", label: "Once per day", widget: "boolean", default: true }
+          ] }
