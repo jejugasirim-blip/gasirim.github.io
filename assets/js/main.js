@@ -1094,3 +1094,178 @@
     }
   });
 })();
+
+// ===== Popup from CMS (Decap) =====
+(function () {
+  const POPUP_SOURCE = 'cms'; // later: 'sheets' for fallback
+
+  // Keys for "오늘 다시 보지 않기"
+  const STORAGE_KEY = 'gasirim_popup_hide_until';
+  const SESSION_KEY = 'gasirim_popup_closed_session';
+
+  // ------- data loaders -------
+  async function fetchFromCMS() {
+    try {
+      const res = await fetch('/data/popups.json', { cache: 'no-store' });
+      if (!res.ok) throw new Error('popups.json not found');
+      const json = await res.json();
+      return Array.isArray(json.items) ? json.items : [];
+    } catch (e) {
+      console.warn('[popup] CMS fetch failed:', e);
+      return [];
+    }
+  }
+
+  // Optional: implement if you later switch to Google Sheets
+  async function fetchFromSheet() {
+    // TODO: return [{...} items] from your published sheet
+    return [];
+  }
+
+  function normalize(item) {
+    return {
+      enabled: !!item.enabled,
+      priority: Number(item.priority ?? 10),
+      locale: item.locale || 'ko',
+      title: item.title || '',
+      body: item.body || '',
+      btn_text: item.btn_text || '자세히 보기',
+      btn_url: item.btn_url || '#',
+      image_url: item.image || item.image_url || '',
+      start_date: item.start_date || '',
+      end_date: item.end_date || '',
+      once_per_day: !!item.once_per_day
+    };
+  }
+
+  function todayISO() {
+    return new Date().toISOString().slice(0, 10);
+  }
+
+  function isActiveToday(cfg) {
+    const t = todayISO();
+    return (!cfg.start_date || cfg.start_date <= t) &&
+           (!cfg.end_date   || t <= cfg.end_date);
+  }
+
+  function shouldShowPopup() {
+    try {
+      const hideUntil = Number(localStorage.getItem(STORAGE_KEY) || 0);
+      const closedThisSession = sessionStorage.getItem(SESSION_KEY) === '1';
+      if (closedThisSession) return false;
+      return Date.now() > hideUntil;
+    } catch { return true; }
+  }
+
+  function endOfTodayLocal() {
+    const now = new Date();
+    const end = new Date(now);
+    end.setHours(23, 59, 59, 999);
+    return end.getTime();
+  }
+
+  // ------- DOM helpers -------
+  function mountRoot() {
+    let root = document.getElementById('popup-root');
+    if (!root) {
+      root = document.createElement('div');
+      root.id = 'popup-root';
+      document.body.appendChild(root);
+    }
+    return root;
+  }
+
+  function renderPopup(cfg) {
+    const root = mountRoot();
+    root.innerHTML = `
+      <div class="popup-overlay" data-popup-overlay style="position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;z-index:9999;backdrop-filter:blur(2px);">
+        <section class="popup" role="dialog" aria-modal="true" tabindex="-1" data-popup
+          style="width:min(560px,92vw);background:#fff;color:#111;border-radius:16px;box-shadow:0 18px 40px rgba(0,0,0,.25);overflow:hidden;transform:translateY(12px);opacity:0;transition:transform .26s ease,opacity .26s ease; position:relative;">
+          <button class="popup-close" type="button" aria-label="닫기" data-popup-close
+            style="position:absolute;top:10px;right:10px;width:36px;height:36px;display:grid;place-items:center;border-radius:999px;border:1px solid #e6e6e6;background:#fff;cursor:pointer;">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M18.3 5.7a1 1 0 0 0-1.4-1.4L12 9.17 7.1 4.3a1 1 0 1 0-1.4 1.4L10.83 12l-5.13 4.9a1 1 0 1 0 1.4 1.45L12 14.83l4.9 4.52a1 1 0 0 0 1.45-1.4L13.17 12l5.13-4.9Z"/></svg>
+          </button>
+
+          ${cfg.image_url ? `<div class="popup-media" aria-hidden="true" style="aspect-ratio:16/9;background:url('${cfg.image_url}') center/cover no-repeat;"></div>` : ''}
+
+          <div class="popup-body" style="padding:20px 20px 8px;">
+            <div class="popup-eyebrow" style="font-size:12px;color:#555;letter-spacing:.08em;text-transform:uppercase;">가시림 안내</div>
+            <h2 class="popup-title" style="margin:6px 0 8px;font-size:clamp(20px,3.6vw,28px);letter-spacing:-.01em;">${escapeHtml(cfg.title)}</h2>
+            <p class="popup-text" style="margin:0 0 16px;font-size:15px;line-height:1.6;color:#555;">${escapeHtml(cfg.body)}</p>
+          </div>
+
+          <div class="popup-actions" style="display:flex;gap:8px;padding:0 20px 16px;">
+            ${cfg.btn_url ? `<a class="btn primary" href="${cfg.btn_url}" data-popup-primary
+              style="appearance:none;border:1px solid #111;background:#111;color:#fff;padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:500;text-decoration:none;">${escapeHtml(cfg.btn_text || '자세히 보기')}</a>` : ''}
+            <button class="btn" type="button" data-popup-close-plain
+              style="appearance:none;border:1px solid #e6e6e6;background:#fff;color:#111;padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:500;">닫기</button>
+          </div>
+
+          <div class="popup-footer" style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 16px;border-top:1px solid #e6e6e6;">
+            <label class="dont-show" style="display:inline-flex;align-items:center;gap:8px;font-size:14px;color:#555;">
+              <input type="checkbox" id="dontShowToday" style="width:16px;height:16px;" /> 오늘 다시 보지 않기
+            </label>
+            <small style="color:#555">필요 시 설정 &gt; 사이트 데이터에서 재설정</small>
+          </div>
+        </section>
+      </div>
+    `;
+
+    const overlay = root.querySelector('[data-popup-overlay]');
+    const dialog  = root.querySelector('[data-popup]');
+    const dontShow = root.querySelector('#dontShowToday');
+
+    function lockScroll(lock) { document.body.style.overflow = lock ? 'hidden' : ''; }
+    function open() {
+      overlay.style.display = 'flex';
+      requestAnimationFrame(() => {
+        dialog.style.transform = 'translateY(0)'; dialog.style.opacity = '1';
+      });
+      lockScroll(true);
+      setTimeout(() => dialog.focus(), 0);
+      document.addEventListener('keydown', onEsc);
+      document.addEventListener('keydown', trapTab);
+      overlay.addEventListener('click', onOverlay);
+      root.querySelectorAll('[data-popup-close],[data-popup-close-plain],[data-popup-primary]').forEach(b=>{
+        b && b.addEventListener('click', () => close(dontShow.checked));
+      });
+    }
+    function close(persistToday) {
+      overlay.style.display = 'none';
+      dialog.style.transform = 'translateY(12px)'; dialog.style.opacity = '0';
+      lockScroll(false);
+      document.removeEventListener('keydown', onEsc);
+      document.removeEventListener('keydown', trapTab);
+      overlay.removeEventListener('click', onOverlay);
+      sessionStorage.setItem(SESSION_KEY, '1');
+      if (persistToday) localStorage.setItem(STORAGE_KEY, String(endOfTodayLocal()));
+    }
+    function onOverlay(e){ if (e.target === overlay) close(dontShow.checked); }
+    function onEsc(e){ if (e.key === 'Escape') close(dontShow.checked); }
+    function trapTab(e){
+      if (e.key !== 'Tab') return;
+      const list = dialog.querySelectorAll('a[href],button,input,textarea,select,[tabindex]:not([tabindex="-1"])');
+      const arr = Array.from(list).filter(el=>!el.disabled);
+      if (!arr.length) return;
+      const first = arr[0], last = arr[arr.length-1];
+      if (e.shiftKey && document.activeElement === first) { last.focus(); e.preventDefault(); }
+      else if (!e.shiftKey && document.activeElement === last) { first.focus(); e.preventDefault(); }
+    }
+
+    // Auto-open once per day unless user opted out
+    if (shouldShowPopup()) open();
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+  }
+
+  // ------- bootstrap -------
+  (async function init() {
+    const items = (POPUP_SOURCE === 'cms') ? await fetchFromCMS() : await fetchFromSheet();
+    const active = items.map(normalize).filter(c => c.enabled && isActiveToday(c))
+      .sort((a,b) => (b.priority||0) - (a.priority||0))[0];
+    if (!active) return;
+    renderPopup(active);
+  })();
+})();
