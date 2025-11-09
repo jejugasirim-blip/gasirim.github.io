@@ -23,17 +23,10 @@
 <body>
   <div class="page">
     <!-- Header -->
-    <div id="site-header" data-include="partials/header-site.html" data-hero-title="프로그램" data-hero-image="assets/img/pageheader/program-page.jpg"></div>
+    <div id="site-header" data-include="partials/header-site.html" data-hero-title="프로그램" data-hero-eyebrow="PROGRAM" data-hero-image="assets/img/pageheader/program-page.jpg"></div>
     <div id="site-bar" data-include="partials/sticky-header-bar.html"></div>
 
     <main class="program-main" aria-labelledby="program-heading">
-
-      <section class="program-hero">
-        <p class="program-hero__eyebrow">Programs</p>
-        <h1 class="program-hero__title" id="program-heading">가시림 프로그램</h1>
-        <p class="program-hero__lead">숲과 호흡, 식물과 손끝이 맞닿는 순간까지 가시림에서 경험할 수 있는 모든 프로그램을 한자리에 모았습니다. 원하는 결을 따라 깊이 있는 시간을 만나보세요.</p>
-      </section>
-
       <section class="program-summary" aria-labelledby="program-summary-heading">
         <div class="program-summary__grid">
           <a class="program-summary__card" href="프로그램목록.html#산책명상">
@@ -57,101 +50,85 @@
         </div>
       </section>
 
-      <section class="program-catalog" aria-label="가시림 프로그램 목록">
-        <div class="program-grid">
+      <section class="article article-container reveal from-up">
+        <p class="home-programs__eyebrow center">PROGRAMS</p>
+        <h class="space-card__title center">가시림 프로그램</h>
+        <section class="program-catalog" aria-label="가시림 프로그램 목록">
+          <div class="program-grid">
+            <article class="program-card" role="button" tabindex="0" aria-haspopup="dialog" data-program-id="sunrise-walk">
+              <figure class="program-card__media">
+                <img src="assets/img/main.jpg" alt="아침 햇살이 내려앉은 숲길" loading="lazy">
+              </figure>
+              <div class="program-card__body">
+                <div class="program-card__meta">
+                  <p class="program-hero__eyebrow">산책명상</p>
+                  <p class="program-card__category">가을 산책명상</p>
+                  <p class="program-card__subtitle">오전 10:00 - 오후 5:00 (한 시간 단위 입장)</p>
+                </div>
+                <p class="program-card__description">오디오 가이드와 함께하는 산책 명상 세션입니다. 일상으로 돌아가기 전 마음을 단단히 세우고 싶은 분께 추천합니다.</p>
+                <div class="program-card__footer">
+                  <p class="program-card__duration">60-90분</p>
+                  <p class="program-card__price">25,000원</p>
+                </div>
+              </div>
+            </article>
 
-          <article class="program-card" role="button" tabindex="0" aria-haspopup="dialog" data-program-id="sunrise-walk">
-            <figure class="program-card__media">
-              <img src="assets/img/main.jpg" alt="아침 햇살이 내려앉은 숲길" loading="lazy">
-            </figure>
-            <div class="program-card__body">
-              <div class="program-card__meta">
-                <p class="program-hero__eyebrow">산책명상</p>
-                <p class="program-card__category">가을 산책명상</p>
-                <p class="program-card__subtitle">오전 10:00 - 오후 5:00 (한 시간 단위 입장)</p>
+            <article class="program-card" role="button" tabindex="0" aria-haspopup="dialog" data-program-id="regular-class">
+              <figure class="program-card__media">
+                <img src="assets/img/유리온실2.jpg" alt="정규 명상 수업 장면" loading="lazy">
+              </figure>
+              <div class="program-card__body">
+                <div class="program-card__meta">
+                  <p class="program-hero__eyebrow">명상</p>
+                  <p class="program-card__category">가시림 정규 명상</p>
+                  <p class="program-card__subtitle">매주 화·목 08:30</p>
+                </div>
+                <p class="program-card__description">이완 명상과 집중 호흡으로 하루를 단단히 여는 정규 세션입니다. 초심자도 무리 없이 몰입할 수 있는 프로그램입니다.</p>
+                <div class="program-card__footer">
+                  <p class="program-card__duration">90분 프로그램</p>
+                  <p class="program-card__price">25,000원</p>
+                </div>
               </div>
-              <p class="program-card__description">오디오 가이드와 함께하는 산책 명상 세션입니다. 일상으로 돌아가기 전 마음을 단단히 세우고 싶은 분께 추천합니다.</p>
-              <div class="program-card__footer">
-                <p class="program-card__duration">60-90분</p>
-                <p class="program-card__price">25,000원</p>
-              </div>
-            </div>
-          </article>
+            </article>
 
-          <article class="program-card" role="button" tabindex="0" aria-haspopup="dialog" data-program-id="forest-immersion">
-            <figure class="program-card__media">
-              <img src="assets/img/유리온실.jpg" alt="메타세쿼이아 숲 명상" loading="lazy">
-            </figure>
-            <div class="program-card__body">
-              <div class="program-card__meta">
-                <p class="program-hero__eyebrow">명상</p>
-                <p class="program-card__category">메타세쿼이아 숲 명상</p>
-                <p class="program-card__subtitle">(봄·가을 한정) 오전 10:00</p>
+            <article class="program-card" role="button" tabindex="0" aria-haspopup="dialog" data-program-id="horticulture-lab">
+              <figure class="program-card__media">
+                <img src="assets/img/가든센터.jpg" alt="온실에서 식물을 돌보는 참가자" loading="lazy">
+              </figure>
+              <div class="program-card__body">
+                <div class="program-card__meta">
+                  <p class="program-hero__eyebrow">원예</p>
+                  <p class="program-card__category">원데이 정원 수업</p>
+                  <p class="program-card__subtitle">매월 첫째주 수요일 오후 2:00</p>
+                </div>
+                <p class="program-card__description">가시림 대표님이 직접 지도하는 가드닝 원데이 클래스입니다. 수강생 다함께 정원을 만들어보고 나만의 작은 이끼 정원도 화분에 담아가세요.</p>
+                <div class="program-card__footer">
+                  <p class="program-card__duration">120분 프로그램</p>
+                  <p class="program-card__price">38,000원</p>
+                </div>
               </div>
-              <p class="program-card__description">울창한 메타세쿼이아 숲에서 계절별 향과 소리를 느끼며 감각을 열고, 자연의 숨결에 집중하는 주말 집중 명상 여정입니다.</p>
-              <div class="program-card__footer">
-                <p class="program-card__duration">90분 프로그램</p>
-                <p class="program-card__price">25,000원</p>
-              </div>
-            </div>
-          </article>
+            </article>
 
-          <article class="program-card" role="button" tabindex="0" aria-haspopup="dialog" data-program-id="regular-class">
-            <figure class="program-card__media">
-              <img src="assets/img/유리온실2.jpg" alt="정규 명상 수업 장면" loading="lazy">
-            </figure>
-            <div class="program-card__body">
-              <div class="program-card__meta">
-                <p class="program-hero__eyebrow">명상</p>
-                <p class="program-card__category">가시림 정규 명상</p>
-                <p class="program-card__subtitle">매주 화·목 08:30</p>
+            <article class="program-card" role="button" tabindex="0" aria-haspopup="dialog" data-program-id="terrarium-clinic">
+              <figure class="program-card__media">
+                <img src="assets/img/가든센터.jpg" alt="테라리움을 제작하는 수강생" loading="lazy">
+              </figure>
+              <div class="program-card__body">
+                <div class="program-card__meta">
+                  <p class="program-hero__eyebrow">원예</p>
+                  <p class="program-card__category">가시림 현무암 화분 만들기</p>
+                  <p class="program-card__subtitle">상시 운영 오전 10:00 — 오후 5:00</p>
+                </div>
+                <p class="program-card__description">다양한 종류의 자생식물들을 이용해 자신만의 화분을 완성하는 클래스입니다.</p>
+                <div class="program-card__footer">
+                  <p class="program-card__duration">20분 프로그램</p>
+                  <p class="program-card__price">25,000원</p>
+                </div>
               </div>
-              <p class="program-card__description">이완 명상과 집중 호흡으로 하루를 단단히 여는 정규 세션입니다. 초심자도 무리 없이 몰입할 수 있는 프로그램입니다.</p>
-              <div class="program-card__footer">
-                <p class="program-card__duration">90분 프로그램</p>
-                <p class="program-card__price">25,000원</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="program-card" role="button" tabindex="0" aria-haspopup="dialog" data-program-id="horticulture-lab">
-            <figure class="program-card__media">
-              <img src="assets/img/가든센터.jpg" alt="온실에서 식물을 돌보는 참가자" loading="lazy">
-            </figure>
-            <div class="program-card__body">
-              <div class="program-card__meta">
-                <p class="program-hero__eyebrow">원예</p>
-                <p class="program-card__category">원데이 정원 수업</p>
-                <p class="program-card__subtitle">매월 첫째주 수요일 오후 2:00</p>
-              </div>
-              <p class="program-card__description">가시림 대표님이 직접 지도하는 가드닝 원데이 클래스입니다. 수강생 다함께 정원을 만들어보고 나만의 작은 이끼 정원도 화분에 담아가세요.</p>
-              <div class="program-card__footer">
-                <p class="program-card__duration">120분 프로그램</p>
-                <p class="program-card__price">38,000원</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="program-card" role="button" tabindex="0" aria-haspopup="dialog" data-program-id="terrarium-clinic">
-            <figure class="program-card__media">
-              <img src="assets/img/가든센터.jpg" alt="테라리움을 제작하는 수강생" loading="lazy">
-            </figure>
-            <div class="program-card__body">
-              <div class="program-card__meta">
-                <p class="program-hero__eyebrow">원예</p>
-                <p class="program-card__category">가시림 현무암 화분 만들기</p>
-                <p class="program-card__subtitle">상시 운영 오전 10:00 — 오후 5:00</p>
-              </div>
-              <p class="program-card__description">다양한 종류의 자생식물들을 이용해 자신만의 화분을 완성하는 클래스입니다.</p>
-              <div class="program-card__footer">
-                <p class="program-card__duration">20분 프로그램</p>
-                <p class="program-card__price">25,000원</p>
-              </div>
-            </div>
-          </article>
-        </div>
+            </article>
+          </div>
+        </section>
       </section>
-
       <!-- Modal -->
       <div class="program-modal" data-program-modal hidden>
         <div class="program-modal__backdrop" data-program-modal-close></div>

@@ -21,6 +21,24 @@
   <link rel="stylesheet" href="assets/css/globals.css"/>
   <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
+
+<!-- Must be present on the page the invite/reset link opens -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on('init', (user) => {
+      // On first-time invite acceptance or login, send them to the CMS
+      if (!user) {
+        window.netlifyIdentity.on('login', () => { window.location.href = '/admin/'; });
+        window.netlifyIdentity.on('signup', () => { window.location.href = '/admin/'; });
+      }
+    });
+    // Optional: if widget isn't open automatically, open it on invite tokens
+    // window.netlifyIdentity.on('init', () => window.netlifyIdentity.open());
+  }
+</script>
+
+
 <body>
   <div class="page">
     
@@ -152,7 +170,7 @@
       <!-- SECTION 4: Facilities -->
       <section class="article article-container reveal from-up">
         <p class="home-programs__eyebrow center">SPACES</p>
-        <h class="space-card__title center">가시림 주요 시설</h>
+        <h class="space-card__title center">주요 시설</h>
         <section class="facility-grid">
           <a class="facility-card" data-category="experience">
             <div class="facility-card__media">

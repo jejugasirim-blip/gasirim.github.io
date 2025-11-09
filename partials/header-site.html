@@ -13,6 +13,7 @@
     />
   </figure>
   <div class="page-hero__overlay">
+    <p class="page-hero__eyebrow">SPACES</p>
     <h1 class="page-hero__title">가시림</h1>
   </div>
 </section>
@@ -28,6 +29,7 @@
 
     const img = hero.querySelector('.page-hero__image');
     const titleEl = hero.querySelector('.page-hero__title');
+    const eyebrowEl = hero.querySelector('.page-hero__eyebrow');
 
     const dataset = includeRoot?.dataset || {};
     const resolveAttr = (name, fallback = '') => {
@@ -40,6 +42,8 @@
 
     const defaultTitle = titleEl?.textContent?.trim() || '가시림';
     const resolvedTitle = resolveAttr('heroTitle', defaultTitle) || defaultTitle;
+    const defaultEyebrow = eyebrowEl?.textContent?.trim() || 'SPACES';
+    const resolvedEyebrow = resolveAttr('heroEyebrow', defaultEyebrow) || defaultEyebrow;
     const defaultSrc = img?.dataset.defaultSrc || img?.getAttribute('src') || './assets/img/main.jpg';
     const resolvedImage = resolveAttr('heroImage', defaultSrc) || defaultSrc;
     const resolvedAlt = resolveAttr('heroAlt', resolvedTitle) || resolvedTitle;
@@ -51,6 +55,10 @@
 
     if (titleEl) {
       titleEl.textContent = resolvedTitle;
+    }
+
+    if (eyebrowEl) {
+      eyebrowEl.textContent = resolvedEyebrow;
     }
   })();
 </script>
