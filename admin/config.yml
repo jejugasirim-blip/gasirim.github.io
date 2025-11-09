@@ -1,32 +1,79 @@
-locale: 'ko'
+# ===== Decap CMS 기본 설정 (친근한 한국어 UI) =====
+locale: "ko"
 
 backend:
   name: git-gateway
   branch: main
 
-media_folder: "assets/uploads"
-public_folder: "/assets/uploads"
-
-publish_mode: editorial_workflow   # optional: draft → review → publish
+media_folder: "assets/uploads"   # 저장 경로 (리포지토리 내부)
+public_folder: "/assets/uploads" # 웹에서 보이는 경로
+publish_mode: editorial_workflow  # 임시저장/검토/게시
 
 collections:
   - name: "popups"
     label: "팝업"
-    folder: "content/popups"     # each popup saved as its own JSON file
-    create: true                 # allow “새 항목” button
+    folder: "content/popups"     # 각 팝업을 개별 파일로 저장
+    create: true                 # “새 팝업” 버튼 표시
     format: "json"
     slug: "{{title}}"
+
+    # 목록 화면에 보일 요약 (비개발자 친화)
+    summary: "{{title}} · {{start_date}}–{{end_date}} · {{locale}} · {{status_label}}"
+
+    # 정렬/그룹/필터 (친근한 용어)
+    sortable_fields: ["start_date", "end_date", "priority", "title"]
+    view_groups:
+      - { label: "언어", field: "locale" }
+      - { label: "상태", field: "status_label" }
+    view_filters:
+      - { label: "게시 중", field: "enabled", pattern: true }
+      - { label: "현재 노출 중", field: "is_active_today", pattern: true }
+
     fields:
-      - { name: "enabled", label: "사용 여부", widget: "boolean", default: true }
-      - { name: "priority", label: "우선순위", widget: "number", default: 10 }
-      - { name: "locale", label: "언어 코드", widget: "string", default: "ko", required: false }
-      - { name: "title", label: "제목", widget: "string" }
-      - { name: "body", label: "본문 내용", widget: "text" }
-      - { name: "btn_text", label: "버튼 텍스트", widget: "string", default: "지금 보기", required: false }
-      - { name: "btn_url", label: "버튼 링크", widget: "string", required: false }
-      - { name: "image", label: "이미지", widget: "image", required: false }
-      - { name: "start_date", label: "시작일", widget: "date", format: "YYYY-MM-DD" }
-      - { name: "end_date", label: "종료일", widget: "date", format: "YYYY-MM-DD" }
-      - { name: "once_per_day", label: "하루 한 번만 표시", widget: "boolean", default: true }
+      # 사람이 읽기 쉬운 상태 선택 (true/false 대신 라벨)
+      - label: "상태"
+        name: "enabled"
+        widget: "select"
+        options:
+          - { label: "게시", value: true }
+          - { label: "숨김", value: false }
+        default: true
+        hint: "사이트에 이 팝업을 노출할지 선택합니다."
 
+      # 목록 요약/그룹용 읽기 전용 필드(편의)
+      - { label: "상태(표시용)", name: "status_label", widget: "hidden", default: "게시" }
+      - { label: "현재 노출 중(필터용)", name: "is_active_today", widget: "hidden", default: false }
 
+      - { label: "우선순위", name: "priority", widget: "number", value_type: "int", min: 0, max: 100, default: 10, hint: "숫자가 높을수록 먼저 노출됩니다." }
+      - { label: "언어", name: "locale", widget: "select", options: ["ko","en"], default: "ko", hint: "이 팝업의 언어를 선택합니다." }
+
+      - { label: "제목", name: "title", widget: "string" }
+      - { label: "본문", name: "body", widget: "markdown", hint: "줄바꿈과 강조를 사용할 수 있습니다." }
+
+      - { label: "버튼 텍스트", name: "btn_text", widget: "string", default: "지금 보기", required: false }
+      - label: "버튼 링크"
+        name: "btn_url"
+        widget: "string"
+        required: false
+        hint: "'#' 또는 전체 URL을 입력하세요."
+        pattern:
+          - ["^(#|/|https?://).*$", "링크는 #, / 경로, 또는 http(s) URL 이어야 합니다."]
+
+      - label: "이미지"
+        name: "image"
+        widget: "image"
+        required: false
+        choose_url: true
+        hint: "가로형(16:9) 이미지를 권장합니다."
+
+      - { label: "시작일", name: "start_date", widget: "date", format: "YYYY-MM-DD" }
+      - { label: "종료일", name: "end_date", widget: "date", format: "YYYY-MM-DD" }
+
+      - label: "하루 한 번만 표시"
+        name: "once_per_day"
+        widget: "select"
+        options:
+          - { label: "예", value: true }
+          - { label: "아니오", value: false }
+        default: true
+        hint: "같은 날 재방문 시 다시 띄우지 않습니다."
