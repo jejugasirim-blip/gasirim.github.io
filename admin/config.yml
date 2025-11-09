@@ -1,0 +1,19 @@
+backend:
+  name: github
+  repo: jejugasirim-blip/gasirim.github.io
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "popups"
+    label: "Pop-ups"
+    folder: "assets/popups"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Content", name: "content", widget: "text" }
+      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Active", name: "active", widget: "boolean", default: false }
