@@ -1,0 +1,17 @@
+{
+  "items": [
+    {
+      "enabled": true,
+      "priority": 10,
+      "locale": "ko",
+      "title": "가을 시즌 티켓 할인 & 카페 쿠폰",
+      "body": "9/1–11/30 가을 시즌 티켓 예매 시, 카페 할인 쿠폰 1매 증정!",
+      "btn_text": "지금 보기",
+      "btn_url": "#",
+      "image": "/assets/uploads/sample.jpg",
+      "start_date": "2025-09-01",
+      "end_date": "2025-11-30",
+      "once_per_day": true
+    }
+  ]
+}
