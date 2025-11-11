@@ -29,14 +29,14 @@
 
     <main>
       <!-- Navigation Tab -->
-      <nav class="intro-tabs" data-tabs role="tablist" aria-label="소개 섹션">
+      <nav class="intro-tabs intro-tabs--section" data-tabs role="tablist" aria-label="소개 섹션">
         <button class="tab-button active" type="button" role="tab" id="tab-space" aria-controls="공간소개" aria-selected="true" data-hash="공간소개">공간 소개</button>
         <button class="tab-button" type="button" role="tab" id="tab-map" aria-controls="수목원지도" aria-selected="false" data-hash="수목원지도">수목원 지도</button>
         <button class="tab-button" type="button" role="tab" id="tab-tour" aria-controls="둘러보기" aria-selected="false" data-hash="둘러보기">둘러 보기</button>
       </nav>
 
       <!-- 공간소개 -->
-      <section id="공간소개" class="tab-panel" role="tabpanel" tabindex="0">
+      <section id="공간소개" class="tab-panel tab-panel--section" role="tabpanel" tabindex="0">
         <div class="space-filters shop-filters" role="group" aria-label="공간 소개 분류">
           <button type="button" class="shop-filter is-active" data-space-filter="all">All</button>
           <button type="button" class="shop-filter" data-space-filter="facility">시설</button>
@@ -44,165 +44,243 @@
         </div>
 
         <div class="space-gallery" data-space-gallery>
-          <article class="space-card" role="button" tabindex="0" data-space-type="facility" data-images="assets/img/유리온실.jpg,assets/img/유리온실2.jpg,assets/img/가든센터.jpg" data-title="체험장" data-desc="사계절 식물이 숨 쉬는 가시림의 중심 온실입니다. 계절별 테마 전시와 명상 클래스가 열립니다.">
+          <article class="space-card" role="button" tabindex="0" 
+            data-space-type="facility" 
+            data-images="assets/img/유리온실.jpg,assets/img/유리온실2.jpg,assets/img/가든센터.jpg" 
+            data-title="체험장" 
+            data-desc="가시림의 자연에 둘러싸인 유리온실로, 정규 명상 수업이 열리는 공간입니다. 햇빛과 식물이 어우러진 평온한 분위기 속에서 깊은 호흡과 이완을 경험할 수 있습니다.">
             <figure class="space-card__media">
               <img src="assets/img/유리온실.jpg" alt="가시림 유리 온실 내부" loading="lazy"/>
             </figure>
             <div class="space-card__body">
               <h3 class="space-card__title">유리 온실</h3>
-              <p class="space-card__summary">사계절 꽃과 열대 식물을 감상하며 휴식을 취할 수 있는 메인 온실.</p>
+              <p class="space-card__summary">정규 명상 수업이 열리는 온실 공간</p>
             </div>
           </article>
 
-          <article class="space-card" role="button" tabindex="0" data-space-type="facility" data-images="assets/img/가든센터.jpg,assets/img/유리온실.jpg,assets/img/유리온실2.jpg" data-title="식물판매장" data-desc="정원 관리 노하우와 계절 식물을 만날 수 있는 가시림의 안내 센터입니다.">
+          <article class="space-card" role="button" tabindex="0" 
+            data-space-type="facility" 
+            data-images="assets/img/가든센터.jpg,assets/img/유리온실.jpg,assets/img/유리온실2.jpg" 
+            data-title="체험장" 
+            data-desc="화분 만들기, 정원 워크숍 등 원예 중심의 체험 프로그램이 운영됩니다. 베테랑 조경 전문가와 함께 식물의 세계를 배우며 특별한 시간을 보내보세요.">
             <figure class="space-card__media">
               <img src="assets/img/가든센터.jpg" alt="가시림 가든센터 외관" loading="lazy"/>
             </figure>
             <div class="space-card__body">
-              <h3 class="space-card__title">가든센터</h3>
-              <p class="space-card__summary">입장 안내와 가드닝 클래스를 진행하는 허브 공간.</p>
+              <h3 class="space-card__title">체험장</h3>
+              <p class="space-card__summary">원예 수업과 체험 프로그램이 열리는 공간</p>
             </div>
           </article>
 
-          <article class="space-card" role="button" tabindex="0" data-space-type="facility" data-images="assets/img/유리온실2.jpg,assets/img/main.jpg,assets/img/카페.jpg" data-title="명상스튜디오" data-desc="온실 안쪽에 마련된 조용한 스튜디오로, 명상과 요가 프로그램이 운영됩니다.">
+          <article class="space-card" role="button" tabindex="0" 
+            data-space-type="facility" 
+            data-images="assets/img/유리온실2.jpg,assets/img/main.jpg,assets/img/카페.jpg" 
+            data-title="식물판매장" 
+            data-desc="제주 자생식물을 비롯한 다양한 희귀 식물을 판매합니다. 식물 관리 안내와 함께 택배 및 항공 운송용 포장 서비스를 제공합니다.">
             <figure class="space-card__media">
-              <img src="assets/img/유리온실2.jpg" alt="마음 온실 스튜디오 전경" loading="lazy"/>
+              <img src="assets/img/유리온실2.jpg" alt="식물판매장" loading="lazy"/>
             </figure>
             <div class="space-card__body">
-              <h3 class="space-card__title">마음 온실 스튜디오</h3>
-              <p class="space-card__summary">온실 속 깊은 휴식을 위한 전용 명상 스튜디오.</p>
+              <h3 class="space-card__title">식물 판매장</h3>
+              <p class="space-card__summary">제주 토종 및 희귀 자생식물 판매</p>
             </div>
           </article>
 
-          <article class="space-card" role="button" tabindex="0" data-space-type="facility" data-images="assets/img/카페.jpg,assets/img/main.jpg,assets/img/가든센터.jpg" data-title="카페" data-desc="제철 허브와 티를 즐길 수 있는 카페와 숍으로, 가시림의 시그니처 음료를 제공합니다.">
+          <article class="space-card" role="button" tabindex="0" 
+            data-space-type="facility" 
+            data-images="assets/img/카페.jpg,assets/img/main.jpg,assets/img/가든센터.jpg" 
+            data-title="카페" 
+            data-desc="가시림 수목원의 여유로운 실내 휴식 공간입니다. 곶자왈 정원을 바라보며 스페셜티 차와 프리미엄 로스팅 원두로 내린 커피를 즐길 수 있습니다.">
             <figure class="space-card__media">
-              <img src="assets/img/카페.jpg" alt="가시림 플랜트 카페" loading="lazy"/>
+              <img src="assets/img/카페.jpg" alt="가시림 카페" loading="lazy"/>
             </figure>
             <div class="space-card__body">
-              <h3 class="space-card__title">플랜트 카페</h3>
-              <p class="space-card__summary">허브 티와 가드닝 굿즈를 만나는 라이프스타일 카페.</p>
+              <h3 class="space-card__title">카페</h3>
+              <p class="space-card__summary">곶자왈 정원 뷰의 실내 카페</p>
             </div>
           </article>
 
-          <article class="space-card" role="button" tabindex="0" data-space-type="garden" data-images="assets/img/main.jpg,assets/img/유리온실.jpg,assets/img/카페.jpg" data-title="메타세쿼이아 숲길" data-desc="하늘을 가득 메우는 메타세쿼이아가 조성하는 산책길로, 새벽 명상 프로그램이 진행됩니다.">
+          <!-- 메타세쿼이아 숲 -->
+          <article class="space-card" role="button" tabindex="0"
+            data-space-type="garden"
+            data-images="assets/img/main.jpg,assets/img/유리온실.jpg,assets/img/카페.jpg"
+            data-title="메타세쿼이아 숲"
+            data-desc="곧게 뻗은 메타세쿼이아가 줄지어 선 숲길. 사계절 내내 깊은 숲 향을 느낄 수 있는 대표 산책 코스.">
             <figure class="space-card__media">
-              <img src="assets/img/main.jpg" alt="메타세쿼이아 숲길" loading="lazy"/>
+              <img src="assets/img/main.jpg" alt="메타세쿼이아 숲" loading="lazy"/>
             </figure>
             <div class="space-card__body">
-              <h3 class="space-card__title">메타세쿼이아 숲길</h3>
-              <p class="space-card__summary">사계절 내내 깊은 숲 향을 느낄 수 있는 대표 산책 코스.</p>
+              <h3 class="space-card__title">메타세쿼이아 숲</h3>
+              <p class="space-card__summary">사계절 내내 숲 향을 느끼는 대표 산책 코스.</p>
             </div>
           </article>
 
-          <article class="space-card" role="button" tabindex="0" data-space-type="garden" data-images="assets/img/가든센터.jpg,assets/img/유리온실2.jpg,assets/img/main.jpg" data-title="오름 정원" data-desc="제주의 오름을 모티프로 설계한 입체 정원으로, 화산석과 토종 식물을 감상할 수 있습니다.">
+          <!-- 오름 정원 -->
+          <article class="space-card" role="button" tabindex="0"
+            data-space-type="garden"
+            data-images="assets/img/가든센터.jpg,assets/img/유리온실2.jpg,assets/img/main.jpg"
+            data-title="오름 정원"
+            data-desc="제주 오름을 모티프로 설계한 입체 정원. 화산석과 토종 식물이 어우러진 테라스형 공간.">
             <figure class="space-card__media">
               <img src="assets/img/가든센터.jpg" alt="오름 정원" loading="lazy"/>
             </figure>
             <div class="space-card__body">
               <h3 class="space-card__title">오름 정원</h3>
-              <p class="space-card__summary">제주 오름 지형을 재현한 테라스형 정원.</p>
+              <p class="space-card__summary">제주 오름 지형을 담은 테라스형 정원.</p>
             </div>
           </article>
 
-          <article class="space-card" role="button" tabindex="0" data-space-type="garden" data-images="assets/img/main.jpg,assets/img/카페.jpg,assets/img/유리온실.jpg" data-title="수국 정원" data-desc="초여름이 되면 색색의 수국이 만개해 가장 화려한 풍경을 선사하는 인기 포토 스팟입니다.">
+          <!-- 수국 전망대 -->
+          <article class="space-card" role="button" tabindex="0"
+            data-space-type="garden"
+            data-images="assets/img/main.jpg,assets/img/카페.jpg,assets/img/유리온실.jpg"
+            data-title="수국 전망대"
+            data-desc="수국이 피는 계절에 언덕 전경을 한눈에 보는 전망 포인트. 곶자왈과 수목원의 색 변화를 함께 감상.">
             <figure class="space-card__media">
-              <img src="assets/img/main.jpg" alt="수국 정원" loading="lazy"/>
+              <img src="assets/img/main.jpg" alt="수국 전망대" loading="lazy"/>
             </figure>
             <div class="space-card__body">
-              <h3 class="space-card__title">수국 정원</h3>
-              <p class="space-card__summary">초여름을 수놓는 화려한 컬러의 수국 군락.</p>
+              <h3 class="space-card__title">수국 전망대</h3>
+              <p class="space-card__summary">수국이 물드는 계절의 전망 포인트.</p>
             </div>
           </article>
 
-          <article class="space-card" role="button" tabindex="0" data-space-type="garden" data-images="assets/img/유리온실2.jpg,assets/img/가든센터.jpg,assets/img/main.jpg" data-title="팜파스 그라스 필드" data-desc="바람에 따라 부드럽게 물결치는 팜파스 그라스로 가을 감성을 담은 산책이 가능합니다.">
+          <!-- 팜파스그라스 정원 -->
+          <article class="space-card" role="button" tabindex="0"
+            data-space-type="garden"
+            data-images="assets/img/유리온실2.jpg,assets/img/가든센터.jpg,assets/img/main.jpg"
+            data-title="팜파스그라스 정원"
+            data-desc="가을 바람에 흩날리는 팜파스그라스가 장관을 이루는 정원. 빛과 바람이 만드는 포토 스팟.">
             <figure class="space-card__media">
-              <img src="assets/img/유리온실2.jpg" alt="팜파스 그라스 필드" loading="lazy"/>
+              <img src="assets/img/유리온실2.jpg" alt="팜파스그라스 정원" loading="lazy"/>
             </figure>
             <div class="space-card__body">
-              <h3 class="space-card__title">팜파스 그라스 필드</h3>
-              <p class="space-card__summary">황금빛 억새가 드넓게 펼쳐지는 가을 정원.</p>
+              <h3 class="space-card__title">팜파스그라스 정원</h3>
+              <p class="space-card__summary">금빛 팜파스그라스가 물결치는 가을 정원.</p>
             </div>
           </article>
 
-          <article class="space-card" role="button" tabindex="0" data-space-type="garden" data-images="assets/img/main.jpg,assets/img/유리온실.jpg,assets/img/카페.jpg" data-title="곶자왈 생태숲" data-desc="제주의 곶자왈 생태계를 그대로 옮겨온 구역으로, 희귀 이끼와 야생화가 어우러져 있습니다.">
+          <!-- 곶자왈 정원 -->
+          <article class="space-card" role="button" tabindex="0"
+            data-space-type="garden"
+            data-images="assets/img/main.jpg,assets/img/유리온실.jpg,assets/img/카페.jpg"
+            data-title="곶자왈 정원"
+            data-desc="제주 곶자왈 식생을 가까이에서 만나는 정원 구역. 다양한 자생 이끼와 아름다운 조경이 어우러진 생태 산책지.">
             <figure class="space-card__media">
-              <img src="assets/img/main.jpg" alt="곶자왈 생태숲" loading="lazy"/>
+              <img src="assets/img/main.jpg" alt="곶자왈 정원" loading="lazy"/>
             </figure>
             <div class="space-card__body">
-              <h3 class="space-card__title">곶자왈 생태숲</h3>
-              <p class="space-card__summary">토종 생물을 보호하는 프라이빗 숲 구역.</p>
+              <h3 class="space-card__title">곶자왈 정원</h3>
+              <p class="space-card__summary">제주 곶자왈 식생을 담은 생태 정원.</p>
             </div>
           </article>
 
-          <article class="space-card" role="button" tabindex="0" data-space-type="garden" data-images="assets/img/카페.jpg,assets/img/main.jpg,assets/img/유리온실2.jpg" data-title="햇살 마당" data-desc="탁 트인 잔디 광장으로, 가족 피크닉과 야외 클래스가 열리는 열린 공간입니다.">
+          <!-- 나무수국 길 -->
+          <article class="space-card" role="button" tabindex="0"
+            data-space-type="garden"
+            data-images="assets/img/main.jpg,assets/img/유리온실.jpg,assets/img/카페.jpg"
+            data-title="나무수국 길"
+            data-desc="여름이면 하얀 나무수국이 만개하는 산책로. 그늘이 좋고 사진 포인트가 많은 코스.">
             <figure class="space-card__media">
-              <img src="assets/img/카페.jpg" alt="햇살 마당" loading="lazy"/>
+              <img src="assets/img/main.jpg" alt="나무수국 길" loading="lazy"/>
             </figure>
             <div class="space-card__body">
-              <h3 class="space-card__title">햇살 마당</h3>
-              <p class="space-card__summary">주말 피크닉과 야외 클래스가 열리는 잔디 마당.</p>
+              <h3 class="space-card__title">나무수국 길</h3>
+              <p class="space-card__summary">여름 수국이 가득한 그늘 산책 코스.</p>
             </div>
           </article>
 
-          <article class="space-card" role="button" tabindex="0" data-space-type="garden" data-images="assets/img/유리온실.jpg,assets/img/main.jpg,assets/img/가든센터.jpg" data-title="치유 산책로" data-desc="편안한 동선과 다양한 향기 식물이 배치된 테라피 산책로입니다.">
+          <!-- 능소화 돌담길 -->
+          <article class="space-card" role="button" tabindex="0"
+            data-space-type="garden"
+            data-images="assets/img/유리온실2.jpg,assets/img/main.jpg,assets/img/카페.jpg"
+            data-title="능소화 돌담길"
+            data-desc="주황빛 능소화가 돌담을 타고 흐르는 여름 구간. 제주 전통 풍경을 즐기며 걷는 길.">
             <figure class="space-card__media">
-              <img src="assets/img/유리온실.jpg" alt="치유 산책로" loading="lazy"/>
+              <img src="assets/img/유리온실2.jpg" alt="능소화 돌담길" loading="lazy"/>
             </figure>
             <div class="space-card__body">
-              <h3 class="space-card__title">치유 산책로</h3>
-              <p class="space-card__summary">향기 식물과 함께 걷는 테라피 코스.</p>
+              <h3 class="space-card__title">능소화 돌담길</h3>
+              <p class="space-card__summary">주황 능소화가 피는 돌담 산책로.</p>
             </div>
           </article>
 
-          <article class="space-card" role="button" tabindex="0" data-space-type="garden" data-images="assets/img/가든센터.jpg,assets/img/카페.jpg,assets/img/유리온실2.jpg" data-title="명상 화원" data-desc="명상 클래스 전에 호흡을 정돈하는 화단으로, 계절 꽃과 허브가 어우러져 있습니다.">
+          <!-- 겹벚꽃나무 숲길 -->
+          <article class="space-card" role="button" tabindex="0"
+            data-space-type="garden"
+            data-images="assets/img/가든센터.jpg,assets/img/main.jpg,assets/img/유리온실.jpg"
+            data-title="겹벚꽃나무 숲길"
+            data-desc="봄마다 분홍빛 겹벚꽃이 터널을 이루는 꽃길. 짧은 개화기 동안 가장 인기 있는 촬영 스팟.">
             <figure class="space-card__media">
-              <img src="assets/img/가든센터.jpg" alt="명상 화원" loading="lazy"/>
+              <img src="assets/img/가든센터.jpg" alt="겹벚나무 숲길" loading="lazy"/>
             </figure>
             <div class="space-card__body">
-              <h3 class="space-card__title">명상 화원</h3>
-              <p class="space-card__summary">차분한 호흡을 돕는 명상 전용 플랜팅 존.</p>
+              <h3 class="space-card__title">겹벚꽃나무 숲길</h3>
+              <p class="space-card__summary">봄에 벚꽃 터널이 되는 꽃길.</p>
             </div>
           </article>
 
-          <article class="space-card" role="button" tabindex="0" data-space-type="garden" data-images="assets/img/유리온실2.jpg,assets/img/유리온실.jpg,assets/img/main.jpg" data-title="원예 실험포" data-desc="원예 프로그램을 체험할 수 있는 실습 구역으로, 다양한 감각원예 수업이 열립니다.">
+          <!-- 동백나무 숲 -->
+          <article class="space-card" role="button" tabindex="0"
+            data-space-type="garden"
+            data-images="assets/img/main.jpg,assets/img/유리온실2.jpg,assets/img/가든센터.jpg"
+            data-title="동백나무 숲"
+            data-desc="겨울에 붉게 피어나는 동백꽃이 아름다운 가시림 대표 스팟. 겨울 뿐 아니라 사계절 푸른 그늘이 좋은 휴식 구간.">
             <figure class="space-card__media">
-              <img src="assets/img/유리온실2.jpg" alt="원예 실험포" loading="lazy"/>
+              <img src="assets/img/main.jpg" alt="동백나무 숲" loading="lazy"/>
             </figure>
             <div class="space-card__body">
-              <h3 class="space-card__title">원예 실험포</h3>
-              <p class="space-card__summary">감각원예 수업과 체험이 이루어지는 실습 정원.</p>
+              <h3 class="space-card__title">동백나무 숲</h3>
+              <p class="space-card__summary">겨울 동백꽃이 포인트인 상록 숲.</p>
             </div>
           </article>
 
-          <article class="space-card" role="button" tabindex="0" data-space-type="garden" data-images="assets/img/main.jpg,assets/img/가든센터.jpg,assets/img/유리온실.jpg" data-title="별빛 정원" data-desc="밤이 되면 은은한 조명이 켜져 야간 산책에 어울리는 로맨틱한 정원입니다.">
+          <!-- 종가시나무 데크 -->
+          <article class="space-card" role="button" tabindex="0"
+            data-space-type="garden"
+            data-images="assets/img/카페.jpg,assets/img/가든센터.jpg,assets/img/유리온실2.jpg"
+            data-title="종가시나무 데크"
+            data-desc="제주 자생 종가시나무 군락을 가까이 관찰하는 데크 구간. 나무 그늘 아래 잠시 쉬어 가기 좋은 포인트.">
             <figure class="space-card__media">
-              <img src="assets/img/main.jpg" alt="별빛 정원" loading="lazy"/>
+              <img src="assets/img/카페.jpg" alt="중가시나무 데크" loading="lazy"/>
             </figure>
             <div class="space-card__body">
-              <h3 class="space-card__title">별빛 정원</h3>
-              <p class="space-card__summary">밤의 조명과 어우러진 로맨틱 산책 정원.</p>
+              <h3 class="space-card__title">종가시나무 데크</h3>
+              <p class="space-card__summary">제주 자생 종가시나무를 만나는 데크 포인트.</p>
             </div>
           </article>
 
-          <article class="space-card" role="button" tabindex="0" data-space-type="garden" data-images="assets/img/카페.jpg,assets/img/유리온실.jpg,assets/img/유리온실2.jpg" data-title="향기 허브 테라스" data-desc="온실과 연결된 허브 테라스로, 직접 수확한 허브를 활용한 티 클래스가 운영됩니다.">
+          <!-- 하귤나무 길 -->
+          <article class="space-card" role="button" tabindex="0"
+            data-space-type="garden"
+            data-images="assets/img/유리온실2.jpg,assets/img/유리온실.jpg,assets/img/main.jpg"
+            data-title="하귤나무 길"
+            data-desc="제주 고유종 하귤나무가 줄지어 선 과수 산책로.">
             <figure class="space-card__media">
-              <img src="assets/img/카페.jpg" alt="향기 허브 테라스" loading="lazy"/>
+              <img src="assets/img/유리온실2.jpg" alt="하귤나무 길" loading="lazy"/>
             </figure>
             <div class="space-card__body">
-              <h3 class="space-card__title">향기 허브 테라스</h3>
-              <p class="space-card__summary">허브 향으로 가득한 온실 옆 테라스.</p>
+              <h3 class="space-card__title">하귤나무 길</h3>
+              <p class="space-card__summary">하귤 꽃과 열매를 만나는 과수길.</p>
             </div>
           </article>
 
-          <article class="space-card" role="button" tabindex="0" data-space-type="garden" data-images="assets/img/유리온실.jpg,assets/img/main.jpg,assets/img/카페.jpg" data-title="수생 식물 연못" data-desc="연과 수생 식물을 감상하며 휴식할 수 있는 수변 공간입니다.">
+          <!-- 배롱나무 길 -->
+          <article class="space-card" role="button" tabindex="0"
+            data-space-type="garden"
+            data-images="assets/img/가든센터.jpg,assets/img/카페.jpg,assets/img/유리온실.jpg"
+            data-title="배롱나무 길"
+            data-desc="여름 내내 붉게 피는 백일홍이 길을 수놓는 구간. 강한 햇살에도 오래 즐길 수 있는 꽃길.">
             <figure class="space-card__media">
-              <img src="assets/img/유리온실.jpg" alt="수생 식물 연못" loading="lazy"/>
+              <img src="assets/img/가든센터.jpg" alt="배롱나무 길" loading="lazy"/>
             </figure>
             <div class="space-card__body">
-              <h3 class="space-card__title">수생 식물 연못</h3>
-              <p class="space-card__summary">물소리와 함께 머무는 힐링 수변 정원.</p>
+              <h3 class="space-card__title">배롱나무 길</h3>
+              <p class="space-card__summary">여름 백일홍이 이어지는 대표 꽃길.</p>
             </div>
           </article>
+
+
         </div>
       </section>
 

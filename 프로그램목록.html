@@ -28,7 +28,7 @@
 
     <main>
       <!-- Navigation Tab -->
-      <nav class="intro-tabs" data-tabs role="tablist" aria-label="프로그램 섹션">
+      <nav class="intro-tabs intro-tabs--section" data-tabs role="tablist" aria-label="프로그램 섹션">
         <button class="tab-button active" type="button" role="tab" id="tab-all" aria-controls="All" aria-selected="true" data-hash="All">ALL</button>
         <button class="tab-button" type="button" role="tab" id="tab-walk" aria-controls="산책명상" aria-selected="false" data-hash="산책명상">산책명상</button>
         <button class="tab-button" type="button" role="tab" id="tab-meditation" aria-controls="명상" aria-selected="false" data-hash="명상">명상</button>
@@ -36,7 +36,8 @@
       </nav>
 
       <!-- ALL -->
-      <section id="All" class="tab-panel" role="tabpanel" tabindex="0">
+      <section id="All" class="tab-panel tab-panel--section" role="tabpanel" tabindex="0">
+
         <div class="program-catalog" aria-label="가시림 프로그램 목록">
           <div class="program-grid">
 
@@ -134,7 +135,13 @@
       </section>
 
       <!-- 산책명상 -->
-      <section id="산책명상" class="tab-panel" role="tabpanel" tabindex="0" hidden>
+      <section id="산책명상" class="tab-panel tab-panel--section" role="tabpanel" tabindex="0" hidden>
+        <header class="tab-section__header">
+          <p class="home-programs__eyebrow tab-section__eyebrow">PROGRAMS</p>
+          <div class="tab-section__heading">
+            <h2 class="tab-section__title">산책 명상</h2>
+          </div>
+        </header>
         <div class="program-catalog" aria-label="가시림 산책명상 프로그램 목록">
           <div class="program-grid">
             <article class="program-card" role="button" tabindex="0" aria-haspopup="dialog" data-program-id="sunrise-walk">
@@ -159,7 +166,13 @@
       </section>
 
       <!-- 명상 -->
-      <section id="명상" class="tab-panel" role="tabpanel" tabindex="0" hidden>
+      <section id="명상" class="tab-panel tab-panel--section" role="tabpanel" tabindex="0" hidden>
+        <header class="tab-section__header">
+          <p class="home-programs__eyebrow tab-section__eyebrow">PROGRAMS</p>
+          <div class="tab-section__heading">
+            <h2 class="tab-section__title">명상 프로그램</h2>
+          </div>
+        </header>
         <div class="program-catalog" aria-label="가시림 명상 프로그램 목록">
           <div class="program-grid">
             <article class="program-card" role="button" tabindex="0" aria-haspopup="dialog" data-program-id="forest-immersion">
@@ -202,7 +215,13 @@
       </section>
 
       <!-- 원예 -->
-      <section id="원예" class="tab-panel" role="tabpanel" tabindex="0" hidden>
+      <section id="원예" class="tab-panel tab-panel--section" role="tabpanel" tabindex="0" hidden>
+        <header class="tab-section__header">
+          <p class="home-programs__eyebrow tab-section__eyebrow">PROGRAMS</p>
+          <div class="tab-section__heading">
+            <h2 class="tab-section__title">원예 프로그램</h2>
+          </div>
+        </header>
         <div class="program-catalog" aria-label="가시림 원예 프로그램 목록">
           <div class="program-grid">
             <article class="program-card" role="button" tabindex="0" aria-haspopup="dialog" data-program-id="horticulture-lab">

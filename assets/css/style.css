@@ -2112,21 +2112,21 @@ body.modal-open {
   border-radius: 999px;
   border: 1px solid rgba(0, 0, 0, 0.12);
   background: #fff;
-  color: #111;
+  color: #343433;
   cursor: pointer;
   transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
 }
  
 .shop-filter:is(:hover, :focus-visible) {
-  background: #111;
+  background: #343433;
   color: var(--color-bg);
-  border-color: #111;
+  border-color: #343433;
 }
 
 .shop-filter.is-active {
-  background: #111;
+  background: #343433;
   color: #fff;
-  border-color: #111;
+  border-color: #343433;
 }
 
 .shop-note {
@@ -2545,6 +2545,10 @@ body.modal-open {
     padding: 32px var(--page-pad) 0;
   }
 
+  .tab-panel--section {
+    padding: clamp(36px, 8vw, 56px) 0 clamp(56px, 12vw, 90px);
+  }
+
   .space-filters {
     width: 100%;
     justify-content: flex-start;
@@ -2554,15 +2558,31 @@ body.modal-open {
 
   .space-gallery {
     grid-template-columns: minmax(0, 1fr);
-    gap: clamp(20px, 6vw, 32px);
+    gap: clamp(18px, 5vw, 28px);
   }
 
-  .space-card {
-    border-radius: 22px;
+  .intro-tabs--section {
+    padding: clamp(24px, 6vw, 32px) var(--page-pad) 0;
+    gap: clamp(14px, 4vw, 28px);
+    overflow-x: auto;
+  }
+
+  .intro-tabs--section .tab-button {
+    flex: 0 0 auto;
+    padding-bottom: 12px;
+    letter-spacing: 0.06em;
   }
 
   .space-card__body {
-    padding: 20px 20px 24px;
+    padding: 20px 18px 24px;
+  }
+
+  .tab-section__header {
+    gap: 8px;
+  }
+
+  .tab-section__copy {
+    font-size: 0.95rem;
   }
 
   .cards,
@@ -2615,6 +2635,20 @@ body.modal-open {
   .intro-tabs .tab-button {
     flex: 1 1 100%;
     min-width: 100%;
+  }
+
+  .intro-tabs--section {
+    padding: clamp(20px, 6vw, 28px) var(--page-pad) 0;
+  }
+
+  .intro-tabs--section .tab-button {
+    flex: 0 0 auto;
+    min-width: max-content;
+    font-size: 0.9rem;
+  }
+
+  .tab-panel--section {
+    padding: clamp(32px, 10vw, 52px) 0 clamp(48px, 12vw, 80px);
   }
 
   .intro-video {
@@ -2736,9 +2770,8 @@ body.modal-open {
 .space-card {
   display: flex;
   flex-direction: column;
-  border-radius: 24px;
   overflow: hidden;
-  background: #fff;
+  border-radius: 6px;
   box-shadow: 0 22px 60px rgba(0,0,0,0.10);
   transition: transform 300ms ease, box-shadow 300ms ease;
 }
@@ -2764,19 +2797,19 @@ body.modal-open {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding: 24px 24px 28px;
+  padding: 24px 24px;
 }
 
 .space-card__title {
-  font-size: 2.5rem;
+  font-size: clamp(22px, 3.6vw, 26px);
   font-weight: 500;
-  margin-bottom: 20px;
+  line-height: 1.4;
 }
 
 .space-card__summary {
-  font-size: 1rem;
-  color: rgba(17, 17, 17, 0.7);
-  line-height: 1.6;
+  font-size: clamp(14px, 2.6vw, 16px);
+  line-height: 1.65;
+  color: #4f4f4f;
 }
 
 .space-card:is(:hover, :focus-within) {
@@ -2946,6 +2979,41 @@ body.modal-open {
   color: #454545;
 }
 
+.intro-tabs--section {
+  height: auto;
+  background: transparent;
+  padding: clamp(32px, 6vw, 48px) var(--page-pad) 0;
+  border-bottom: 1px solid rgba(17, 17, 17, 0.1);
+  justify-content: flex-start;
+  gap: clamp(18px, 4vw, 48px);
+}
+
+.intro-tabs--section .tab-button {
+  width: auto;
+  min-width: 0;
+  height: auto;
+  padding: 0 0 18px;
+  border: none;
+  border-radius: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: rgba(17, 17, 17, 0.5);
+}
+
+.intro-tabs--section .tab-button.active {
+  color: #111;
+  border-bottom-color: #111;
+  background: transparent;
+}
+
+.intro-tabs--section .tab-button:not(.active):is(:hover, :focus-visible) {
+  color: #111;
+  border-bottom-color: rgba(17, 17, 17, 0.35);
+}
+
 .space-tabs {
   display: flex;
   justify-content: center;
@@ -2982,6 +3050,38 @@ body.modal-open {
 
 .tab-panel {
   padding-top: 40px;
+}
+
+.tab-panel--section {
+  padding: clamp(48px, 7vw, 96px) 0 clamp(80px, 10vw, 120px);
+}
+
+.tab-section__header {
+  width: min(1200px, 100%);
+  margin: 0 auto clamp(28px, 5vw, 48px);
+  padding: 0 var(--page-pad);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tab-section__eyebrow {
+  color: rgba(17, 17, 17, 0.5);
+}
+
+.tab-section__title {
+  margin: 0;
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 500;
+  color: #111;
+}
+
+.tab-section__copy {
+  margin: 0;
+  max-width: 640px;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(17, 17, 17, 0.65);
 }
 
 /* ===== Space card modal ===== */
@@ -3091,39 +3191,72 @@ body.modal-open {
   display: flex;
   flex-direction: column;
   gap: clamp(56px, 9vw, 88px);
+  width: min(1200px, 100%);
+  margin: 0 auto;
 }
 
 .visit-overview {
   width: 100%;
-  margin: 0 0 20px 0;
   display: grid;
-  gap: clamp(24px, 4vw, 36px);
-  justify-content: center;
+  gap: clamp(24px, 4vw, 40px);
+}
+
+.visit-hero {
+  display: grid;
+  gap: 1rem;
+}
+
+.visit-hero__eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.28em;
+  font-weight: 600;
+  color: rgba(17, 17, 17, 0.55);
+}
+
+.visit-hero__title {
+  margin: 0;
+  font-size: clamp(2.4rem, 4vw, 3.1rem);
+  font-weight: 500;
+  color: #111;
+}
+
+.visit-hero__lead {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: rgba(17, 17, 17, 0.7);
+  max-width: 780px;
 }
 
 .visit-overview__tags {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 0.75rem;
+  padding-top: 0.5rem;
 }
 
 .visit-tag {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.6rem 1.1rem;
-  border: 1px solid rgba(24, 66, 47, 0.22);
-  background: #ffffff;
-  color: #1d6040;
+  padding: 0.55rem 1.35rem;
+  border-radius: 999px;
+  border: 1px solid rgba(17, 17, 17, 0.16);
+  background: transparent;
+  color: #111;
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 0.93rem;
   text-decoration: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  letter-spacing: 0.04em;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .visit-tag:hover {
-  border-color: rgba(31, 109, 74, 0.45);
-  box-shadow: 0 10px 20px rgba(19, 41, 28, 0.08);
+  border-color: #111;
+  background: #111;
+  color: #fff;
+  box-shadow: 0 12px 24px rgba(17, 17, 17, 0.12);
 }
 
 .visit-tag:focus-visible {
@@ -3135,9 +3268,9 @@ body.modal-open {
   width: 100%;
   margin: 0 auto;
   display: grid;
-  gap: clamp(24px, 4vw, 36px);
-  padding-top: clamp(24px, 4vw, 32px);
-  border-top: 1px solid rgba(24, 66, 47, 0.12);
+  gap: clamp(28px, 4vw, 42px);
+  padding-top: clamp(32px, 5vw, 48px);
+  border-top: 1px solid rgba(17, 17, 17, 0.08);
 }
 
 .visit-section--운영시간 {
@@ -3147,7 +3280,12 @@ body.modal-open {
 
 .visit-section__header {
   display: grid;
-  gap: 0.65rem;
+  gap: 0.85rem;
+}
+
+.visit-section__grid {
+  display: grid;
+  gap: clamp(20px, 3vw, 32px);
 }
 
 .visit-section__label {
@@ -3155,28 +3293,29 @@ body.modal-open {
   letter-spacing: 0.3em;
   text-transform: uppercase;
   font-weight: 600;
-  color: rgba(0, 0, 0, 0.46);
+  color: rgba(17, 17, 17, 0.45);
 }
 
 .visit-section__title {
   margin: 0;
-  font-size: clamp(1.7rem, 3.4vw, 2.2rem);
-  font-weight: 400;
-  color: #000000;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 500;
+  color: #111;
 }
 
 .visit-section__lead {
   margin: 0;
-  font-size: 1.02rem;
-  line-height: 1.75;
-  color: rgba(19, 41, 28, 0.68);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: rgba(17, 17, 17, 0.68);
+  max-width: 760px;
 }
 
 .운영시간__grid {
   display: grid;
-  gap: clamp(24px, 4vw, 40px);
-  grid-template-columns: 70% 30%;
-  align-items: center;
+  gap: clamp(28px, 4vw, 48px);
+  grid-template-columns: minmax(320px, 1.1fr) minmax(280px, 0.9fr);
+  align-items: stretch;
 }
 
 .운영시간__image {
@@ -3184,6 +3323,9 @@ body.modal-open {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  border-radius: 18px;
+  min-height: 380px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
 }
 
 .운영시간__image img {
@@ -3203,12 +3345,15 @@ body.modal-open {
 }
 
 .visit-hours-card {
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 24px;
-  padding: clamp(24px, 4vw, 32px);
-  display: grid;
-  gap: 1.25rem;
+  background: #fdfbf6;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 18px;
+  padding: clamp(28px, 4vw, 36px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.08);
 }
 
 .visit-hours-list {
@@ -3498,22 +3643,48 @@ body.modal-open {
 
 .contact-grid {
   display: grid;
-  gap: clamp(20px, 3vw, 28px);
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(16px, 3vw, 24px);
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
 }
 
 .contact-card {
-  padding: clamp(22px, 3.5vw, 28px);
-  border-radius: 18px;
+  padding: 18px 20px;
+  border-radius: 14px;
   border: 1px solid rgba(24, 66, 47, 0.12);
   background: #ffffff;
-  display: grid;
-  gap: 0.6rem;
-  box-shadow: 0 10px 24px rgba(19, 41, 28, 0.06);
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  box-shadow: 0 8px 18px rgba(19, 41, 28, 0.05);
 }
 
-.contact-card span {
-  font-size: 0.82rem;
+.contact-card__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: #f4f6f3;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  color: #1f6d4a;
+}
+
+.contact-card__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.contact-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.contact-card__label {
+  font-size: 0.75rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: rgba(19, 41, 28, 0.5);
@@ -3530,7 +3701,7 @@ body.modal-open {
   text-decoration: underline;
 }
 
-.contact-card p {
+.contact-card__note {
   margin: 0;
   font-size: 0.95rem;
   line-height: 1.6;
@@ -3542,6 +3713,14 @@ body.modal-open {
   .visit-map__layout {
     grid-template-columns: 1fr;
   }
+
+  .visit-hero__title {
+    font-size: clamp(2.2rem, 8vw, 2.6rem);
+  }
+
+  .운영시간__image {
+    min-height: 280px;
+  }
 }
 
 @media (max-width: 720px) {
@@ -3551,11 +3730,12 @@ body.modal-open {
 
   .visit-overview__tags {
     gap: 0.6rem;
+    padding-top: 0;
   }
 
   .visit-tag {
     font-size: 0.9rem;
-    padding: 0.5rem 0.9rem;
+    padding: 0.45rem 1rem;
   }
 
   .visit-map__badge {
