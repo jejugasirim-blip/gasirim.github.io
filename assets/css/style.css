@@ -3228,40 +3228,8 @@ body.modal-open {
   max-width: 780px;
 }
 
-.visit-overview__tags {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  padding-top: 0.5rem;
-}
-
-.visit-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.55rem 1.35rem;
-  border-radius: 999px;
-  border: 1px solid rgba(17, 17, 17, 0.16);
-  background: transparent;
-  color: #111;
-  font-weight: 500;
-  font-size: 0.93rem;
-  text-decoration: none;
-  letter-spacing: 0.04em;
-  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.visit-tag:hover {
-  border-color: #111;
-  background: #111;
-  color: #fff;
-  box-shadow: 0 12px 24px rgba(17, 17, 17, 0.12);
-}
-
-.visit-tag:focus-visible {
-  outline: 2px solid #1f6d4a;
-  outline-offset: 2px;
+.visit-tabs {
+  margin-top: clamp(12px, 2vw, 24px);
 }
 
 .visit-section {
@@ -3728,14 +3696,8 @@ body.modal-open {
     gap: clamp(48px, 12vw, 72px);
   }
 
-  .visit-overview__tags {
-    gap: 0.6rem;
-    padding-top: 0;
-  }
-
-  .visit-tag {
-    font-size: 0.9rem;
-    padding: 0.45rem 1rem;
+  .visit-tabs {
+    overflow-x: auto;
   }
 
   .visit-map__badge {
@@ -3745,11 +3707,6 @@ body.modal-open {
 }
 
 @media (max-width: 540px) {
-  .visit-tag {
-    width: 100%;
-    justify-content: center;
-  }
-
   .운영시간__caption {
     font-size: 0.78rem;
   }
