@@ -3082,7 +3082,7 @@ body.modal-open {
 .space-modal-desc {
   margin: 0;
   font-size: 1.05rem;
-  line-height: 0;
+  line-height: 1.6;
   color: rgba(0,0,0,0.72);
 }
 /* ===== Visit page ===== */
