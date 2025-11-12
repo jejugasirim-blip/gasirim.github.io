@@ -51,9 +51,9 @@
     <!-- 가시림 소개 -->
     <section class="body-container body-container--stacked body-container--intro" aria-labelledby="intro-heading">
       <!-- SECTION 1-->
-      <section class="intro-feature-grid" style="display: grid; grid-template-columns: 60% 40%;">
+      <section class="intro-feature-grid intro-feature-grid--60-40">
         <!-- 홍보 영상 -->
-        <div class="intro-hero reveal from-left" data-video>
+        <div class="intro-hero intro-feature-grid__media reveal from-left" data-video>
           <video class="intro-video" preload="auto" autoplay muted loop playsinline webkit-playsinline disablePictureInPicture controlsList="nodownload noplaybackrate noremoteplayback nofullscreen">
             <source src="assets/video/gasirim.mp4" type="video/mp4">
             비디오를 재생할 수 없는 환경입니다.
@@ -72,7 +72,7 @@
           </div>
         </div>
         <!-- Article-->
-        <div class="article article-container intro-feature-grid__article reveal from-right" style="align-items: end;">
+        <div class="article article-container intro-feature-grid__article reveal from-right" style="align-items: end;" data-index-intro="arbor">
           <p class="home-programs__eyebrow">ARBORETUM</p>
           <h3 class="h">제주 4호 민간정원</h3>
           <p class="p right">가시림 수목원은 정부에 등록된 제주 4호 민간정원으로 2023년 12월에 오픈했습니다. 150년 이상 된 수목들과 제주 자생 식물들, 그리고 다양한 희귀 식물들을 한 곳에서 감상할 수 있는 수목원으로 자리매김하고 있습니다.</p>
@@ -82,9 +82,9 @@
       </section>
 
       <!-- SECTION 2: Healing-->
-      <section class="intro-feature-grid" style="display: grid; grid-template-columns: 40% 60%;">
+      <section class="intro-feature-grid intro-feature-grid--40-60 intro-feature-grid--media-stack">
       <!-- Article-->
-        <div class="article article-container reveal from-left">
+        <div class="article article-container intro-feature-grid__article reveal from-left" data-index-intro="healing">
           <p class="home-programs__eyebrow">HEALING</p>
           <h3 class="h left">자연의 치유를 전하다</h3>
           <p class="p left">30여 년간 제주의 자연과 함께 걸어온 조경가 강남춘 대표는, 그 속에서 깨달은 치유의 에너지를 많은 사람들에게 전하고자 가시림 수목원을 만들었습니다.</p>
@@ -93,7 +93,7 @@
           <a href="프로그램소개.html" class="intro-button">원예·명상 프로그램</a>
         </div>
         <!-- Photo -->
-        <figure class="intro-img-wide2 reveal from-right">
+        <figure class="intro-img-wide2 intro-feature-grid__media reveal from-right">
           <img src="assets/img/main-cafe.jpg" alt="가시림 카페에서 바라본 곶자왈 정원" loading="lazy">
         </figure>
       </section>
@@ -225,6 +225,7 @@
   <script src="assets/js/includes.js" defer></script>
   <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js" defer></script>
   <script src="https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js" defer></script>
+  <script src="assets/js/cms-data.js" defer></script>
   <script src="assets/js/main.js" defer></script>
 </body>
 </html>

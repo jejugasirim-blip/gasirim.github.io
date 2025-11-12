@@ -30,55 +30,11 @@
     <main class="shop-main" aria-labelledby="shop-heading">
       <section id="shop-catalog" class="shop-catalog" aria-label="가시림 상품 목록">
         <div class="shop-catalog__header">
-          <div class="shop-filters" role="group" aria-label="상품 분류">
-            <button type="button" class="shop-filter is-active" data-filter="all" aria-pressed="true">All</button>
-            <button type="button" class="shop-filter" data-filter="plant_pot" aria-pressed="false">화분</button>
-            <button type="button" class="shop-filter" data-filter="gardening" aria-pressed="false">종자</button>
-            <button type="button" class="shop-filter" data-filter="tea" aria-pressed="false">차</button>
-          </div>
+          <div class="shop-filters" role="group" aria-label="상품 분류" data-shop-filters></div>
           <p class="shop-note">상품을 클릭하면 외부 스토어 페이지가 새 창에서 열립니다.</p>
         </div>
 
-        <div class="shop-grid">
-          <div class="product-card" data-category="plant_pot">
-            <figure class="product-card__media product-card__media--placeholder" aria-hidden="true">
-              <span>상품 준비 중</span>
-            </figure>
-            <div class="product-card__copy">
-              <p class="product-card__description">숲 명상에서 영감을 받은 새로운 굿즈를 제작 중입니다.</p>
-              <div class="product-card__purchase">
-                <p class="product-card__price">가격 미정</p>
-                <a class="product-card__cta" href="https://store.gasirim.kr" target="_blank" rel="noopener noreferrer">더보기</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="product-card" data-category="gardening">
-            <figure class="product-card__media product-card__media--placeholder" aria-hidden="true">
-              <span>상품 준비 중</span>
-            </figure>
-            <div class="product-card__copy">
-              <p class="product-card__description">가시림의 식물과 함께할 가드닝 키트를 준비하고 있습니다.</p>
-              <div class="product-card__purchase">
-                <p class="product-card__price">가격 미정</p>
-                <a class="product-card__cta" href="https://store.gasirim.kr" target="_blank" rel="noopener noreferrer">더보기</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="product-card" data-category="tea">
-            <figure class="product-card__media product-card__media--placeholder" aria-hidden="true">
-              <span>상품 준비 중</span>
-            </figure>
-            <div class="product-card__copy">
-              <p class="product-card__description">가시림 블렌딩 티를 새롭게 선보일 예정입니다.</p>
-              <div class="product-card__purchase">
-                <p class="product-card__price">가격 미정</p>
-                <a class="product-card__cta" href="https://store.gasirim.kr" target="_blank" rel="noopener noreferrer">더보기</a>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="shop-grid" data-shop-grid></div>
       </section>
     </main>
 
@@ -92,6 +48,7 @@
   <script src="assets/js/includes.js" defer></script>
   <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js" defer></script>
   <script src="https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js" defer></script>
+  <script src="assets/js/cms-data.js" defer></script>
   <script src="assets/js/main.js" defer></script>
 </body>
 </html>

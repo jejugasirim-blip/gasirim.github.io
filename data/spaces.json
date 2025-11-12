@@ -1,0 +1,414 @@
+{
+  "spaces": [
+    {
+      "id": "유리 온실",
+      "space_type": "facility",
+      "space_id": "명상스튜디오",
+      "title": "유리 온실",
+      "summary": "정규 명상 수업이 열리는 온실 공간",
+      "description": "가시림의 자연에 둘러싸인 유리온실로, 정규 명상 수업이 열리는 공간입니다. 햇빛과 식물이 어우러진 평온한 분위기 속에서 깊은 호흡과 이완을 경험할 수 있습니다.",
+      "image": {
+        "src": "assets/img/유리온실.jpg",
+        "alt": "가시림 유리 온실 내부"
+      },
+      "gallery": [
+        "assets/img/유리온실.jpg",
+        "assets/img/유리온실2.jpg",
+        "assets/img/가든센터.jpg"
+      ]
+    },
+    {
+      "id": "체험장",
+      "space_type": "facility",
+      "space_id": "체험장",
+      "title": "체험장",
+      "summary": "원예 수업과 체험 프로그램이 열리는 공간",
+      "description": "화분 만들기, 정원 워크숍 등 원예 중심의 체험 프로그램이 운영됩니다. 베테랑 조경 전문가와 함께 식물의 세계를 배우며 특별한 시간을 보내보세요.",
+      "image": {
+        "src": "assets/img/가든센터.jpg",
+        "alt": "가시림 가든센터 외관"
+      },
+      "gallery": [
+        "assets/img/가든센터.jpg",
+        "assets/img/유리온실.jpg",
+        "assets/img/유리온실2.jpg"
+      ]
+    },
+    {
+      "id": "식물판매장",
+      "space_type": "facility",
+      "space_id": "식물판매장",
+      "title": "식물 판매장",
+      "summary": "제주 토종 및 희귀 자생식물 판매",
+      "description": "제주 자생식물을 비롯한 다양한 희귀 식물을 판매합니다. 식물 관리 안내와 함께 택배 및 항공 운송용 포장 서비스를 제공합니다.",
+      "image": {
+        "src": "assets/img/유리온실2.jpg",
+        "alt": "식물판매장"
+      },
+      "gallery": [
+        "assets/img/유리온실2.jpg",
+        "assets/img/main.jpg",
+        "assets/img/카페.jpg"
+      ]
+    },
+    {
+      "id": "카페",
+      "space_type": "facility",
+      "space_id": "카페",
+      "title": "카페",
+      "summary": "곶자왈 정원 뷰의 실내 카페",
+      "description": "가시림 수목원의 여유로운 실내 휴식 공간입니다. 곶자왈 정원을 바라보며 스페셜티 차와 프리미엄 로스팅 원두로 내린 커피를 즐길 수 있습니다.",
+      "image": {
+        "src": "assets/img/카페.jpg",
+        "alt": "가시림 카페"
+      },
+      "gallery": [
+        "assets/img/카페.jpg",
+        "assets/img/main.jpg",
+        "assets/img/가든센터.jpg"
+      ]
+    },
+    {
+      "id": "메타세쿼이아 숲",
+      "space_type": "garden",
+      "space_id": "",
+      "title": "메타세쿼이아 숲",
+      "summary": "사계절 내내 숲 향을 느끼는 대표 산책 코스.",
+      "description": "곧게 뻗은 메타세쿼이아가 줄지어 선 숲길. 사계절 내내 깊은 숲 향을 느낄 수 있는 대표 산책 코스.",
+      "image": {
+        "src": "assets/img/main.jpg",
+        "alt": "메타세쿼이아 숲"
+      },
+      "gallery": [
+        "assets/img/main.jpg",
+        "assets/img/유리온실.jpg",
+        "assets/img/카페.jpg"
+      ]
+    },
+    {
+      "id": "오름 정원",
+      "space_type": "garden",
+      "space_id": "",
+      "title": "오름 정원",
+      "summary": "제주 오름 지형을 담은 테라스형 정원.",
+      "description": "제주 오름을 모티프로 설계한 입체 정원. 화산석과 토종 식물이 어우러진 테라스형 공간.",
+      "image": {
+        "src": "assets/img/가든센터.jpg",
+        "alt": "오름 정원"
+      },
+      "gallery": [
+        "assets/img/가든센터.jpg",
+        "assets/img/유리온실2.jpg",
+        "assets/img/main.jpg"
+      ]
+    },
+    {
+      "id": "수국 전망대",
+      "space_type": "garden",
+      "space_id": "",
+      "title": "수국 전망대",
+      "summary": "수국이 물드는 계절의 전망 포인트.",
+      "description": "수국이 피는 계절에 언덕 전경을 한눈에 보는 전망 포인트. 곶자왈과 수목원의 색 변화를 함께 감상.",
+      "image": {
+        "src": "assets/img/main.jpg",
+        "alt": "수국 전망대"
+      },
+      "gallery": [
+        "assets/img/main.jpg",
+        "assets/img/카페.jpg",
+        "assets/img/유리온실.jpg"
+      ]
+    },
+    {
+      "id": "팜파스그라스 정원",
+      "space_type": "garden",
+      "space_id": "",
+      "title": "팜파스그라스 정원",
+      "summary": "금빛 팜파스그라스가 물결치는 가을 정원.",
+      "description": "가을 바람에 흩날리는 팜파스그라스가 장관을 이루는 정원. 빛과 바람이 만드는 포토 스팟.",
+      "image": {
+        "src": "assets/img/유리온실2.jpg",
+        "alt": "팜파스그라스 정원"
+      },
+      "gallery": [
+        "assets/img/유리온실2.jpg",
+        "assets/img/가든센터.jpg",
+        "assets/img/main.jpg"
+      ]
+    },
+    {
+      "id": "곶자왈 정원",
+      "space_type": "garden",
+      "space_id": "",
+      "title": "곶자왈 정원",
+      "summary": "제주 곶자왈 식생을 담은 생태 정원.",
+      "description": "제주 곶자왈 식생을 가까이에서 만나는 정원 구역. 다양한 자생 이끼와 아름다운 조경이 어우러진 생태 산책지.",
+      "image": {
+        "src": "assets/img/main.jpg",
+        "alt": "곶자왈 정원"
+      },
+      "gallery": [
+        "assets/img/main.jpg",
+        "assets/img/유리온실.jpg",
+        "assets/img/카페.jpg"
+      ]
+    },
+    {
+      "id": "나무수국 길",
+      "space_type": "garden",
+      "space_id": "",
+      "title": "나무수국 길",
+      "summary": "여름 수국이 가득한 그늘 산책 코스.",
+      "description": "여름이면 하얀 나무수국이 만개하는 산책로. 그늘이 좋고 사진 포인트가 많은 코스.",
+      "image": {
+        "src": "assets/img/main.jpg",
+        "alt": "나무수국 길"
+      },
+      "gallery": [
+        "assets/img/main.jpg",
+        "assets/img/유리온실.jpg",
+        "assets/img/카페.jpg"
+      ]
+    },
+    {
+      "id": "능소화 돌담길",
+      "space_type": "garden",
+      "space_id": "",
+      "title": "능소화 돌담길",
+      "summary": "주황 능소화가 피는 돌담 산책로.",
+      "description": "주황빛 능소화가 돌담을 타고 흐르는 여름 구간. 제주 전통 풍경을 즐기며 걷는 길.",
+      "image": {
+        "src": "assets/img/유리온실2.jpg",
+        "alt": "능소화 돌담길"
+      },
+      "gallery": [
+        "assets/img/유리온실2.jpg",
+        "assets/img/main.jpg",
+        "assets/img/카페.jpg"
+      ]
+    },
+    {
+      "id": "겹벚꽃나무 숲길",
+      "space_type": "garden",
+      "space_id": "",
+      "title": "겹벚꽃나무 숲길",
+      "summary": "봄에 벚꽃 터널이 되는 꽃길.",
+      "description": "봄마다 분홍빛 겹벚꽃이 터널을 이루는 꽃길. 짧은 개화기 동안 가장 인기 있는 촬영 스팟.",
+      "image": {
+        "src": "assets/img/가든센터.jpg",
+        "alt": "겹벚나무 숲길"
+      },
+      "gallery": [
+        "assets/img/가든센터.jpg",
+        "assets/img/main.jpg",
+        "assets/img/유리온실.jpg"
+      ]
+    },
+    {
+      "id": "동백나무 숲",
+      "space_type": "garden",
+      "space_id": "",
+      "title": "동백나무 숲",
+      "summary": "겨울 동백꽃이 포인트인 상록 숲.",
+      "description": "겨울에 붉게 피어나는 동백꽃이 아름다운 가시림 대표 스팟. 겨울 뿐 아니라 사계절 푸른 그늘이 좋은 휴식 구간.",
+      "image": {
+        "src": "assets/img/main.jpg",
+        "alt": "동백나무 숲"
+      },
+      "gallery": [
+        "assets/img/main.jpg",
+        "assets/img/유리온실2.jpg",
+        "assets/img/가든센터.jpg"
+      ]
+    },
+    {
+      "id": "종가시나무 데크",
+      "space_type": "garden",
+      "space_id": "",
+      "title": "종가시나무 데크",
+      "summary": "제주 자생 종가시나무를 만나는 데크 포인트.",
+      "description": "제주 자생 종가시나무 군락을 가까이 관찰하는 데크 구간. 나무 그늘 아래 잠시 쉬어 가기 좋은 포인트.",
+      "image": {
+        "src": "assets/img/카페.jpg",
+        "alt": "중가시나무 데크"
+      },
+      "gallery": [
+        "assets/img/카페.jpg",
+        "assets/img/가든센터.jpg",
+        "assets/img/유리온실2.jpg"
+      ]
+    },
+    {
+      "id": "하귤나무 길",
+      "space_type": "garden",
+      "space_id": "",
+      "title": "하귤나무 길",
+      "summary": "하귤 꽃과 열매를 만나는 과수길.",
+      "description": "제주 고유종 하귤나무가 줄지어 선 과수 산책로.",
+      "image": {
+        "src": "assets/img/유리온실2.jpg",
+        "alt": "하귤나무 길"
+      },
+      "gallery": [
+        "assets/img/유리온실2.jpg",
+        "assets/img/유리온실.jpg",
+        "assets/img/main.jpg"
+      ]
+    },
+    {
+      "id": "배롱나무 길",
+      "space_type": "garden",
+      "space_id": "",
+      "title": "배롱나무 길",
+      "summary": "여름 백일홍이 이어지는 대표 꽃길.",
+      "description": "여름 내내 붉게 피는 백일홍이 길을 수놓는 구간. 강한 햇살에도 오래 즐길 수 있는 꽃길.",
+      "image": {
+        "src": "assets/img/가든센터.jpg",
+        "alt": "배롱나무 길"
+      },
+      "gallery": [
+        "assets/img/가든센터.jpg",
+        "assets/img/카페.jpg",
+        "assets/img/유리온실.jpg"
+      ]
+    }
+  ],
+  "gallery": [
+    {
+      "src": "assets/img/gallery/pic1.jpg",
+      "alt": "갤러리 이미지 1"
+    },
+    {
+      "src": "assets/img/gallery/pic2.jpg",
+      "alt": "갤러리 이미지 2"
+    },
+    {
+      "src": "assets/img/gallery/pic3.jpg",
+      "alt": "갤러리 이미지 3"
+    },
+    {
+      "src": "assets/img/gallery/pic4.jpg",
+      "alt": "갤러리 이미지 4"
+    },
+    {
+      "src": "assets/img/gallery/pic5.jpg",
+      "alt": "갤러리 이미지 5"
+    },
+    {
+      "src": "assets/img/gallery/pic6.jpg",
+      "alt": "갤러리 이미지 6"
+    },
+    {
+      "src": "assets/img/gallery/pic7.jpg",
+      "alt": "갤러리 이미지 7"
+    },
+    {
+      "src": "assets/img/gallery/pic8.jpg",
+      "alt": "갤러리 이미지 8"
+    },
+    {
+      "src": "assets/img/gallery/pic9.jpg",
+      "alt": "갤러리 이미지 9"
+    },
+    {
+      "src": "assets/img/gallery/pic10.jpg",
+      "alt": "갤러리 이미지 10"
+    },
+    {
+      "src": "assets/img/gallery/pic11.jpg",
+      "alt": "갤러리 이미지 11"
+    },
+    {
+      "src": "assets/img/gallery/pic12.jpg",
+      "alt": "갤러리 이미지 12"
+    },
+    {
+      "src": "assets/img/gallery/pic13.jpg",
+      "alt": "갤러리 이미지 13"
+    },
+    {
+      "src": "assets/img/gallery/pic14.jpg",
+      "alt": "갤러리 이미지 14"
+    },
+    {
+      "src": "assets/img/gallery/pic15.jpg",
+      "alt": "갤러리 이미지 15"
+    },
+    {
+      "src": "assets/img/gallery/pic16.jpg",
+      "alt": "갤러리 이미지 16"
+    },
+    {
+      "src": "assets/img/gallery/pic17.jpg",
+      "alt": "갤러리 이미지 17"
+    },
+    {
+      "src": "assets/img/gallery/pic18.jpg",
+      "alt": "갤러리 이미지 18"
+    },
+    {
+      "src": "assets/img/gallery/pic19.jpg",
+      "alt": "갤러리 이미지 19"
+    },
+    {
+      "src": "assets/img/gallery/pic20.jpg",
+      "alt": "갤러리 이미지 20"
+    },
+    {
+      "src": "assets/img/gallery/pic22.jpg",
+      "alt": "갤러리 이미지 22"
+    },
+    {
+      "src": "assets/img/gallery/pic23.jpg",
+      "alt": "갤러리 이미지 23"
+    },
+    {
+      "src": "assets/img/gallery/pic24.jpg",
+      "alt": "갤러리 이미지 24"
+    },
+    {
+      "src": "assets/img/gallery/pic25.jpg",
+      "alt": "갤러리 이미지 25"
+    },
+    {
+      "src": "assets/img/gallery/pic26.jpg",
+      "alt": "갤러리 이미지 26"
+    },
+    {
+      "src": "assets/img/gallery/pic27.jpg",
+      "alt": "갤러리 이미지 27"
+    },
+    {
+      "src": "assets/img/gallery/pic28.jpg",
+      "alt": "갤러리 이미지 28"
+    },
+    {
+      "src": "assets/img/gallery/pic29.jpg",
+      "alt": "갤러리 이미지 29"
+    },
+    {
+      "src": "assets/img/gallery/pic30.jpg",
+      "alt": "갤러리 이미지 30"
+    },
+    {
+      "src": "assets/img/gallery/pic31.jpg",
+      "alt": "갤러리 이미지 31"
+    },
+    {
+      "src": "assets/img/gallery/pic32.jpg",
+      "alt": "갤러리 이미지 32"
+    },
+    {
+      "src": "assets/img/gallery/pic33.jpg",
+      "alt": "갤러리 이미지 33"
+    },
+    {
+      "src": "assets/img/gallery/pic34.jpg",
+      "alt": "갤러리 이미지 34"
+    },
+    {
+      "src": "assets/img/gallery/pic35.jpg",
+      "alt": "갤러리 이미지 35"
+    }
+  ]
+}

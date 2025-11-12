@@ -12,68 +12,256 @@ publish_mode: editorial_workflow  # 임시저장/검토/게시
 collections:
   - name: "popups"
     label: "팝업"
-    folder: "content/popups"     # 각 팝업을 개별 파일로 저장
-    create: true                 # “새 팝업” 버튼 표시
     format: "json"
-    slug: "{{title}}"
+    delete: false
+    files:
+      - label: "팝업 목록 (data/popups.json)"
+        name: "popups_json"
+        file: "data/popups.json"
+        description: "실제 웹사이트에서 불러오는 JSON 파일을 직접 편집합니다."
+        fields:
+          - label: "팝업 항목"
+            name: "items"
+            widget: "list"
+            allow_add: true
+            collapsed: true
+            summary: "{{fields.title}} · {{fields.start_date}}–{{fields.end_date}} · {{fields.locale}} · {{fields.enabled}}"
+            fields:
+              - label: "상태"
+                name: "enabled"
+                widget: "boolean"
+                default: true
+                true_label: "게시"
+                false_label: "숨김"
+                hint: "사이트에 이 팝업을 노출할지 선택합니다."
+              - { label: "우선순위", name: "priority", widget: "number", value_type: "int", min: 0, max: 100, default: 10, hint: "숫자가 높을수록 먼저 노출됩니다." }
+              - { label: "언어", name: "locale", widget: "select", options: ["ko", "en"], default: "ko", hint: "이 팝업의 언어를 선택합니다." }
+              - { label: "제목", name: "title", widget: "string" }
+              - { label: "본문", name: "body", widget: "markdown", hint: "줄바꿈과 강조를 사용할 수 있습니다." }
+              - { label: "버튼 텍스트", name: "btn_text", widget: "string", default: "지금 보기", required: false }
+              - label: "버튼 링크"
+                name: "btn_url"
+                widget: "string"
+                required: false
+                hint: "'#' 또는 전체 URL을 입력하세요."
+                pattern: ["^(#|/|https?://).*$", "링크는 #, / 경로, 또는 http(s) URL 이어야 합니다."]
+              - label: "이미지"
+                name: "image"
+                widget: "image"
+                required: false
+                choose_url: true
+                hint: "가로형(16:9) 이미지를 권장합니다."
+              - { label: "시작일", name: "start_date", widget: "date", format: "YYYY-MM-DD" }
+              - { label: "종료일", name: "end_date", widget: "date", format: "YYYY-MM-DD" }
+              - label: "하루 한 번만 표시"
+                name: "once_per_day"
+                widget: "boolean"
+                default: true
+                true_label: "예"
+                false_label: "아니오"
+                hint: "같은 날 재방문 시 다시 띄우지 않습니다."
 
-    # 목록 화면에 보일 요약 (비개발자 친화)
-    summary: "{{title}} · {{start_date}}–{{end_date}} · {{locale}} · {{status_label}}"
+  - name: "site_data"
+    label: "콘텐츠 데이터"
+    description: "주요 섹션 데이터"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - label: "메인 소개 카드 (data/index-intros.json)"
+        name: "index_intros"
+        file: "data/index-intros.json"
+        fields:
+          - label: "소개 카드"
+            name: "intros"
+            widget: "list"
+            allow_add: true
+            summary: "{{fields.heading}} · {{fields.eyebrow}}"
+            fields:
+              - { label: "ID (고유값)", name: "id", widget: "string" }
+              - { label: "아이브로우", name: "eyebrow", widget: "string" }
+              - { label: "제목", name: "heading", widget: "string" }
+              - { label: "제목 클래스", name: "heading_class", widget: "string", required: false, hint: "예: h / h left" }
+              - { label: "문단 클래스", name: "paragraph_class", widget: "string", required: false, hint: "예: p right / p left" }
+              - label: "문단"
+                name: "paragraphs"
+                widget: "list"
+                field: { label: "문장", name: "text", widget: "text" }
+              - label: "버튼"
+                name: "button"
+                widget: "object"
+                fields:
+                  - { label: "텍스트", name: "label", widget: "string" }
+                  - { label: "링크", name: "href", widget: "string" }
 
-    # 정렬/그룹/필터 (친근한 용어)
-    sortable_fields: ["start_date", "end_date", "priority", "title"]
-    view_groups:
-      - { label: "언어", field: "locale" }
-      - { label: "상태", field: "status_label" }
-    view_filters:
-      - { label: "게시 중", field: "enabled", pattern: true }
-      - { label: "현재 노출 중", field: "is_active_today", pattern: true }
+      - label: "공간 카드 & 둘러보기 (data/spaces.json)"
+        name: "spaces_data"
+        file: "data/spaces.json"
+        fields:
+          - label: "공간 카드"
+            name: "spaces"
+            widget: "list"
+            summary: "{{fields.title}} · {{fields.space_type}}"
+            fields:
+              - { label: "ID/제목", name: "id", widget: "string" }
+              - { label: "공간 타입", name: "space_type", widget: "select", options: ["facility", "garden"], default: "facility" }
+              - { label: "고정 ID (URL용)", name: "space_id", widget: "string", required: false }
+              - { label: "카드 제목", name: "title", widget: "string" }
+              - { label: "카드 요약", name: "summary", widget: "string" }
+              - { label: "소개 문단", name: "description", widget: "markdown" }
+              - label: "대표 이미지"
+                name: "image"
+                widget: "object"
+                fields:
+                  - { label: "이미지", name: "src", widget: "image", choose_url: true }
+                  - { label: "대체 텍스트", name: "alt", widget: "string" }
+              - label: "모달 갤러리 이미지"
+                name: "gallery"
+                widget: "list"
+                field: { label: "이미지", name: "src", widget: "image", choose_url: true }
+          - label: "둘러보기 갤러리"
+            name: "gallery"
+            widget: "list"
+            summary: "{{fields.alt}}"
+            fields:
+              - { label: "이미지", name: "src", widget: "image", choose_url: true }
+              - { label: "대체 텍스트", name: "alt", widget: "string" }
 
-    fields:
-      # 사람이 읽기 쉬운 상태 선택 (true/false 대신 라벨)
-      - label: "상태"
-        name: "enabled"
-        widget: "select"
-        options:
-          - { label: "게시", value: true }
-          - { label: "숨김", value: false }
-        default: true
-        hint: "사이트에 이 팝업을 노출할지 선택합니다."
+      - label: "프로그램 데이터 (data/programs.json)"
+        name: "programs_data"
+        file: "data/programs.json"
+        fields:
+          - label: "프로그램"
+            name: "programs"
+            widget: "list"
+            summary: "{{fields.id}} · {{fields.modal.title}}"
+            fields:
+              - { label: "프로그램 ID", name: "id", widget: "string" }
+              - label: "카테고리"
+                name: "categories"
+                widget: "list"
+                allow_add: true
+                field: { label: "카테고리", name: "category", widget: "string" }
+              - { label: "추천 배지 노출", name: "featured", widget: "boolean", default: false }
+              - { label: "목록 노출", name: "visible", widget: "boolean", default: true }
+          - label: "카드 정보"
+            name: "card"
+            widget: "object"
+            required: false
+            fields:
+              - label: "카드 이미지"
+                name: "image"
+                widget: "object"
+                required: false
+                fields:
+                  - { label: "이미지", name: "src", widget: "image", choose_url: true }
+                  - { label: "대체 텍스트", name: "alt", widget: "string", required: false }
+                  - { label: "아이브로우", name: "eyebrow", widget: "string", required: false }
+                  - { label: "카테고리 라벨", name: "category", widget: "string", required: false }
+                  - { label: "부제/시간", name: "subtitle", widget: "string", required: false }
+                  - { label: "요약 설명", name: "description", widget: "text", required: false }
+                  - { label: "소요 시간", name: "duration", widget: "string", required: false }
+                  - { label: "가격", name: "price", widget: "string", required: false }
+              - label: "모달 정보"
+                name: "modal"
+                widget: "object"
+                fields:
+                  - { label: "제목", name: "title", widget: "string" }
+                  - { label: "부제", name: "subtitle", widget: "text" }
+                  - { label: "CTA 링크", name: "ctaHref", widget: "string" }
+                  - { label: "CTA 텍스트", name: "ctaLabel", widget: "string" }
+                  - label: "모달 갤러리"
+                    name: "gallery"
+                    widget: "list"
+                    fields:
+                      - { label: "이미지", name: "src", widget: "image", choose_url: true }
+                      - { label: "대체 텍스트", name: "alt", widget: "string" }
+                  - { label: "본문 HTML", name: "bodyHtml", widget: "text", hint: "dl/ol 등의 HTML 구조를 유지하세요." }
 
-      # 목록 요약/그룹용 읽기 전용 필드(편의)
-      - { label: "상태(표시용)", name: "status_label", widget: "hidden", default: "게시" }
-      - { label: "현재 노출 중(필터용)", name: "is_active_today", widget: "hidden", default: false }
+      - label: "프로그램 요약 (data/program-summaries.json)"
+        name: "program_summaries"
+        file: "data/program-summaries.json"
+        fields:
+          - label: "요약 리스트"
+            name: "summaries"
+            widget: "list"
+            summary: "{{fields.id}}"
+            fields:
+              - { label: "ID (walk/meditation/gardening 등)", name: "id", widget: "string" }
+              - { label: "요약 문장", name: "excerpt", widget: "text" }
 
-      - { label: "우선순위", name: "priority", widget: "number", value_type: "int", min: 0, max: 100, default: 10, hint: "숫자가 높을수록 먼저 노출됩니다." }
-      - { label: "언어", name: "locale", widget: "select", options: ["ko","en"], default: "ko", hint: "이 팝업의 언어를 선택합니다." }
+      - label: "Shop 데이터 (data/shop.json)"
+        name: "shop_data"
+        file: "data/shop.json"
+        fields:
+          - label: "필터 버튼"
+            name: "filters"
+            widget: "list"
+            fields:
+              - { label: "표시 이름", name: "label", widget: "string" }
+              - { label: "값 (data-filter)", name: "value", widget: "string" }
+          - label: "상품 카드"
+            name: "products"
+            widget: "list"
+            summary: "{{fields.description}}"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "카테고리", name: "category", widget: "string" }
+              - label: "미디어"
+                name: "media"
+                widget: "object"
+                fields:
+                  - { label: "타입 (image/placeholder)", name: "type", widget: "select", options: ["image", "placeholder"], default: "placeholder" }
+                  - { label: "이미지", name: "src", widget: "image", choose_url: true, required: false }
+                  - { label: "대체 텍스트/플레이스홀더 문구", name: "text", widget: "string", required: false }
+                  - { label: "이미지 ALT", name: "alt", widget: "string", required: false }
+              - { label: "설명", name: "description", widget: "text" }
+              - { label: "가격", name: "price", widget: "string" }
+              - label: "버튼"
+                name: "cta"
+                widget: "object"
+                fields:
+                  - { label: "텍스트", name: "label", widget: "string" }
+                  - { label: "링크", name: "href", widget: "string" }
 
-      - { label: "제목", name: "title", widget: "string" }
-      - { label: "본문", name: "body", widget: "markdown", hint: "줄바꿈과 강조를 사용할 수 있습니다." }
-
-      - { label: "버튼 텍스트", name: "btn_text", widget: "string", default: "지금 보기", required: false }
-      - label: "버튼 링크"
-        name: "btn_url"
-        widget: "string"
-        required: false
-        hint: "'#' 또는 전체 URL을 입력하세요."
-        pattern:
-          - ["^(#|/|https?://).*$", "링크는 #, / 경로, 또는 http(s) URL 이어야 합니다."]
-
-      - label: "이미지"
-        name: "image"
-        widget: "image"
-        required: false
-        choose_url: true
-        hint: "가로형(16:9) 이미지를 권장합니다."
-
-      - { label: "시작일", name: "start_date", widget: "date", format: "YYYY-MM-DD" }
-      - { label: "종료일", name: "end_date", widget: "date", format: "YYYY-MM-DD" }
-
-      - label: "하루 한 번만 표시"
-        name: "once_per_day"
-        widget: "select"
-        options:
-          - { label: "예", value: true }
-          - { label: "아니오", value: false }
-        default: true
-        hint: "같은 날 재방문 시 다시 띄우지 않습니다."
+      - label: "방문 안내 데이터 (data/visit.json)"
+        name: "visit_data"
+        file: "data/visit.json"
+        fields:
+          - label: "운영 안내"
+            name: "hours"
+            widget: "object"
+            fields:
+              - label: "대표 이미지"
+                name: "image"
+                widget: "object"
+                fields:
+                  - { label: "이미지", name: "src", widget: "image", choose_url: true }
+                  - { label: "ALT", name: "alt", widget: "string" }
+                  - { label: "캡션", name: "caption", widget: "string", required: false }
+              - label: "항목"
+                name: "list"
+                widget: "list"
+                fields:
+                  - { label: "라벨", name: "label", widget: "string" }
+                  - { label: "내용 (HTML 허용)", name: "value", widget: "text" }
+              - label: "안내 문구"
+                name: "notes"
+                widget: "list"
+                fields:
+                  - { label: "아이콘 (transport/weather)", name: "icon", widget: "select", options: ["transport", "weather"], default: "transport" }
+                  - { label: "문구", name: "text", widget: "text" }
+          - label: "요금표"
+            name: "rates"
+            widget: "list"
+            fields:
+              - { label: "구분", name: "label", widget: "string" }
+              - { label: "요금", name: "price", widget: "string" }
+              - { label: "조건", name: "condition", widget: "string" }
+          - label: "방문 전 안내"
+            name: "guidelines"
+            widget: "list"
+            fields:
+              - { label: "Summary", name: "summary", widget: "string" }
+              - { label: "본문 (HTML/Markdown)", name: "bodyHtml", widget: "markdown" }
+              - { label: "기본 펼침", name: "open", widget: "boolean", default: true }

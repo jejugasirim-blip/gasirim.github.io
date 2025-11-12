@@ -1,0 +1,263 @@
+{
+  "programs": [
+    {
+      "id": "sunrise-walk",
+      "categories": [
+        "산책명상"
+      ],
+      "featured": true,
+      "visible": true,
+      "card": {
+        "image": {
+          "src": "assets/img/main.jpg",
+          "alt": "아침 햇살이 내려앉은 숲길"
+        },
+        "eyebrow": "산책명상",
+        "category": "가을 산책명상",
+        "subtitle": "오전 10:00 - 오후 5:00 (한 시간 단위 입장)",
+        "description": "오디오 가이드와 함께하는 산책 명상 세션입니다. 일상으로 돌아가기 전 마음을 단단히 세우고 싶은 분께 추천합니다.",
+        "duration": "60-90분",
+        "price": "25,000원"
+      },
+      "modal": {
+        "title": "새벽 산책 명상",
+        "subtitle": "숲의 첫 공기를 마시며 리듬을 깨우는 75분 보행 명상.",
+        "ctaHref": "https://forms.gle/2SunriseWalk",
+        "ctaLabel": "신청하기",
+        "gallery": [
+          {
+            "src": "assets/img/main.jpg",
+            "alt": "새벽 햇살이 비치는 가시림 숲길"
+          },
+          {
+            "src": "assets/img/유리온실.jpg",
+            "alt": "숲 해설가와 함께 걷는 참가자들"
+          },
+          {
+            "src": "assets/img/카페.jpg",
+            "alt": "산책 명상 후 티를 즐기는 모습"
+          },
+          {
+            "src": "assets/img/가든센터.jpg",
+            "alt": "프로그램 전 가드닝 센터에서 준비하는 참가자"
+          }
+        ],
+        "bodyHtml": "<h3 class=\"program-modal__section-title\">프로그램 소개</h3>\n        <p class=\"program-modal__paragraph\">새벽의 차분한 숲길을 천천히 걷고, 호흡과 걸음의 리듬을 맞추며 감각을 깨우는 보행 명상입니다. 해맞이 호흡과 스트레칭으로 하루를 부드럽게 여는 루틴을 설계했습니다.</p>\n        <dl class=\"program-modal__facts\">\n          <div class=\"program-modal__fact\"><dt>진행 요일</dt><dd>매주 화 · 목 07:30 (75분)</dd></div>\n          <div class=\"program-modal__fact\"><dt>장소</dt><dd>가시림 메타세쿼이아 산책길</dd></div>\n          <div class=\"program-modal__fact\"><dt>정원</dt><dd>회차당 10명 (선착순)</dd></div>\n          <div class=\"program-modal__fact\"><dt>참가비</dt><dd>28,000원 (허브티 포함)</dd></div>\n        </dl>\n        <section class=\"program-modal__section\">\n          <h4 class=\"program-modal__section-title\">커리큘럼</h4>\n          <ol class=\"program-modal__list\">\n            <li>호흡 정렬 &amp; 가벼운 스트레칭 15분</li>\n            <li>새벽 숲길 보행 명상 35분</li>\n            <li>선 라이트 스탠딩 명상 15분</li>\n            <li>허브티 &amp; 저널링 10분</li>\n          </ol>\n        </section>\n        <section class=\"program-modal__section\">\n          <h4 class=\"program-modal__section-title\">준비물</h4>\n          <ul class=\"program-modal__list\">\n            <li>따뜻한 겉옷과 편한 운동화</li>\n            <li>개인 물병 또는 텀블러</li>\n            <li>필요 시 가벼운 장갑</li>\n          </ul>\n        </section>\n        <aside class=\"program-modal__notice\">\n          <h4 class=\"program-modal__section-title\">안내 사항</h4>\n          <ul class=\"program-modal__list\">\n            <li>일출 시각에 따라 시작 시간이 10분 내외로 조정될 수 있습니다.</li>\n            <li>우천 시에는 온실 내 걷기 명상으로 대체 진행합니다.</li>\n            <li>노약자는 스태프의 별도 안내에 따라 진행합니다.</li>\n          </ul>\n          <p class=\"program-modal__note\">문의: walk@gasirim.kr / 070-4281-0906</p>\n        </aside>"
+      }
+    },
+    {
+      "id": "forest-immersion",
+      "categories": [
+        "명상"
+      ],
+      "featured": false,
+      "visible": true,
+      "card": {
+        "image": {
+          "src": "assets/img/유리온실.jpg",
+          "alt": "메타세쿼이아 숲 명상"
+        },
+        "eyebrow": "명상",
+        "category": "메타세쿼이아 숲 명상",
+        "subtitle": "(봄·가을 한정) 오전 10:00",
+        "description": "울창한 메타세쿼이아 숲에서 계절별 향과 소리를 느끼며 감각을 열고, 자연의 숨결에 집중하는 주말 집중 명상 여정입니다.",
+        "duration": "90분 프로그램",
+        "price": "25,000원"
+      },
+      "modal": {
+        "title": "숲 명상: 오감으로 느끼는 메타세쿼이아 숲",
+        "subtitle": "계절의 향과 소리를 따라 깊이 몰입하는 주말 집중 명상 여정.",
+        "ctaHref": "https://forms.gle/4V2ForestImmersion",
+        "ctaLabel": "신청하기",
+        "gallery": [
+          {
+            "src": "assets/img/유리온실.jpg",
+            "alt": "메타세쿼이아 숲길을 천천히 걷는 참가자들"
+          },
+          {
+            "src": "assets/img/main.jpg",
+            "alt": "나무 사이로 내리쬐는 햇살과 물안개"
+          },
+          {
+            "src": "assets/img/카페.jpg",
+            "alt": "숲 명상 후 티 브레이크를 즐기는 공간"
+          },
+          {
+            "src": "assets/img/가든센터.jpg",
+            "alt": "해설가와 함께 숲 식생을 살피는 모습"
+          }
+        ],
+        "bodyHtml": "<h3 class=\"program-modal__section-title\">프로그램 소개</h3>\n        <p class=\"program-modal__paragraph\">울창한 메타세쿼이아 숲을 가이드와 함께 천천히 걷고, 향과 소리를 세밀하게 탐색하며 감각을 열어가는 주말 집중 프로그램입니다. 계절에 따라 달라지는 숲의 스토리를 담은 해설과 함께 깊은 몰입을 경험해 보세요.</p>\n        <dl class=\"program-modal__facts\">\n          <div class=\"program-modal__fact\"><dt>진행 요일</dt><dd>계절별 주말 10:00 (120분)</dd></div>\n          <div class=\"program-modal__fact\"><dt>장소</dt><dd>가시림 메타세쿼이아 숲길 &amp; 야외 명상존</dd></div>\n          <div class=\"program-modal__fact\"><dt>정원</dt><dd>회차당 16명 (사전 예약 필수)</dd></div>\n          <div class=\"program-modal__fact\"><dt>참가비</dt><dd>25,000원 (숲 해설 &amp; 허브 블렌딩 포함)</dd></div>\n        </dl>\n        <section class=\"program-modal__section\">\n          <h4 class=\"program-modal__section-title\">커리큘럼</h4>\n          <ol class=\"program-modal__list\">\n            <li>사운드 어웨어니스 25분 — 새소리와 바람을 듣는 호흡 정렬</li>\n            <li>포커스 워크 35분 — 식생 해설과 함께 감각 확장</li>\n            <li>야외 바디스캔 30분 — 자연물과 함께하는 촉각 명상</li>\n            <li>향 테라피 &amp; 쉐어링 30분 — 계절 허브 블렌딩과 나눔</li>\n          </ol>\n        </section>\n        <section class=\"program-modal__section\">\n          <h4 class=\"program-modal__section-title\">준비물</h4>\n          <ul class=\"program-modal__list\">\n            <li>편안한 운동화 및 우천 대비 우비</li>\n            <li>개인 방석 또는 접이식 시트 (현장 대여 가능)</li>\n            <li>모기 기피제, 개인 보온 음료</li>\n          </ul>\n        </section>\n        <aside class=\"program-modal__notice\">\n          <h4 class=\"program-modal__section-title\">안내 사항</h4>\n          <ul class=\"program-modal__list\">\n            <li>기상 상황에 따라 일부 코스는 숲 해설 데크로 대체될 수 있습니다.</li>\n            <li>자연 보호를 위해 개인 쓰레기는 반드시 되가져가 주세요.</li>\n            <li>10세 이하 아동은 보호자 동반 시 참여 가능합니다.</li>\n          </ul>\n          <p class=\"program-modal__note\">문의: programs@gasirim.kr / 070-4281-0906</p>\n        </aside>"
+      }
+    },
+    {
+      "id": "regular-class",
+      "categories": [
+        "명상"
+      ],
+      "featured": true,
+      "visible": true,
+      "card": {
+        "image": {
+          "src": "assets/img/유리온실2.jpg",
+          "alt": "정규 명상 수업 장면"
+        },
+        "eyebrow": "명상",
+        "category": "가시림 정규 명상",
+        "subtitle": "매주 화·목 08:30",
+        "description": "이완 명상과 집중 호흡으로 하루를 단단히 여는 정규 세션입니다. 초심자도 무리 없이 몰입할 수 있는 프로그램입니다.",
+        "duration": "90분 프로그램",
+        "price": "25,000원"
+      },
+      "modal": {
+        "title": "정규 명상 수업",
+        "subtitle": "숲길을 걷고 온실에서 호흡을 정리하며 하루의 호흡을 여는 90분 프로그램.",
+        "ctaHref": "https://forms.gle/7K6YRegularMeditation",
+        "ctaLabel": "신청하기",
+        "gallery": [
+          {
+            "src": "assets/img/유리온실2.jpg",
+            "alt": "아침 햇살이 드는 온실에서 명상 중인 참가자들"
+          },
+          {
+            "src": "assets/img/유리온실.jpg",
+            "alt": "숲길에서 호흡을 맞추며 걷는 정규 명상 수업"
+          },
+          {
+            "src": "assets/img/main.jpg",
+            "alt": "햇살이 스며드는 가시림 산책길"
+          },
+          {
+            "src": "assets/img/가든센터.jpg",
+            "alt": "온실 앞 휴식 공간에서 허브차를 즐기는 모습"
+          }
+        ],
+        "bodyHtml": "<h3 class=\"program-modal__section-title\">프로그램 소개</h3>\n        <p class=\"program-modal__paragraph\">숲의 기운을 몸에 채우는 걷기 명상과 온실에서의 집중 호흡으로 구성된 가시림의 시그니처 정규 수업입니다. 호흡과 몸의 움직임을 섬세하게 정리하여 초심자도 안정적으로 몰입할 수 있도록 구성했습니다.</p>\n        <dl class=\"program-modal__facts\">\n          <div class=\"program-modal__fact\"><dt>진행 요일</dt><dd>매주 화 · 목 08:30 (90분)</dd></div>\n          <div class=\"program-modal__fact\"><dt>장소</dt><dd>가시림 메타세쿼이아 산책길 &amp; 유리온실 명상실</dd></div>\n          <div class=\"program-modal__fact\"><dt>정원</dt><dd>회차당 12명 내외 (선착순 마감)</dd></div>\n          <div class=\"program-modal__fact\"><dt>참가비</dt><dd>25,000원 (허브티 &amp; 온실 입장 포함)</dd></div>\n        </dl>\n        <section class=\"program-modal__section\">\n          <h4 class=\"program-modal__section-title\">커리큘럼</h4>\n          <ol class=\"program-modal__list\">\n            <li>숲길 호흡 워밍업 30분 — 보행 명상과 감각 깨우기</li>\n            <li>온실 프라이빗 스트레칭 20분 — 관절 이완과 중심 잡기</li>\n            <li>앉은 명상 &amp; 바디스캔 25분 — 호흡 리듬에 집중하며 내면 관찰</li>\n            <li>티 세레머니 15분 — 허브차와 함께 일상으로 부드럽게 복귀</li>\n          </ol>\n        </section>\n        <section class=\"program-modal__section\">\n          <h4 class=\"program-modal__section-title\">준비물</h4>\n          <ul class=\"program-modal__list\">\n            <li>움직임이 편한 복장, 가벼운 겉옷</li>\n            <li>개인 물병 (온실 내 정수기 이용 가능)</li>\n            <li>필요 시 개인 요가 매트 (현장 대여 가능)</li>\n          </ul>\n        </section>\n        <aside class=\"program-modal__notice\">\n          <h4 class=\"program-modal__section-title\">안내 사항</h4>\n          <ul class=\"program-modal__list\">\n            <li>시작 10분 전까지 가든센터 리셉션에서 체크인 해 주세요.</li>\n            <li>지각 시 안전을 위해 다음 회차로 이동될 수 있습니다.</li>\n            <li>우천 시에도 온실 내 프로그램은 정상 진행됩니다.</li>\n          </ul>\n          <p class=\"program-modal__note\">문의: contact@gasirim.kr / 070-4281-0906</p>\n        </aside>"
+      }
+    },
+    {
+      "id": "deep-rest",
+      "categories": [
+        "명상"
+      ],
+      "featured": false,
+      "visible": false,
+      "card": null,
+      "modal": {
+        "title": "사운드 배스 명상: 딥레스트 세션",
+        "subtitle": "촛불과 싱잉볼 사운드로 몸과 마음을 깊이 이완하는 야간 명상.",
+        "ctaHref": "https://forms.gle/6DeepRestSound",
+        "ctaLabel": "신청하기",
+        "gallery": [
+          {
+            "src": "assets/img/카페.jpg",
+            "alt": "촛불이 켜진 명상 공간"
+          },
+          {
+            "src": "assets/img/유리온실2.jpg",
+            "alt": "온실 내부의 조용한 명상 공간"
+          },
+          {
+            "src": "assets/img/유리온실.jpg",
+            "alt": "사운드 배스를 준비하는 퍼실리테이터"
+          },
+          {
+            "src": "assets/img/main.jpg",
+            "alt": "석양이 비추는 가시림"
+          }
+        ],
+        "bodyHtml": "<h3 class=\"program-modal__section-title\">프로그램 소개</h3>\n        <p class=\"program-modal__paragraph\">일몰 후 촛불과 싱잉볼의 공명 소리에 집중하여 몸과 마음을 깊이 이완하는 야간 명상 세션입니다. 전자기기 사용을 잠시 멈추고 감각을 휴식 모드로 전환합니다.</p>\n        <dl class=\"program-modal__facts\">\n          <div class=\"program-modal__fact\"><dt>진행 요일</dt><dd>매주 토요일 18:30 (100분)</dd></div>\n          <div class=\"program-modal__fact\"><dt>장소</dt><dd>가시림 온실 명상실</dd></div>\n          <div class=\"program-modal__fact\"><dt>정원</dt><dd>회차당 14명</dd></div>\n          <div class=\"program-modal__fact\"><dt>참가비</dt><dd>32,000원 (허브 블렌딩 티 포함)</dd></div>\n        </dl>\n        <section class=\"program-modal__section\">\n          <h4 class=\"program-modal__section-title\">커리큘럼</h4>\n          <ol class=\"program-modal__list\">\n            <li>웜업 스트레칭 &amp; 프라나야마 20분</li>\n            <li>촛불 응시 명상 15분</li>\n            <li>사운드 배스 &amp; 바디스캔 45분</li>\n            <li>저널링 &amp; 나눔 20분</li>\n          </ol>\n        </section>\n        <section class=\"program-modal__section\">\n          <h4 class=\"program-modal__section-title\">준비물</h4>\n          <ul class=\"program-modal__list\">\n            <li>편안한 복장과 두꺼운 양말</li>\n            <li>개인 안대 또는 스카프 (선택)</li>\n            <li>물병 또는 따뜻한 차</li>\n          </ul>\n        </section>\n        <aside class=\"program-modal__notice\">\n          <h4 class=\"program-modal__section-title\">안내 사항</h4>\n          <ul class=\"program-modal__list\">\n            <li>프로그램 시작 15분 전까지 전자기기를 보관함에 보관해 주세요.</li>\n            <li>사운드 배스 특성상 중도 입장이 어렵습니다.</li>\n            <li>특정 사운드에 민감하다면 사전 문의 부탁드립니다.</li>\n          </ul>\n          <p class=\"program-modal__note\">문의: meditation@gasirim.kr / 070-4281-0906</p>\n        </aside>"
+      }
+    },
+    {
+      "id": "horticulture-lab",
+      "categories": [
+        "원예"
+      ],
+      "featured": true,
+      "visible": true,
+      "card": {
+        "image": {
+          "src": "assets/img/가든센터.jpg",
+          "alt": "온실에서 식물을 돌보는 참가자"
+        },
+        "eyebrow": "원예",
+        "category": "원데이 정원 수업",
+        "subtitle": "매월 첫째주 수요일 오후 2:00",
+        "description": "가시림 대표님이 직접 지도하는 가드닝 원데이 클래스입니다. 수강생 다함께 정원을 만들어보고 나만의 작은 이끼 정원도 화분에 담아가세요.",
+        "duration": "120분 프로그램",
+        "price": "38,000원"
+      },
+      "modal": {
+        "title": "감각원예 워크숍",
+        "subtitle": "계절 식물을 손끝으로 돌보며 식물 케어 루틴을 배우는 가드닝 클래스.",
+        "ctaHref": "https://forms.gle/3HortiLab",
+        "ctaLabel": "신청하기",
+        "gallery": [
+          {
+            "src": "assets/img/가든센터.jpg",
+            "alt": "분갈이 도구와 식물을 준비하는 모습"
+          },
+          {
+            "src": "assets/img/유리온실2.jpg",
+            "alt": "온실에서 식물을 살피는 참가자"
+          },
+          {
+            "src": "assets/img/유리온실.jpg",
+            "alt": "가드닝 강사가 설명하는 장면"
+          },
+          {
+            "src": "assets/img/카페.jpg",
+            "alt": "워크숍 이후 휴식을 즐기는 참가자"
+          }
+        ],
+        "bodyHtml": "<h3 class=\"program-modal__section-title\">프로그램 소개</h3>\n        <p class=\"program-modal__paragraph\">식물 디렉터와 함께 계절별 식물을 분갈이하고 손질하며 식물과 교감하는 원예 워크숍입니다. 흙 배합부터 물주기, 빛 관리까지 생활 속 식물 케어 루틴을 익힙니다.</p>\n        <dl class=\"program-modal__facts\">\n          <div class=\"program-modal__fact\"><dt>진행 요일</dt><dd>매주 수요일 14:00 (90분)</dd></div>\n          <div class=\"program-modal__fact\"><dt>장소</dt><dd>가시림 가드닝 스튜디오</dd></div>\n          <div class=\"program-modal__fact\"><dt>정원</dt><dd>회차당 8명</dd></div>\n          <div class=\"program-modal__fact\"><dt>참가비</dt><dd>38,000원 (재료 포함)</dd></div>\n        </dl>\n        <section class=\"program-modal__section\">\n          <h4 class=\"program-modal__section-title\">커리큘럼</h4>\n          <ol class=\"program-modal__list\">\n            <li>식물 컨디션 진단 &amp; 흙 배합 이론</li>\n            <li>분갈이 실습과 뿌리 관리</li>\n            <li>잎 관리 &amp; 미세 분무법</li>\n            <li>공간 연출 &amp; 일상 루틴 설계</li>\n          </ol>\n        </section>\n        <section class=\"program-modal__section\">\n          <h4 class=\"program-modal__section-title\">준비물</h4>\n          <ul class=\"program-modal__list\">\n            <li>앞치마 (현장 대여 가능)</li>\n            <li>편한 복장과 운동화</li>\n            <li>필요 시 개인 장갑</li>\n          </ul>\n        </section>\n        <aside class=\"program-modal__notice\">\n          <h4 class=\"program-modal__section-title\">안내 사항</h4>\n          <ul class=\"program-modal__list\">\n            <li>재료 준비를 위해 예약은 최소 2일 전까지 완료해 주세요.</li>\n            <li>알레르기 정보가 있다면 신청 시 알려 주세요.</li>\n            <li>완성 작품은 안전 포장 후 가져가실 수 있습니다.</li>\n          </ul>\n          <p class=\"program-modal__note\">문의: garden@gasirim.kr / 070-4281-0906</p>\n        </aside>"
+      }
+    },
+    {
+      "id": "terrarium-clinic",
+      "categories": [
+        "원예"
+      ],
+      "featured": true,
+      "visible": true,
+      "card": {
+        "image": {
+          "src": "assets/img/가든센터.jpg",
+          "alt": "테라리움을 제작하는 수강생"
+        },
+        "eyebrow": "원예",
+        "category": "가시림 현무암 화분 만들기",
+        "subtitle": "상시 운영 오전 10:00 — 오후 5:00",
+        "description": "다양한 종류의 자생식물들을 이용해 자신만의 화분을 완성하는 클래스입니다.",
+        "duration": "20분 프로그램",
+        "price": "25,000원"
+      },
+      "modal": {
+        "title": "테라리움 클리닉",
+        "subtitle": "자신만의 미니 정원을 디자인하고 오래도록 건강하게 돌보는 클래스.",
+        "ctaHref": "https://forms.gle/5TerrariumClinic",
+        "ctaLabel": "신청하기",
+        "gallery": [
+          {
+            "src": "assets/img/가든센터.jpg",
+            "alt": "테라리움 재료를 고르는 참가자"
+          },
+          {
+            "src": "assets/img/카페.jpg",
+            "alt": "완성된 테라리움을 감상하는 모습"
+          },
+          {
+            "src": "assets/img/유리온실2.jpg",
+            "alt": "온실에서 테라리움을 관리하는 장면"
+          },
+          {
+            "src": "assets/img/유리온실.jpg",
+            "alt": "강사가 테라리움 제작법을 설명하는 모습"
+          }
+        ],
+        "bodyHtml": "<h3 class=\"program-modal__section-title\">프로그램 소개</h3>\n        <p class=\"program-modal__paragraph\">자갈과 이끼, 공기정화 식물을 활용해 감각적인 테라리움을 직접 제작합니다. 식물 배치부터 미니어처 연출, 사후 관리까지 한번에 익히는 집중 클래스입니다.</p>\n        <dl class=\"program-modal__facts\">\n          <div class=\"program-modal__fact\"><dt>진행 요일</dt><dd>매월 첫째 주 일요일 11:00 (110분)</dd></div>\n          <div class=\"program-modal__fact\"><dt>장소</dt><dd>가시림 가드닝 스튜디오</dd></div>\n          <div class=\"program-modal__fact\"><dt>정원</dt><dd>회차당 6명</dd></div>\n          <div class=\"program-modal__fact\"><dt>참가비</dt><dd>45,000원 (전 재료 포함)</dd></div>\n        </dl>\n        <section class=\"program-modal__section\">\n          <h4 class=\"program-modal__section-title\">커리큘럼</h4>\n          <ol class=\"program-modal__list\">\n            <li>테라리움 구조 이해 &amp; 재료 선택</li>\n            <li>층 구성과 식재 실습</li>\n            <li>미니어처 연출 &amp; 마감</li>\n            <li>관리 루틴 &amp; Q&amp;A</li>\n          </ol>\n        </section>\n        <section class=\"program-modal__section\">\n          <h4 class=\"program-modal__section-title\">준비물</h4>\n          <ul class=\"program-modal__list\">\n            <li>오염이 걱정될 경우 앞치마</li>\n            <li>섬세한 작업을 위한 핀셋 (선택)</li>\n            <li>작품 운반용 에코백 (현장 구매 가능)</li>\n          </ul>\n        </section>\n        <aside class=\"program-modal__notice\">\n          <h4 class=\"program-modal__section-title\">안내 사항</h4>\n          <ul class=\"program-modal__list\">\n            <li>어린이는 보호자 동반 시 참여 가능합니다.</li>\n            <li>완성 작품은 안전 포장해 드립니다.</li>\n            <li>예약 변경은 3일 전까지 가능합니다.</li>\n          </ul>\n          <p class=\"program-modal__note\">문의: garden@gasirim.kr / 070-4281-0906</p>\n        </aside>"
+      }
+    }
+  ]
+}
